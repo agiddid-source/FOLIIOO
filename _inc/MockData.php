@@ -101,4 +101,62 @@ class MockData {
         }
         return null;
     }
+
+    public static function getTicketsForEvent(string $eventId): array {
+        $all = self::loadJson('tickets');
+        return array_values(array_filter($all, fn(array $item) => $item['event_id'] === $eventId));
+    }
+
+    public static function getTicketById(string $ticketId): ?array {
+        foreach (self::loadJson('tickets') as $ticket) {
+            if ($ticket['id'] === $ticketId) {
+                return $ticket;
+            }
+        }
+        return null;
+    }
+
+    public static function getDonationsForEvent(string $eventId): array {
+        $all = self::loadJson('donations');
+        return array_values(array_filter($all, fn(array $item) => $item['event_id'] === $eventId));
+    }
+
+    public static function getDonationSummary(string $eventId): array {
+        $donations = self::getDonationsForEvent($eventId);
+        $totalAmount = 0;
+        foreach ($donations as $d) {
+            $totalAmount += ($d['amount_ngn'] ?? 0);
+        }
+        $count = count($donations);
+
+        return [
+            'count' => $count,
+            'total_amount_ngn' => $totalAmount,
+            'average_amount_ngn' => $count > 0 ? (int)round($totalAmount / $count) : 0,
+            'currency' => 'NGN',
+        ];
+    }
+
+    public static function getMemoriesForEvent(string $eventId): array {
+        $all = self::loadJson('memories');
+        return array_values(array_filter($all, fn(array $item) => $item['event_id'] === $eventId));
+    }
+
+    public static function getGuestLimitForEvent(string $eventId): array {
+        $event = self::getEventById($eventId);
+        $plan = $event ? self::getPlanById($event['plan_id'] ?? '') : null;
+        $maxGuests = $plan['max_guests'] ?? 50;
+
+        $stats = self::getAttendanceStats($eventId);
+        $currentAttending = $stats['total_attending_seats'] ?? 0;
+        $remaining = max(0, $maxGuests - $currentAttending);
+
+        return [
+            'max_allowed' => $maxGuests,
+            'current_attending' => $currentAttending,
+            'remaining_seats' => $remaining,
+            'is_full' => $remaining === 0,
+            'plan_name' => $plan['name'] ?? 'Starter',
+        ];
+    }
 }

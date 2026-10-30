@@ -1,0 +1,86 @@
+[
+  {
+    "id": "mem_summit_001",
+    "event_id": "evt_summit_05",
+    "author_name": "Ifeanyi Nwachukwu",
+    "author_role": "Keynote Speaker & Founder",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+    "image_url": "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80",
+    "caption": "Opening plenary on cross-border payments at Landmark Hall A.",
+    "message": "Energized by the caliber of discussions today. Africa's payments rails are evolving faster than ever.",
+    "type": "photo",
+    "created_at": "2026-10-15T12:30:00Z"
+  },
+  {
+    "id": "mem_summit_002",
+    "event_id": "evt_summit_05",
+    "author_name": "Amina Bello",
+    "author_role": "Venture Partner",
+    "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
+    "image_url": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1000&q=80",
+    "caption": "Founders & Investors round table after panel session.",
+    "message": "Met over 15 incredible early-stage teams building real fintech infrastructure. Kudos to the organizers!",
+    "type": "photo",
+    "created_at": "2026-10-15T15:45:00Z"
+  },
+  {
+    "id": "mem_summit_003",
+    "event_id": "evt_summit_05",
+    "author_name": "Kelechi Umeh",
+    "author_role": "Attendee",
+    "avatar": null,
+    "image_url": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1000&q=80",
+    "caption": "Audience during the AI in Banking keynote.",
+    "message": "Flawless organization, lightning fast badge check-in, and world-class networking. See you next year!",
+    "type": "photo",
+    "created_at": "2026-10-15T17:10:00Z"
+  },
+  {
+    "id": "mem_adeleke_001",
+    "event_id": "evt_burial_01",
+    "author_name": "Dr. Babatunde Adeleke",
+    "author_role": "Eldest Son",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+    "image_url": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1000&q=80",
+    "caption": "Chief Adeleke with family during his 80th milestone Thanksgiving service.",
+    "message": "A gentle giant, wise counselor, and the bedrock of our family. Your memory remains a blessing to all generations.",
+    "type": "photo",
+    "created_at": "2026-10-24T10:00:00Z"
+  },
+  {
+    "id": "mem_adeleke_002",
+    "event_id": "evt_burial_01",
+    "author_name": "Chief (Mrs.) Titilayo Adeleke",
+    "author_role": "Loving Wife & Matriarch",
+    "avatar": null,
+    "image_url": null,
+    "caption": null,
+    "message": "Emmanuel, 58 years together were the greatest honor of my life. You loved without reservation and served God with humility. Till we meet at Jesus' feet.",
+    "type": "tribute",
+    "created_at": "2026-10-25T08:30:00Z"
+  },
+  {
+    "id": "mem_adeleke_003",
+    "event_id": "evt_burial_01",
+    "author_name": "Lagos Chamber of Commerce",
+    "author_role": "Executive Council",
+    "avatar": null,
+    "image_url": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1000&q=80",
+    "caption": "Chief Adeleke receiving Lifetime Leadership Honors in 2018.",
+    "message": "We mourn the passage of a past president and visionary commercial statesman whose wisdom shaped Nigerian trade for decades.",
+    "type": "photo",
+    "created_at": "2026-10-26T14:20:00Z"
+  },
+  {
+    "id": "mem_wedding_001",
+    "event_id": "evt_wedding_02",
+    "author_name": "Amara & Chidi",
+    "author_role": "The Couple",
+    "avatar": null,
+    "image_url": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80",
+    "caption": "Our pre-wedding celebration shoot in Lagos.",
+    "message": "Counting down the days until we celebrate with all of our favorite people under one roof!",
+    "type": "photo",
+    "created_at": "2026-10-21T18:00:00Z"
+  }
+]

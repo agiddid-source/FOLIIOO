@@ -165,5 +165,36 @@
     "cover_image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1200&q=80",
     "tribute_summary": "Thank you for joining over 800 founders, investors, and regulators at Landmark Centre.",
     "post_event_message": "The summit has concluded! Access the event gallery, keynote slide deck, and video recordings below."
+  },
+  {
+    "id": "evt_cancelled_06",
+    "slug": "lagos-charity-polo-match",
+    "creator_id": "usr_techhub",
+    "plan_id": "plan_celebration",
+    "title": "Lagos Annual Charity Polo Match & Gala 2026",
+    "subtitle": "Benefitting pediatric healthcare foundations across Southwest Nigeria",
+    "event_type": "gala",
+    "event_type_label": "Charity Sports & Gala",
+    "template": "elegant",
+    "status": "cancelled",
+    "cancellation_reason": "This event has been cancelled due to unseasonal severe weather warnings and flood risks. All tickets and donations will be refunded automatically.",
+    "date": "2026-11-05",
+    "time": "14:00",
+    "duration": "4 hours",
+    "venue": {
+      "name": "Lagos Polo Club",
+      "address": "Ribadu Road, Ikoyi, Lagos",
+      "map_link": "https://maps.google.com"
+    },
+    "features_enabled": {
+      "rsvp": true,
+      "reminders": false,
+      "ticketing": true,
+      "donations": true,
+      "gallery": false,
+      "controlled_programme": false
+    },
+    "cover_image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80",
+    "tribute_summary": "Notice of Event Cancellation: All activities scheduled for November 5 at Lagos Polo Club are cancelled."
   }
 ]

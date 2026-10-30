@@ -1,0 +1,123 @@
+[
+  {
+    "id": "tkt_gala_regular",
+    "event_id": "evt_gala_03",
+    "name": "Standard Delegate Pass",
+    "description": "General admission to the main hall, evening cocktail networking, and digital event programme.",
+    "price_ngn": 25000,
+    "currency": "NGN",
+    "type": "ticket",
+    "capacity_per_unit": 1,
+    "total_inventory": 200,
+    "sold_count": 165,
+    "perks": [
+      "Keynote sessions & awards viewing",
+      "Cocktail mixer access",
+      "Digital pass with QR code"
+    ]
+  },
+  {
+    "id": "tkt_gala_vip",
+    "event_id": "evt_gala_03",
+    "name": "VIP Dinner & Awards Access",
+    "description": "Front-row banquet seating, 3-course plated dinner, open bar, and VIP speaker lounge access.",
+    "price_ngn": 75000,
+    "currency": "NGN",
+    "type": "ticket",
+    "capacity_per_unit": 1,
+    "total_inventory": 60,
+    "sold_count": 52,
+    "perks": [
+      "Reserved front-tier banquet seat",
+      "3-course gourmet dinner & open bar",
+      "VIP speaker lounge admittance",
+      "Priority red carpet photo call"
+    ]
+  },
+  {
+    "id": "tkt_gala_table",
+    "event_id": "evt_gala_03",
+    "name": "Corporate Patron Table (8 Guests)",
+    "description": "Dedicated 8-person branded table with premium champagne service and logo in the evening programme.",
+    "price_ngn": 500000,
+    "currency": "NGN",
+    "type": "table",
+    "capacity_per_unit": 8,
+    "total_inventory": 10,
+    "sold_count": 7,
+    "perks": [
+      "Full private table reserved for 8 guests",
+      "2 bottles of vintage champagne & dinner service",
+      "Corporate logo in digital brochure",
+      "Fast-track door verification for group"
+    ]
+  },
+  {
+    "id": "tkt_summit_virtual",
+    "event_id": "evt_summit_05",
+    "name": "Virtual Access Pass",
+    "description": "Full HD livestream of all panel discussions, slide deck archive, and virtual networking chat.",
+    "price_ngn": 10000,
+    "currency": "NGN",
+    "type": "ticket",
+    "capacity_per_unit": 1,
+    "total_inventory": 500,
+    "sold_count": 310,
+    "perks": [
+      "Live HD stream with real-time Q&A",
+      "On-demand session replays",
+      "Downloadable keynote slide decks"
+    ]
+  },
+  {
+    "id": "tkt_summit_main",
+    "event_id": "evt_summit_05",
+    "name": "All-Access Summit Pass",
+    "description": "In-person access to Landmark Centre halls, exhibition booths, buffet lunch, and afterparty.",
+    "price_ngn": 45000,
+    "currency": "NGN",
+    "type": "ticket",
+    "capacity_per_unit": 1,
+    "total_inventory": 400,
+    "sold_count": 395,
+    "perks": [
+      "Physical badge & delegate kit",
+      "Buffet lunch & networking coffee breaks",
+      "Access to 40+ fintech exhibition booths",
+      "Admittance to evening rooftop afterparty"
+    ]
+  },
+  {
+    "id": "tkt_summit_investor",
+    "event_id": "evt_summit_05",
+    "name": "Investor & Founder Pass",
+    "description": "Private boardroom access for deal-making, 1-on-1 founder pitches, and executive dinner.",
+    "price_ngn": 150000,
+    "currency": "NGN",
+    "type": "ticket",
+    "capacity_per_unit": 1,
+    "total_inventory": 50,
+    "sold_count": 50,
+    "perks": [
+      "Closed-door investor lounge admittance",
+      "Pre-scheduled 1-on-1 startup deal sessions",
+      "Exclusive executive dinner with speakers"
+    ]
+  },
+  {
+    "id": "tkt_polo_club",
+    "event_id": "evt_cancelled_06",
+    "name": "Clubhouse Grandstand",
+    "description": "Spectator admission to the match terraces and clubhouse grounds.",
+    "price_ngn": 20000,
+    "currency": "NGN",
+    "type": "ticket",
+    "capacity_per_unit": 1,
+    "total_inventory": 150,
+    "sold_count": 45,
+    "perks": [
+      "Terrace viewing of tournament matches",
+      "Matchday commemorative booklet"
+    ]
+  }
+]
