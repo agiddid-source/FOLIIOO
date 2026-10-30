@@ -129,7 +129,36 @@ MockData::getProgrammesForEvent('evt_001');      // Ordered agenda items
 MockData::getGuestsForEvent('evt_001');          // Guest list
 MockData::getAttendanceStats('evt_001');         // Counts: total, attending, checked_in, reminders
 MockData::getCreatorById('creator_001');         // Host profile
+MockData::getTicketsForEvent('evt_001');         // Tickets and table packages
+MockData::getDonationsForEvent('evt_001');       // Voluntary tribute gifts
+MockData::getDonationSummary('evt_001');         // Aggregate sums and donor counts
+MockData::getMemoriesForEvent('evt_001');        // Photos, quotes, and guest tributes
+MockData::getGuestLimitForEvent('evt_001');      // Capacity enforcement: max, attending, remaining
 ```
+
+---
+
+## Guest Experience Pages (Modules 6, 7, 8, 9, 14)
+
+### 1. Public Event Website (`event.php`)
+Rendered dynamically based on the event's selected template (`elegant`, `floral`, `modern`).
+- `http://localhost:8000/event.php?slug=chief-adeleke-celebration-of-life` (Elegant template, Burial)
+- `http://localhost:8000/event.php?slug=chidi-amara-wedding` (Floral template, Wedding)
+- `http://localhost:8000/event.php?slug=lagos-innovators-gala` (Modern template, Gala with Tickets)
+- `http://localhost:8000/event.php?slug=kemi-at-30-all-white` (Postponed notice state)
+- `http://localhost:8000/event.php?slug=african-fintech-summit-2026` (Completed state)
+- `http://localhost:8000/event.php?slug=lagos-charity-polo-match` (Cancelled state with refund notice)
+
+**Creator Preview Mode:**
+Append `?preview=1` to any event link to view the private organizer bar with instant lifecycle state switching.
+
+### 2. Ticketing & Simulated Checkout (`checkout.php`)
+- `http://localhost:8000/checkout.php?event=lagos-innovators-gala&ticket_id=tkt_gala_vip&quantity=2`
+Includes order summary, simulated payment options (Card / Bank Transfer), and instant digital pass generation with order reference and QR code.
+
+### 3. Post-Event Gallery & Memories (`gallery.php`)
+- `http://localhost:8000/gallery.php?event=african-fintech-summit-2026`
+Includes host gratitude banner, moments filtering (All, Photos, Written Tributes), lightbox photo enlarger, and guest memory contribution drawer.
 
 ---
 
