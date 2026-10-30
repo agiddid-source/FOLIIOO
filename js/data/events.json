@@ -1,0 +1,169 @@
+[
+  {
+    "id": "evt_burial_01",
+    "slug": "chief-adeleke-celebration-of-life",
+    "creator_id": "usr_adeleke",
+    "plan_id": "plan_celebration",
+    "title": "Celebration of the Glorious Life of Chief Emmanuel Adeleke (1942 - 2026)",
+    "subtitle": "A life of honor, grace, and enduring legacy",
+    "event_type": "burial",
+    "event_type_label": "Celebration of Life & Burial",
+    "template": "elegant",
+    "status": "published_pre_event",
+    "date": "2026-11-20",
+    "time": "10:00",
+    "duration": "5 hours",
+    "venue": {
+      "name": "St. Paul's Cathedral & The Victoria Banquet Hall",
+      "address": "Broad Street, Lagos Island / VI, Lagos",
+      "map_link": "https://maps.google.com"
+    },
+    "features_enabled": {
+      "rsvp": true,
+      "reminders": true,
+      "ticketing": false,
+      "donations": true,
+      "gallery": true,
+      "controlled_programme": true
+    },
+    "cover_image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80",
+    "tribute_summary": "Join the Adeleke family as we celebrate 84 glorious years of devotion, patriarch leadership, and community service.",
+    "donation_settings": {
+      "enabled": true,
+      "title": "Support the Chief Adeleke Foundation & Memorial",
+      "suggested_amounts": [10000, 25000, 50000, 100000],
+      "currency": "NGN"
+    }
+  },
+  {
+    "id": "evt_wedding_02",
+    "slug": "chidi-amara-wedding",
+    "creator_id": "usr_chidi",
+    "plan_id": "plan_celebration",
+    "title": "Chidi & Amara's Traditional Wedding & Reception",
+    "subtitle": "Two hearts, two families, one eternal journey",
+    "event_type": "wedding",
+    "event_type_label": "Traditional Wedding",
+    "template": "floral",
+    "status": "published_pre_event",
+    "date": "2026-12-14",
+    "time": "13:00",
+    "duration": "7 hours",
+    "venue": {
+      "name": "The Grand Pavilion",
+      "address": "Plot 12 Admiralty Way, Lekki Phase 1, Lagos",
+      "map_link": "https://maps.google.com"
+    },
+    "features_enabled": {
+      "rsvp": true,
+      "reminders": true,
+      "ticketing": false,
+      "donations": true,
+      "gallery": true,
+      "controlled_programme": true
+    },
+    "cover_image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+    "tribute_summary": "We invite you to celebrate our union, heritage, and joy as we become one.",
+    "donation_settings": {
+      "enabled": true,
+      "title": "Honeymoon & Future Home Fund",
+      "suggested_amounts": [5000, 15000, 30000, 50000],
+      "currency": "NGN"
+    }
+  },
+  {
+    "id": "evt_gala_03",
+    "slug": "lagos-innovators-gala",
+    "creator_id": "usr_techhub",
+    "plan_id": "plan_grand",
+    "title": "Lagos Tech & Founders Annual Gala 2026",
+    "subtitle": "Honoring excellence and breakthrough impact in African technology",
+    "event_type": "gala",
+    "event_type_label": "Gala & Award Night",
+    "template": "modern",
+    "status": "in_progress",
+    "date": "2026-10-27",
+    "time": "18:00",
+    "duration": "4 hours",
+    "venue": {
+      "name": "Eko Convention Centre",
+      "address": "Victoria Island, Lagos",
+      "map_link": "https://maps.google.com"
+    },
+    "features_enabled": {
+      "rsvp": false,
+      "reminders": true,
+      "ticketing": true,
+      "donations": false,
+      "gallery": true,
+      "controlled_programme": true
+    },
+    "cover_image": "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80",
+    "tribute_summary": "An exclusive evening of black-tie networking, keynote disclosures, and the 2026 Innovator Awards.",
+    "donation_settings": {
+      "enabled": false
+    }
+  },
+  {
+    "id": "evt_bday_04",
+    "slug": "kemi-at-30-all-white",
+    "creator_id": "usr_kemi",
+    "plan_id": "plan_starter",
+    "title": "Kemi @ 30: The All-White Sunset Celebration",
+    "subtitle": "Stepping into a sparkling new decade with close friends",
+    "event_type": "birthday",
+    "event_type_label": "Birthday Party",
+    "template": "modern",
+    "status": "postponed",
+    "date": "2026-11-28",
+    "time": "16:00",
+    "duration": "6 hours",
+    "venue": {
+      "name": "Wave Beach Club",
+      "address": "Elegushi Beach Road, Lekki, Lagos",
+      "map_link": "https://maps.google.com"
+    },
+    "features_enabled": {
+      "rsvp": true,
+      "reminders": true,
+      "ticketing": false,
+      "donations": true,
+      "gallery": false,
+      "controlled_programme": true
+    },
+    "cover_image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80",
+    "tribute_summary": "Notice: This event has been rescheduled from its original date to ensure the best beach sunset experience.",
+    "postponement_reason": "Rescheduled to November 28 due to coastal venue maintenance. All confirmed RSVPs remain valid."
+  },
+  {
+    "id": "evt_summit_05",
+    "slug": "african-fintech-summit-2026",
+    "creator_id": "usr_techhub",
+    "plan_id": "plan_grand",
+    "title": "African Fintech Frontier Summit 2026",
+    "subtitle": "Scaling open banking, cross-border remittance, and AI finance",
+    "event_type": "conference",
+    "event_type_label": "Conference & Summit",
+    "template": "modern",
+    "status": "completed",
+    "date": "2026-10-15",
+    "time": "09:00",
+    "duration": "8 hours",
+    "venue": {
+      "name": "Landmark Centre",
+      "address": "Water Corporation Drive, VI, Lagos",
+      "map_link": "https://maps.google.com"
+    },
+    "features_enabled": {
+      "rsvp": false,
+      "reminders": false,
+      "ticketing": true,
+      "donations": false,
+      "gallery": true,
+      "controlled_programme": false
+    },
+    "cover_image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1200&q=80",
+    "tribute_summary": "Thank you for joining over 800 founders, investors, and regulators at Landmark Centre.",
+    "post_event_message": "The summit has concluded! Access the event gallery, keynote slide deck, and video recordings below."
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "plan_starter",
+    "name": "Starter",
+    "badge": "Free",
+    "price_ngn": 0,
+    "billing_period": "per event",
+    "max_guests": 50,
+    "features": {
+      "templates_allowed": ["modern"],
+      "guest_payments": false,
+      "donations": false,
+      "live_programme": true,
+      "pre_event_gallery_limit": 5,
+      "post_event_gallery": false,
+      "reminders_allowance": 50,
+      "postponement_notice": true,
+      "custom_domain": false
+    },
+    "description": "Ideal for small birthdays, family prayers, and intimate gatherings."
+  },
+  {
+    "id": "plan_celebration",
+    "name": "Celebration Pro",
+    "badge": "Popular",
+    "price_ngn": 15000,
+    "billing_period": "per event",
+    "max_guests": 300,
+    "features": {
+      "templates_allowed": ["modern", "elegant", "floral"],
+      "guest_payments": true,
+      "donations": true,
+      "live_programme": true,
+      "pre_event_gallery_limit": 30,
+      "post_event_gallery": true,
+      "reminders_allowance": 300,
+      "postponement_notice": true,
+      "custom_domain": false
+    },
+    "description": "Full lifecycle toolkit for weddings, burials, and milestone celebrations."
+  },
+  {
+    "id": "plan_grand",
+    "name": "Grand Gala",
+    "badge": "Unlimited",
+    "price_ngn": 45000,
+    "billing_period": "per event",
+    "max_guests": 1500,
+    "features": {
+      "templates_allowed": ["modern", "elegant", "floral"],
+      "guest_payments": true,
+      "donations": true,
+      "live_programme": true,
+      "pre_event_gallery_limit": 100,
+      "post_event_gallery": true,
+      "reminders_allowance": 1500,
+      "postponement_notice": true,
+      "custom_domain": true
+    },
+    "description": "Built for large conferences, high-profile galas, and multi-day ceremonies."
+  }
+]

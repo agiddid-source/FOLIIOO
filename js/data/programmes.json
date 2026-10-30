@@ -1,0 +1,102 @@
+[
+  {
+    "id": "prog_burial_01",
+    "event_id": "evt_burial_01",
+    "order": 1,
+    "title": "Guest Arrival & Solemn Prelude Organ Music",
+    "scheduled_time": "10:00 AM",
+    "status": "completed",
+    "performer_or_speaker": "Cathedral Choir",
+    "description": "Seating of guests, community leaders, and extended family members."
+  },
+  {
+    "id": "prog_burial_02",
+    "event_id": "evt_burial_01",
+    "order": 2,
+    "title": "Processional Hymn & Opening Prayers",
+    "scheduled_time": "10:30 AM",
+    "status": "completed",
+    "performer_or_speaker": "The Right Reverend Bishop Okon",
+    "description": "Opening blessing and celebration of 84 years of divine grace."
+  },
+  {
+    "id": "prog_burial_03",
+    "event_id": "evt_burial_01",
+    "order": 3,
+    "title": "Tributes by Children, Grandchildren & Associates",
+    "scheduled_time": "11:15 AM",
+    "status": "in_progress",
+    "performer_or_speaker": "Dr. Tunde Adeleke & Family",
+    "description": "Eulogies highlighting Chief Adeleke's wisdom, philanthropy, and mentorship."
+  },
+  {
+    "id": "prog_burial_04",
+    "event_id": "evt_burial_01",
+    "order": 4,
+    "title": "Thanksgiving Offering & Choir Rendition",
+    "scheduled_time": "12:15 PM",
+    "status": "upcoming",
+    "performer_or_speaker": "Family & Cathedral Choir",
+    "description": "Special thanksgiving service for an impactful and fulfilled life."
+  },
+  {
+    "id": "prog_burial_05",
+    "event_id": "evt_burial_01",
+    "order": 5,
+    "title": "Interment (Strictly Family) & Reception Commences",
+    "scheduled_time": "01:30 PM",
+    "status": "upcoming",
+    "performer_or_speaker": "Event Host / MC",
+    "description": "Private burial rites followed by full reception, music, and dining at Victoria Banquet Hall."
+  },
+  {
+    "id": "prog_gala_01",
+    "event_id": "evt_gala_03",
+    "order": 1,
+    "title": "Red Carpet & Cocktail Reception",
+    "scheduled_time": "06:00 PM",
+    "status": "completed",
+    "performer_or_speaker": "Hostesses & Live Jazz Band",
+    "description": "Photo ops, VIP check-in, and welcome drinks."
+  },
+  {
+    "id": "prog_gala_02",
+    "event_id": "evt_gala_03",
+    "order": 2,
+    "title": "Keynote Address: AI & African Economic Sovereignty",
+    "scheduled_time": "07:15 PM",
+    "status": "in_progress",
+    "performer_or_speaker": "Mrs. Folashade Alakija-Cole",
+    "description": "Opening keynote unveiling the 2027 tech roadmap."
+  },
+  {
+    "id": "prog_gala_03",
+    "event_id": "evt_gala_03",
+    "order": 3,
+    "title": "Innovator of the Year Award Ceremony",
+    "scheduled_time": "08:15 PM",
+    "status": "upcoming",
+    "performer_or_speaker": "Award Committee",
+    "description": "Presenting awards across 8 industry categories."
+  },
+  {
+    "id": "prog_wedding_01",
+    "event_id": "evt_wedding_02",
+    "order": 1,
+    "title": "Entrance of the Groom's Family & Traditional Welcome",
+    "scheduled_time": "01:00 PM",
+    "status": "upcoming",
+    "performer_or_speaker": "Alaga Ijoko / MC",
+    "description": "Formal introductions, proposal letters, and welcoming of the in-laws."
+  },
+  {
+    "id": "prog_wedding_02",
+    "event_id": "evt_wedding_02",
+    "order": 2,
+    "title": "Grand Entrance of the Bride & Unveiling",
+    "scheduled_time": "02:30 PM",
+    "status": "upcoming",
+    "performer_or_speaker": "Bridal Train & Traditional Dancers",
+    "description": "Presentation of the bride and traditional marriage rites."
+  }
+]

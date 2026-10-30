@@ -1,0 +1,92 @@
+[
+  {
+    "id": "wedding",
+    "name": "Wedding",
+    "description": "Traditional & white weddings, receptions, and engagements",
+    "icon": "heart",
+    "recommended_template": "floral",
+    "default_features": {
+      "rsvp": true,
+      "reminders": true,
+      "ticketing": false,
+      "donations": true,
+      "gallery": true,
+      "programme": true
+    }
+  },
+  {
+    "id": "burial",
+    "name": "Burial / Celebration of Life",
+    "description": "Memorial services, funeral rites, receptions, and tributes",
+    "icon": "feather",
+    "recommended_template": "elegant",
+    "default_features": {
+      "rsvp": true,
+      "reminders": true,
+      "ticketing": false,
+      "donations": true,
+      "gallery": true,
+      "programme": true
+    }
+  },
+  {
+    "id": "birthday",
+    "name": "Birthday Party",
+    "description": "Milestone birthdays, intimate dinners, and anniversary bashes",
+    "icon": "cake",
+    "recommended_template": "modern",
+    "default_features": {
+      "rsvp": true,
+      "reminders": true,
+      "ticketing": false,
+      "donations": true,
+      "gallery": true,
+      "programme": true
+    }
+  },
+  {
+    "id": "gala",
+    "name": "Gala & Award Night",
+    "description": "Formal corporate galas, fund-raisers, and dinners",
+    "icon": "award",
+    "recommended_template": "elegant",
+    "default_features": {
+      "rsvp": true,
+      "reminders": true,
+      "ticketing": true,
+      "donations": true,
+      "gallery": true,
+      "programme": true
+    }
+  },
+  {
+    "id": "conference",
+    "name": "Conference & Summit",
+    "description": "Tech conferences, workshops, and multi-day seminars",
+    "icon": "mic",
+    "recommended_template": "modern",
+    "default_features": {
+      "rsvp": true,
+      "reminders": true,
+      "ticketing": true,
+      "donations": false,
+      "gallery": true,
+      "programme": true
+    }
+  },
+  {
+    "id": "custom",
+    "name": "Custom / Other",
+    "description": "Community gatherings, reunions, or tailor-made events",
+    "icon": "sparkles",
+    "recommended_template": "modern",
+    "default_features": {
+      "rsvp": true,
+      "reminders": true,
+      "ticketing": false,
+      "donations": false,
+      "gallery": true,
+      "programme": true
+    }
+  }
+]

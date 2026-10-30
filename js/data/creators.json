@@ -1,0 +1,35 @@
+[
+  {
+    "id": "usr_adeleke",
+    "name": "Adeleke Family Planning Committee",
+    "handle": "adeleke-family",
+    "email": "events@adelekegroup.org",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+    "cover_image": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Honoring milestones, heritage, and philanthropic events across Lagos and Osun State.",
+    "is_verified": true,
+    "published_event_ids": ["evt_burial_01"]
+  },
+  {
+    "id": "usr_chidi",
+    "name": "Chidi & Amara Okonkwo",
+    "handle": "chidi-amara",
+    "email": "chidi.amara@example.com",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+    "cover_image": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Counting down to December 14th! We can't wait to celebrate our union with family and friends.",
+    "is_verified": false,
+    "published_event_ids": ["evt_wedding_02"]
+  },
+  {
+    "id": "usr_techhub",
+    "name": "Lagos Tech Hub & Innovators Network",
+    "handle": "lagostechhub",
+    "email": "organizers@lagostechhub.ng",
+    "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
+    "cover_image": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1200&q=80",
+    "bio": "Connecting builders, venture funds, and founders across emerging African tech ecosystems.",
+    "is_verified": true,
+    "published_event_ids": ["evt_gala_03", "evt_summit_05"]
+  }
+]
