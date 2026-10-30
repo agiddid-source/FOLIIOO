@@ -28,6 +28,11 @@ $statusConfigs = [
         'label' => 'Postponed',
         'pill_class' => 'bg-amber-500/15 text-amber-900 border-amber-500/30',
         'dot' => 'bg-amber-600'
+    ],
+    'cancelled' => [
+        'label' => 'Cancelled',
+        'pill_class' => 'bg-rose-500/15 text-rose-900 border-rose-500/30',
+        'dot' => 'bg-rose-600'
     ]
 ];
 $cfg = $statusConfigs[$status] ?? $statusConfigs['published_pre_event'];
@@ -73,6 +78,12 @@ $cfg = $statusConfigs[$status] ?? $statusConfigs['published_pre_event'];
           </a>
         <?php endif; ?>
 
+        <?php if (!empty($features['ticketing']) && $status !== 'cancelled'): ?>
+          <a href="#tickets" class="foliioo-event-nav-link px-2.5 py-1.5 rounded-xl hover:text-[#320E3B] hover:bg-white/60 transition">
+            Tickets
+          </a>
+        <?php endif; ?>
+
         <?php if (!empty($features['gallery'])): ?>
           <a href="#gallery" class="foliioo-event-nav-link px-2.5 py-1.5 rounded-xl hover:text-[#320E3B] hover:bg-white/60 transition">
             Gallery
@@ -92,6 +103,12 @@ $cfg = $statusConfigs[$status] ?? $statusConfigs['published_pre_event'];
           <a href="#rsvp" class="inline-flex items-center gap-1 bg-[#320E3B] hover:bg-[#4A1556] text-white text-xs font-bold px-3 sm:px-4 py-2 rounded-xl shadow-md transition transform active:scale-95 shrink-0">
             <i data-lucide="calendar-check" class="w-3.5 h-3.5"></i>
             <span>RSVP</span>
+          </a>
+
+        <?php elseif (!empty($features['ticketing']) && $status === 'published_pre_event'): ?>
+          <a href="#tickets" class="inline-flex items-center gap-1 bg-[#320E3B] hover:bg-[#4A1556] text-white text-xs font-bold px-3 sm:px-4 py-2 rounded-xl shadow-md transition transform active:scale-95 shrink-0">
+            <i data-lucide="ticket" class="w-3.5 h-3.5"></i>
+            <span>Tickets</span>
           </a>
 
         <?php elseif ($status === 'in_progress'): ?>
@@ -135,9 +152,15 @@ $cfg = $statusConfigs[$status] ?? $statusConfigs['published_pre_event'];
           </div>
 
         <?php elseif ($status === 'completed'): ?>
-          <a href="#gallery" class="inline-flex items-center gap-1 bg-gray-900 hover:bg-black text-white text-xs font-bold px-3 sm:px-3.5 py-1.5 rounded-xl shadow-md shrink-0">
+          <a href="#memories" class="inline-flex items-center gap-1 bg-gray-900 hover:bg-black text-white text-xs font-bold px-3 sm:px-3.5 py-1.5 rounded-xl shadow-md shrink-0">
             <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
             <span>Memories</span>
+          </a>
+
+        <?php elseif ($status === 'cancelled'): ?>
+          <a href="#notice" class="inline-flex items-center gap-1 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold px-3 sm:px-3.5 py-1.5 rounded-xl shadow-md shrink-0">
+            <i data-lucide="alert-octagon" class="w-3.5 h-3.5"></i>
+            <span>Cancelled</span>
           </a>
         <?php endif; ?>
 
@@ -160,6 +183,12 @@ $cfg = $statusConfigs[$status] ?? $statusConfigs['published_pre_event'];
       <a href="#programme" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/70 hover:text-[#320E3B]">
         <i data-lucide="clock" class="w-4 h-4 text-gray-400"></i>
         <span>Programme</span>
+      </a>
+    <?php endif; ?>
+    <?php if (!empty($features['ticketing']) && $status !== 'cancelled'): ?>
+      <a href="#tickets" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/70 hover:text-[#320E3B]">
+        <i data-lucide="ticket" class="w-4 h-4 text-gray-400"></i>
+        <span>Tickets</span>
       </a>
     <?php endif; ?>
     <?php if (!empty($features['gallery'])): ?>
