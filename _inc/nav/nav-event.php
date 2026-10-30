@@ -36,6 +36,12 @@ $statusConfigs = [
     ]
 ];
 $cfg = $statusConfigs[$status] ?? $statusConfigs['published_pre_event'];
+
+$calDateClean = str_replace('-', '', $event['date'] ?? '20261128');
+$calTimeClean = str_replace(':', '', $event['time'] ?? '1600') . '00';
+$calStartIso = $calDateClean . 'T' . $calTimeClean;
+$calEndIso = date('Ymd\THis', strtotime(($event['date'] ?? '2026-11-28') . ' ' . ($event['time'] ?? '16:00') . ' +4 hours'));
+$gcalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' . urlencode($event['title'] ?? '') . '&dates=' . $calStartIso . '/' . $calEndIso . '&details=' . urlencode($event['postponement_reason'] ?? $event['subtitle'] ?? '') . '&location=' . urlencode(($event['venue']['name'] ?? '') . ', ' . ($event['venue']['address'] ?? ''));
 ?>
 
 <div class="sticky top-3 z-40 px-3 sm:px-4 max-w-5xl mx-auto transition-all duration-300">
@@ -139,10 +145,16 @@ $cfg = $statusConfigs[$status] ?? $statusConfigs['published_pre_event'];
                   <?= htmlspecialchars($event['postponement_reason'] ?? 'This event has been rescheduled to a future date.') ?>
                 </p>
                 
-                <div class="flex items-center gap-2.5 text-xs text-gray-600 bg-amber-50/70 p-2.5 rounded-xl border border-amber-100">
-                  <i data-lucide="calendar" class="w-4 h-4 text-amber-600 shrink-0"></i>
-                  <span>New Date: <strong><?= htmlspecialchars($event['date']) ?></strong> at <strong><?= htmlspecialchars($event['time']) ?></strong></span>
-                </div>
+                <a href="<?= $gcalUrl ?>" target="_blank" rel="noopener noreferrer" title="Click to add new date to Google Calendar" class="flex items-center justify-between gap-2.5 text-xs text-amber-950 bg-amber-50/90 hover:bg-amber-100 p-2.5 rounded-xl border border-amber-200 hover:border-amber-300 transition group/cal">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <i data-lucide="calendar-plus" class="w-4 h-4 text-amber-700 shrink-0 group-hover/cal:scale-110 transition-transform"></i>
+                    <span class="truncate">New Date: <strong><?= htmlspecialchars($event['date']) ?></strong> at <strong><?= htmlspecialchars($event['time']) ?></strong></span>
+                  </div>
+                  <span class="text-[10px] font-bold text-amber-800 bg-amber-200/60 group-hover/cal:bg-amber-600 group-hover/cal:text-white px-2 py-0.5 rounded-md shrink-0 flex items-center gap-1 transition">
+                    <span>Add to Cal</span>
+                    <i data-lucide="external-link" class="w-3 h-3"></i>
+                  </span>
+                </a>
                 
                 <p class="text-[11px] text-gray-400 leading-snug">
                   All confirmed RSVPs and seat reservations remain active for the new date.

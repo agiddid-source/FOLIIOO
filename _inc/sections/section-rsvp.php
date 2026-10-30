@@ -116,8 +116,8 @@ $remainingSeats = $guestLimit['remaining_seats'] ?? 50;
       </div>
 
       <div>
-        <label for="rsvp-notes" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Dietary Notes or Goodwill Message</label>
-        <textarea id="rsvp-notes" rows="2" placeholder="Share any dietary preferences or a warm congratulatory note for the host..." class="w-full text-xs bg-gray-50 border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-[#320E3B] focus:outline-none transition"></textarea>
+        <label for="rsvp-notes" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Goodwill Message</label>
+        <textarea id="rsvp-notes" rows="2" placeholder="Share a warm congratulatory note for the host..." class="w-full text-xs bg-gray-50 border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-[#320E3B] focus:outline-none transition"></textarea>
       </div>
 
       <div class="flex items-start gap-2.5 pt-1">

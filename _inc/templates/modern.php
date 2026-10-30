@@ -30,7 +30,7 @@ $venue = $event['venue'] ?? [];
           <span class="font-mono text-gray-300"><?= $status === 'in_progress' ? 'LIVE NOW' : ($status === 'completed' ? 'CONCLUDED' : 'OFFICIAL PASS') ?></span>
         </div>
 
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1] drop-shadow-md">
+        <h1 class="text-3xl/tight sm:text-4xl/[1.2] lg:text-5xl/[1.2] font-bold tracking-tight text-amber-50 drop-shadow-md">
           <?= htmlspecialchars($title) ?>
         </h1>
 

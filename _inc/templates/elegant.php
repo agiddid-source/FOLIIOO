@@ -29,7 +29,7 @@ $venue = $event['venue'] ?? [];
           <span class="font-mono text-amber-100"><?= $status === 'in_progress' ? '● In Session' : ($status === 'completed' ? 'Concluded' : 'Official Service') ?></span>
         </div>
 
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-amber-50 leading-[1.15] drop-shadow-md">
+        <h1 class="text-3xl/tight sm:text-4xl/[1.2] lg:text-5xl/[1.2] font-bold tracking-tight text-amber-50 drop-shadow-md">
           <?= htmlspecialchars($title) ?>
         </h1>
 
@@ -73,7 +73,7 @@ $venue = $event['venue'] ?? [];
           <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
           <span>About This Celebration</span>
         </div>
-        <p class="text-base sm:text-lg text-gray-800 leading-relaxed font-serif">
+        <p class="text-base sm:text-lg text-gray-800 font-serif">
           <?= htmlspecialchars($event['tribute_summary']) ?>
         </p>
       </section>

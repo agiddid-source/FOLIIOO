@@ -57,19 +57,41 @@ require_once __DIR__ . '/_inc/header.php';
 
   <!-- Postponed State Notice Banner -->
   <?php if ($status === 'postponed'): ?>
+    <?php
+      $calDateClean = str_replace('-', '', $event['date'] ?? '20261128');
+      $calTimeClean = str_replace(':', '', $event['time'] ?? '1600') . '00';
+      $calStartIso = $calDateClean . 'T' . $calTimeClean;
+      $calEndIso = date('Ymd\THis', strtotime(($event['date'] ?? '2026-11-28') . ' ' . ($event['time'] ?? '16:00') . ' +4 hours'));
+      $gcalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' . urlencode($event['title'] ?? '') . '&dates=' . $calStartIso . '/' . $calEndIso . '&details=' . urlencode($event['postponement_reason'] ?? '') . '&location=' . urlencode(($event['venue']['name'] ?? '') . ', ' . ($event['venue']['address'] ?? ''));
+      $icsContent = "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Foliioo//Event Lifecycle//EN\r\nBEGIN:VEVENT\r\nSUMMARY:" . addcslashes($event['title'] ?? 'Event', ",;") . "\r\nDESCRIPTION:" . addcslashes($event['postponement_reason'] ?? '', ",;") . "\r\nLOCATION:" . addcslashes(($event['venue']['name'] ?? '') . ', ' . ($event['venue']['address'] ?? ''), ",;") . "\r\nDTSTART:{$calStartIso}\r\nDTEND:{$calEndIso}\r\nSTATUS:CONFIRMED\r\nEND:VEVENT\r\nEND:VCALENDAR";
+      $icsHref = "data:text/calendar;charset=utf8," . rawurlencode($icsContent);
+    ?>
     <section id="notice" class="bg-amber-50 border-b border-amber-200 text-amber-950 px-4 py-4 sm:py-5">
-      <div class="max-w-5xl mx-auto flex items-start sm:items-center gap-3.5">
-        <div class="w-10 h-10 rounded-2xl bg-amber-200 text-amber-900 flex items-center justify-center shrink-0">
-          <i data-lucide="calendar-clock" class="w-5 h-5"></i>
-        </div>
-        <div class="space-y-1">
-          <div class="flex items-center gap-2">
-            <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-200 text-amber-900">Important Update</span>
-            <h2 class="text-sm sm:text-base font-extrabold text-amber-950">Event Postponement Notice</h2>
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded-2xl bg-amber-200 text-amber-900 flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="calendar-clock" class="w-5 h-5"></i>
           </div>
-          <p class="text-xs text-amber-900/90 leading-relaxed max-w-3xl">
-            <?= htmlspecialchars($event['postponement_reason'] ?? 'This event has been rescheduled. All confirmed reservations and passes remain fully valid for the new date.') ?>
-          </p>
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-200 text-amber-900">Important Update</span>
+              <h2 class="text-sm sm:text-base font-extrabold text-amber-950">Event Postponement Notice</h2>
+            </div>
+            <p class="text-xs text-amber-900/90 leading-relaxed max-w-2xl">
+              <?= htmlspecialchars($event['postponement_reason'] ?? 'This event has been rescheduled. All confirmed reservations and passes remain fully valid for the new date.') ?>
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 pl-13 md:pl-0 shrink-0 flex-wrap">
+          <a href="<?= $gcalUrl ?>" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold transition shadow-xs active:scale-95">
+            <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+            <span>Add New Date to Calendar</span>
+          </a>
+          <a href="<?= $icsHref ?>" download="event-<?= htmlspecialchars($event['slug']) ?>.ics" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-amber-300 hover:bg-amber-100 text-amber-900 text-xs font-bold transition">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+            <span>.ICS</span>
+          </a>
         </div>
       </div>
     </section>
