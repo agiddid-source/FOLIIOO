@@ -1,0 +1,33 @@
+{
+  "note": "Prices and final feature limits are not finalized. Do not add prices until they are approved.",
+  "plans": [
+    {
+      "id": "basic",
+      "name": "Basic",
+      "description": "A simple starting point for bringing your event online.",
+      "icon": "fa-seedling",
+      "features": ["Create an event website", "Choose from available templates", "Share your event link"]
+    },
+    {
+      "id": "essential",
+      "name": "Essential",
+      "description": "More flexibility for planning and managing your event.",
+      "icon": "fa-feather",
+      "features": ["Everything in Basic", "Expanded event customization", "More tools for planning your event"]
+    },
+    {
+      "id": "premium",
+      "name": "Premium",
+      "description": "A richer event experience with more ways to personalize.",
+      "icon": "fa-gem",
+      "features": ["Everything in Essential", "Enhanced event presentation", "Additional event experience options"]
+    },
+    {
+      "id": "custom",
+      "name": "Custom",
+      "description": "A tailored solution for unique or more complex event needs.",
+      "icon": "fa-wand-magic-sparkles",
+      "features": ["A solution tailored to your event", "Discuss your preferred features", "Request a customized proposal"]
+    }
+  ]
+}

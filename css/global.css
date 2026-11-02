@@ -1,0 +1,167 @@
+/* ========================================
+   FOLIIOO — GLOBAL STYLES (Design System V1.1)
+======================================== */
+
+:root {
+    /* Surfaces */
+    --color-cream: #FAF8F5;
+    --color-paper: #FFFFFF;
+    --color-tint: #F3EDE5;          /* alternating section surface */
+    --color-deep: #252321;          /* deep sections (final CTA) */
+
+    /* Text */
+    --color-ink: #252321;
+    --color-muted: #6B675F;         /* 5.3:1 on cream */
+    --color-soft: #A19B93;          /* placeholders / disabled only */
+
+    /* Borders */
+    --color-border: #E9E4DD;
+    --color-border-strong: #D8D1C8;
+
+    /* Accents */
+    --color-accent: #9A5F44;        /* terracotta, 5.1:1 with white text */
+    --color-accent-dark: #7E4A33;
+    --color-accent-light: #E0A98C;  /* accent on dark surfaces */
+    --color-accent-rgb: 154, 95, 68;
+    --color-sage: #87927B;
+    --color-sage-dark: #59644F;
+    --color-sage-light: #EEF0EA;
+
+    /* Semantic */
+    --color-success: #3F6B48;
+    --color-success-bg: #E8F1EA;
+    --color-warning: #8F5F12;
+    --color-warning-bg: #FBF1DC;
+    --color-error: #B54747;
+    --color-error-bg: #F8E6E6;
+
+    /* Fonts */
+    --font-body: 'DM Sans', sans-serif;
+    --font-display: 'Fraunces', Georgia, serif;
+
+    /* Guest-facing template fonts */
+    --font-template-modern: 'DM Sans', sans-serif;
+    --font-template-elegant: 'Cormorant Garamond', Georgia, serif;
+    --font-template-floral: 'DM Serif Display', Georgia, serif;
+
+    /* Type scale */
+    --text-hero: clamp(42px, 5.2vw, 64px);
+    --text-h2: clamp(32px, 4vw, 40px);
+    --text-h3: 24px;
+    --text-body: 16px;
+    --text-small: 14px;
+    --leading-display: 1.15;
+    --leading-body: 1.6;
+
+    --container-width: 1200px;
+    --transition-base: 200ms ease;
+}
+
+/* Base reset */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    line-height: var(--leading-body);
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+::selection {
+    background: #E9D7CA;
+    color: var(--color-ink);
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+.container-main {
+    width: min(var(--container-width), calc(100% - 40px));
+    margin-inline: auto;
+}
+
+.font-display {
+    font-family: var(--font-display);
+    line-height: var(--leading-display);
+}
+
+.section-padding {
+    padding-block: 80px;
+}
+
+/* Alternating surfaces */
+.surface-tint { background: var(--color-tint); }
+.surface-paper { background: var(--color-paper); }
+.surface-deep {
+    background: var(--color-deep);
+    color: #F5F1EC;
+}
+
+/* Scroll reveal (class added by js/app.js, so no-JS visitors see everything) */
+.js-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.js-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+
+    .js-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-main {
+        width: min(100% - 32px, var(--container-width));
+    }
+
+    .section-padding {
+        padding-block: 56px;
+    }
+}
