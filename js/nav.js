@@ -1,4 +1,8 @@
+/**
+ * Foliioo Design System V1.1 — Navigation & Interactivity Script
+ */
 document.addEventListener('DOMContentLoaded', () => {
+    // Marketing Mobile Drawer
     const marketingMenuBtn = document.getElementById('foliioo-marketing-mobile-btn');
     const marketingMenu = document.getElementById('foliioo-marketing-mobile-menu');
     if (marketingMenuBtn && marketingMenu) {
@@ -9,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Dashboard Sidebar Toggles & Desktop Collapse
     const dashboardToggleBtn = document.getElementById('foliioo-dashboard-sidebar-toggle');
     const dashboardSidebar = document.getElementById('foliioo-dashboard-sidebar');
     const dashboardBackdrop = document.getElementById('foliioo-dashboard-backdrop');
@@ -57,7 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     topHeader.classList.remove('lg:pl-28');
                     topHeader.classList.add('lg:pl-72');
                 }
-                if (collapseIcon) collapseIcon.setAttribute('data-lucide', 'panel-left-close');
+                if (collapseIcon) {
+                    collapseIcon.classList.remove('fa-angles-right');
+                    collapseIcon.classList.add('fa-angles-left');
+                }
             } else {
                 dashboardSidebar.classList.add('sidebar-shrunk', 'lg:w-20');
                 dashboardSidebar.classList.remove('lg:w-64');
@@ -73,14 +81,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     topHeader.classList.remove('lg:pl-72');
                     topHeader.classList.add('lg:pl-28');
                 }
-                if (collapseIcon) collapseIcon.setAttribute('data-lucide', 'panel-left-open');
-            }
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
+                if (collapseIcon) {
+                    collapseIcon.classList.remove('fa-angles-left');
+                    collapseIcon.classList.add('fa-angles-right');
+                }
             }
         });
     }
 
+    // Creator Profile Dropdown
     const profileBtn = document.getElementById('foliioo-user-menu-btn');
     const profileDropdown = document.getElementById('foliioo-user-dropdown');
     if (profileBtn && profileDropdown) {
@@ -95,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Postponed Popover
     const postponedBtn = document.getElementById('foliioo-postponed-btn');
     const postponedPopover = document.getElementById('foliioo-postponed-popover');
     if (postponedBtn && postponedPopover) {
@@ -109,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Event Mobile Dropdown Toggle
     const eventMobileBtn = document.getElementById('foliioo-event-mobile-btn');
     const eventMobileDropdown = document.getElementById('foliioo-event-mobile-dropdown');
     if (eventMobileBtn && eventMobileDropdown) {
@@ -128,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Keyboard ESC Support
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             if (profileDropdown && !profileDropdown.classList.contains('hidden')) {
@@ -145,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Scroll-Spy for Event Page Nav Links
     const eventNavLinks = document.querySelectorAll('.foliioo-event-nav-link');
     if (eventNavLinks.length > 0) {
         const sections = [];
@@ -162,14 +175,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const top = el.offsetTop;
                 const height = el.offsetHeight;
                 if (scrollPos >= top && scrollPos < top + height) {
-                    eventNavLinks.forEach(l => l.classList.remove('text-[#320E3B]', 'font-bold'));
-                    link.classList.add('text-[#320E3B]', 'font-bold');
+                    eventNavLinks.forEach(l => l.classList.remove('text-[#9A5F44]', 'font-bold'));
+                    link.classList.add('text-[#9A5F44]', 'font-bold');
                 }
             });
         }, { passive: true });
     }
 
-    // Spec: Pre-registration event drafts stored locally before account creation
+    // Pre-registration Event Draft Persistence
     window.FoliiooDraft = {
         STORAGE_KEY: 'foliioo_pending_draft',
 

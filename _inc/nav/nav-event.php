@@ -1,4 +1,7 @@
 <?php
+/**
+ * Foliioo Design System V1.1 — Public Event Dynamic Navbar
+ */
 if (empty($event)) {
     return;
 }
@@ -8,31 +11,32 @@ $eventType = $event['event_type_label'] ?? ucfirst($event['event_type'] ?? 'Even
 $status = $event['status'] ?? 'published_pre_event';
 $features = $event['features_enabled'] ?? [];
 
+// Status mapping strictly adhering to V1.1 palette
 $statusConfigs = [
     'published_pre_event' => [
         'label' => 'Upcoming',
-        'pill_class' => 'bg-emerald-500/15 text-emerald-900 border-emerald-500/30',
-        'dot' => 'bg-emerald-600'
+        'pill_class' => 'bg-[#EEF0EA] text-[#87927B] border-[#87927B]/30',
+        'dot' => 'bg-[#87927B]'
     ],
     'in_progress' => [
         'label' => 'Live Now',
-        'pill_class' => 'bg-rose-500/15 text-rose-900 border-rose-500/30 animate-pulse',
-        'dot' => 'bg-rose-600 animate-ping'
+        'pill_class' => 'bg-[#9A5F44]/15 text-[#9A5F44] border-[#9A5F44]/30 animate-pulse',
+        'dot' => 'bg-[#9A5F44] animate-ping'
     ],
     'completed' => [
         'label' => 'Concluded',
-        'pill_class' => 'bg-gray-800/10 text-gray-800 border-gray-400/30',
-        'dot' => 'bg-gray-600'
+        'pill_class' => 'bg-[#F3EDE5] text-[#6B675F] border-[#E9E4DD]',
+        'dot' => 'bg-[#6B675F]'
     ],
     'postponed' => [
         'label' => 'Postponed',
-        'pill_class' => 'bg-amber-500/15 text-amber-900 border-amber-500/30',
-        'dot' => 'bg-amber-600'
+        'pill_class' => 'bg-[#FBF1DC] text-[#8F5F12] border-[#8F5F12]/30',
+        'dot' => 'bg-[#8F5F12]'
     ],
     'cancelled' => [
         'label' => 'Cancelled',
-        'pill_class' => 'bg-rose-500/15 text-rose-900 border-rose-500/30',
-        'dot' => 'bg-rose-600'
+        'pill_class' => 'bg-[#F8E6E6] text-[#B54747] border-[#B54747]/30',
+        'dot' => 'bg-[#B54747]'
     ]
 ];
 $cfg = $statusConfigs[$status] ?? $statusConfigs['published_pre_event'];
@@ -44,119 +48,124 @@ $calEndIso = date('Ymd\THis', strtotime(($event['date'] ?? '2026-11-28') . ' ' .
 $gcalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' . urlencode($event['title'] ?? '') . '&dates=' . $calStartIso . '/' . $calEndIso . '&details=' . urlencode($event['postponement_reason'] ?? $event['subtitle'] ?? '') . '&location=' . urlencode(($event['venue']['name'] ?? '') . ', ' . ($event['venue']['address'] ?? ''));
 ?>
 
-<div class="sticky top-3 z-40 px-3 sm:px-4 max-w-5xl mx-auto transition-all duration-300">
-  <nav class="glass-island rounded-2xl px-3 sm:px-6 h-16 flex items-center justify-between shadow-xl relative">
+<div class="sticky top-3 z-40 px-3 sm:px-4 max-w-5xl mx-auto transition-all duration-200">
+  <nav class="bg-white/90 backdrop-blur-md border border-[#E9E4DD] rounded-2xl px-3 sm:px-6 h-16 flex items-center justify-between shadow-[0_8px_30px_rgba(37,35,33,0.06)] relative">
     
+    <!-- Monogram & Event Name -->
     <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
       <a href="#details" class="flex items-center gap-2 group min-w-0">
-        <div class="w-8 h-8 rounded-xl bg-[#320E3B] text-white flex items-center justify-center font-serif text-sm font-bold shadow-md group-hover:scale-105 transition-transform shrink-0">
+        <div class="w-8 h-8 rounded-lg bg-[#9A5F44] text-white flex items-center justify-center font-display text-sm font-bold shadow-xs group-hover:scale-105 transition-transform shrink-0">
           <?= strtoupper(substr($title, 0, 1)) ?>
         </div>
         <div class="flex flex-col min-w-0">
-          <span class="text-xs sm:text-sm font-extrabold text-gray-900 truncate max-w-[120px] xs:max-w-[170px] sm:max-w-xs md:max-w-sm group-hover:text-[#320E3B] transition-colors leading-tight">
+          <span class="text-xs sm:text-sm font-bold text-[#252321] truncate max-w-[120px] xs:max-w-[170px] sm:max-w-xs md:max-w-sm group-hover:text-[#9A5F44] transition-colors leading-tight">
             <?= htmlspecialchars($title) ?>
           </span>
-          <span class="text-[9px] sm:text-[10px] font-bold text-[#320E3B] uppercase tracking-wider leading-tight truncate max-w-[120px] sm:max-w-none">
+          <span class="text-[10px] font-semibold text-[#87927B] uppercase tracking-wider leading-tight truncate max-w-[120px] sm:max-w-none">
             <?= htmlspecialchars($eventType) ?>
           </span>
         </div>
       </a>
 
-      <div class="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold border <?= $cfg['pill_class'] ?> backdrop-blur-xs shrink-0">
+      <!-- Status Pill -->
+      <div class="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold border <?= $cfg['pill_class'] ?> shrink-0">
         <span class="w-2 h-2 rounded-full <?= $cfg['dot'] ?>"></span>
         <span><?= $cfg['label'] ?></span>
       </div>
     </div>
 
+    <!-- Quick Links & Actions -->
     <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
       
-      <div class="hidden md:flex items-center space-x-1 lg:space-x-2 text-xs sm:text-sm font-bold text-gray-800">
-        <a href="#details" class="foliioo-event-nav-link px-2.5 py-1.5 rounded-xl hover:text-[#320E3B] hover:bg-white/60 transition">
+      <div class="hidden md:flex items-center space-x-1 lg:space-x-2 text-xs sm:text-sm font-medium text-[#6B675F]">
+        <a href="#details" class="foliioo-event-nav-link px-2.5 py-1.5 rounded-lg hover:text-[#9A5F44] hover:bg-[#FAF8F5] transition">
           Details
         </a>
         
         <?php if (!empty($features['programme'])): ?>
-          <a href="#programme" class="foliioo-event-nav-link px-2.5 py-1.5 rounded-xl hover:text-[#320E3B] hover:bg-white/60 transition flex items-center gap-1.5">
+          <a href="#programme" class="foliioo-event-nav-link px-2.5 py-1.5 rounded-lg hover:text-[#9A5F44] hover:bg-[#FAF8F5] transition flex items-center gap-1.5">
             <span>Programme</span>
             <?php if ($status === 'in_progress'): ?>
-              <span class="w-1.5 h-1.5 rounded-full bg-rose-600 animate-pulse"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-[#9A5F44] animate-pulse"></span>
             <?php endif; ?>
           </a>
         <?php endif; ?>
 
         <?php if (!empty($features['ticketing']) && $status !== 'cancelled'): ?>
-          <a href="#tickets" class="foliioo-event-nav-link px-2.5 py-1.5 rounded-xl hover:text-[#320E3B] hover:bg-white/60 transition">
+          <a href="#tickets" class="foliioo-event-nav-link px-2.5 py-1.5 rounded-lg hover:text-[#9A5F44] hover:bg-[#FAF8F5] transition">
             Tickets
           </a>
         <?php endif; ?>
 
         <?php if (!empty($features['gallery'])): ?>
-          <a href="#gallery" class="foliioo-event-nav-link px-2.5 py-1.5 rounded-xl hover:text-[#320E3B] hover:bg-white/60 transition">
+          <a href="#gallery" class="foliioo-event-nav-link px-2.5 py-1.5 rounded-lg hover:text-[#9A5F44] hover:bg-[#FAF8F5] transition">
             Gallery
           </a>
         <?php endif; ?>
 
         <?php if (!empty($features['donations'])): ?>
-          <a href="#donations" class="foliioo-event-nav-link px-2.5 py-1.5 rounded-xl hover:text-[#320E3B] hover:bg-white/60 transition">
+          <a href="#donations" class="foliioo-event-nav-link px-2.5 py-1.5 rounded-lg hover:text-[#9A5F44] hover:bg-[#FAF8F5] transition">
             <?= ($event['event_type'] ?? '') === 'burial' ? 'Memorial Fund' : 'Gifts' ?>
           </a>
         <?php endif; ?>
       </div>
 
-      <div class="pl-1 sm:pl-2 md:border-l md:border-gray-400/30">
+      <!-- Action Button Area -->
+      <div class="pl-1 sm:pl-2 md:border-l md:border-[#E9E4DD]">
         
         <?php if (!empty($features['rsvp']) && $status === 'published_pre_event'): ?>
-          <a href="#rsvp" class="inline-flex items-center gap-1 bg-[#320E3B] hover:bg-[#4A1556] text-white text-xs font-bold px-3 sm:px-4 py-2 rounded-xl shadow-md transition transform active:scale-95 shrink-0">
-            <i data-lucide="calendar-check" class="w-3.5 h-3.5"></i>
+          <a href="#rsvp" class="btn btn-primary btn-sm shrink-0">
+            <i class="fa-solid fa-calendar-check"></i>
             <span>RSVP</span>
           </a>
 
         <?php elseif (!empty($features['ticketing']) && $status === 'published_pre_event'): ?>
-          <a href="#tickets" class="inline-flex items-center gap-1 bg-[#320E3B] hover:bg-[#4A1556] text-white text-xs font-bold px-3 sm:px-4 py-2 rounded-xl shadow-md transition transform active:scale-95 shrink-0">
-            <i data-lucide="ticket" class="w-3.5 h-3.5"></i>
+          <a href="#tickets" class="btn btn-primary btn-sm shrink-0">
+            <i class="fa-solid fa-ticket"></i>
             <span>Tickets</span>
           </a>
 
         <?php elseif ($status === 'in_progress'): ?>
-          <a href="#programme" class="inline-flex items-center gap-1 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold px-3 sm:px-3.5 py-1.5 rounded-xl shadow-md animate-pulse shrink-0">
-            <i data-lucide="radio" class="w-3.5 h-3.5"></i>
+          <a href="#programme" class="btn btn-primary btn-sm shrink-0 animate-pulse">
+            <i class="fa-solid fa-tower-broadcast"></i>
             <span>Live</span>
           </a>
 
         <?php elseif ($status === 'postponed'): ?>
           <div class="relative group/postponed">
-            <button id="foliioo-postponed-btn" type="button" class="inline-flex items-center gap-1 bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 sm:px-3.5 py-1.5 rounded-xl shadow-md transition transform active:scale-95 cursor-pointer shrink-0">
-              <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+            <button id="foliioo-postponed-btn" type="button" class="btn btn-sm bg-[#FBF1DC] text-[#8F5F12] border border-[#8F5F12]/30 hover:bg-[#F3E1B9] shrink-0">
+              <i class="fa-solid fa-clock"></i>
               <span>Postponed</span>
-              <i data-lucide="chevron-down" class="w-3 h-3 opacity-80 group-hover/postponed:rotate-180 transition-transform"></i>
+              <i class="fa-solid fa-chevron-down text-[10px] opacity-75 group-hover/postponed:rotate-180 transition-transform"></i>
             </button>
 
-            <div id="foliioo-postponed-popover" class="hidden group-hover/postponed:block absolute right-0 mt-2 w-[280px] xs:w-80 sm:w-96 max-w-[calc(100vw-2rem)] rounded-2xl bg-white/95 backdrop-blur-xl border border-amber-200/90 shadow-2xl p-4 text-xs z-50 text-gray-800 transition-all duration-200">
-              <div class="flex items-center justify-between pb-2 border-b border-gray-100">
-                <div class="flex items-center gap-1.5 text-amber-700 font-extrabold text-xs">
-                  <i data-lucide="alert-circle" class="w-4 h-4 text-amber-500"></i>
+            <!-- Postponed Popover -->
+            <div id="foliioo-postponed-popover" class="hidden group-hover/postponed:block absolute right-0 mt-2 w-[280px] xs:w-80 sm:w-96 max-w-[calc(100vw-2rem)] rounded-xl bg-white border border-[#E9E4DD] shadow-[0_8px_30px_rgba(37,35,33,0.06)] p-4 text-xs z-50 text-[#252321] transition-all duration-200">
+              <div class="flex items-center justify-between pb-2 border-b border-[#E9E4DD]">
+                <div class="flex items-center gap-1.5 text-[#8F5F12] font-bold text-xs">
+                  <i class="fa-solid fa-circle-exclamation"></i>
                   <span>Postponement Notice</span>
                 </div>
-                <span class="text-[10px] font-black uppercase tracking-wider bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">Notice</span>
+                <span class="badge badge-warning text-[10px]">Notice</span>
               </div>
               
               <div class="py-3 space-y-2.5">
-                <p class="font-extrabold text-gray-900 text-xs leading-relaxed">
+                <p class="font-bold text-[#252321] text-xs leading-relaxed">
                   <?= htmlspecialchars($event['postponement_reason'] ?? 'This event has been rescheduled to a future date.') ?>
                 </p>
                 
-                <a href="<?= $gcalUrl ?>" target="_blank" rel="noopener noreferrer" title="Click to add new date to Google Calendar" class="flex items-center justify-between gap-2.5 text-xs text-amber-950 bg-amber-50/90 hover:bg-amber-100 p-2.5 rounded-xl border border-amber-200 hover:border-amber-300 transition group/cal">
+                <a href="<?= $gcalUrl ?>" target="_blank" rel="noopener noreferrer" title="Click to add new date to Google Calendar" class="flex items-center justify-between gap-2.5 text-xs text-[#8F5F12] bg-[#FBF1DC]/70 hover:bg-[#FBF1DC] p-2.5 rounded-lg border border-[#8F5F12]/20 transition group/cal">
                   <div class="flex items-center gap-2 min-w-0">
-                    <i data-lucide="calendar-plus" class="w-4 h-4 text-amber-700 shrink-0 group-hover/cal:scale-110 transition-transform"></i>
+                    <i class="fa-solid fa-calendar-plus text-[#8F5F12] shrink-0 group-hover/cal:scale-110 transition-transform"></i>
                     <span class="truncate">New Date: <strong><?= htmlspecialchars($event['date']) ?></strong> at <strong><?= htmlspecialchars($event['time']) ?></strong></span>
                   </div>
-                  <span class="text-[10px] font-bold text-amber-800 bg-amber-200/60 group-hover/cal:bg-amber-600 group-hover/cal:text-white px-2 py-0.5 rounded-md shrink-0 flex items-center gap-1 transition">
+                  <span class="text-[10px] font-bold text-[#8F5F12] bg-[#FBF1DC] px-2 py-0.5 rounded border border-[#8F5F12]/30 shrink-0 flex items-center gap-1 group-hover/cal:bg-[#8F5F12] group-hover/cal:text-white transition">
                     <span>Add to Cal</span>
-                    <i data-lucide="external-link" class="w-3 h-3"></i>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                   </span>
                 </a>
                 
-                <p class="text-[11px] text-gray-400 leading-snug">
+                <p class="text-[11px] text-[#6B675F] leading-snug">
                   All confirmed RSVPs and seat reservations remain active for the new date.
                 </p>
               </div>
@@ -164,54 +173,56 @@ $gcalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' .
           </div>
 
         <?php elseif ($status === 'completed'): ?>
-          <a href="#memories" class="inline-flex items-center gap-1 bg-gray-900 hover:bg-black text-white text-xs font-bold px-3 sm:px-3.5 py-1.5 rounded-xl shadow-md shrink-0">
-            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <a href="#memories" class="btn btn-secondary btn-sm shrink-0">
+            <i class="fa-solid fa-wand-magic-sparkles text-[#87927B]"></i>
             <span>Memories</span>
           </a>
 
         <?php elseif ($status === 'cancelled'): ?>
-          <a href="#notice" class="inline-flex items-center gap-1 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold px-3 sm:px-3.5 py-1.5 rounded-xl shadow-md shrink-0">
-            <i data-lucide="alert-octagon" class="w-3.5 h-3.5"></i>
+          <a href="#notice" class="btn btn-sm bg-[#F8E6E6] text-[#B54747] border border-[#B54747]/30 hover:bg-[#F0D0D0] shrink-0">
+            <i class="fa-solid fa-circle-xmark"></i>
             <span>Cancelled</span>
           </a>
         <?php endif; ?>
 
       </div>
 
-      <button id="foliioo-event-mobile-btn" type="button" class="md:hidden p-2 rounded-xl text-gray-700 hover:bg-white/60 focus:outline-none transition" aria-label="Toggle Navigation">
-        <i data-lucide="menu" class="w-5 h-5"></i>
+      <!-- Mobile Hamburger Button -->
+      <button id="foliioo-event-mobile-btn" type="button" class="md:hidden p-2 rounded-lg text-[#6B675F] hover:bg-[#FAF8F5] hover:text-[#252321] focus:outline-none transition" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars text-sm"></i>
       </button>
 
     </div>
 
   </nav>
 
-  <div id="foliioo-event-mobile-dropdown" class="hidden md:hidden mt-2 p-3 rounded-2xl glass-island shadow-xl border border-white/60 space-y-1 text-xs font-bold text-gray-800">
-    <a href="#details" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/70 hover:text-[#320E3B]">
-      <i data-lucide="info" class="w-4 h-4 text-gray-400"></i>
+  <!-- Mobile Dropdown Menu -->
+  <div id="foliioo-event-mobile-dropdown" class="hidden md:hidden mt-2 p-3 rounded-xl bg-white border border-[#E9E4DD] shadow-[0_8px_30px_rgba(37,35,33,0.06)] space-y-1 text-xs font-semibold text-[#252321]">
+    <a href="#details" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-[#FAF8F5] hover:text-[#9A5F44]">
+      <i class="fa-solid fa-circle-info w-4 text-[#87927B]"></i>
       <span>Details</span>
     </a>
     <?php if (!empty($features['programme'])): ?>
-      <a href="#programme" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/70 hover:text-[#320E3B]">
-        <i data-lucide="clock" class="w-4 h-4 text-gray-400"></i>
+      <a href="#programme" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-[#FAF8F5] hover:text-[#9A5F44]">
+        <i class="fa-solid fa-clock w-4 text-[#87927B]"></i>
         <span>Programme</span>
       </a>
     <?php endif; ?>
     <?php if (!empty($features['ticketing']) && $status !== 'cancelled'): ?>
-      <a href="#tickets" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/70 hover:text-[#320E3B]">
-        <i data-lucide="ticket" class="w-4 h-4 text-gray-400"></i>
+      <a href="#tickets" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-[#FAF8F5] hover:text-[#9A5F44]">
+        <i class="fa-solid fa-ticket w-4 text-[#87927B]"></i>
         <span>Tickets</span>
       </a>
     <?php endif; ?>
     <?php if (!empty($features['gallery'])): ?>
-      <a href="#gallery" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/70 hover:text-[#320E3B]">
-        <i data-lucide="image" class="w-4 h-4 text-gray-400"></i>
+      <a href="#gallery" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-[#FAF8F5] hover:text-[#9A5F44]">
+        <i class="fa-solid fa-image w-4 text-[#87927B]"></i>
         <span>Gallery</span>
       </a>
     <?php endif; ?>
     <?php if (!empty($features['donations'])): ?>
-      <a href="#donations" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/70 hover:text-[#320E3B]">
-        <i data-lucide="heart-handshake" class="w-4 h-4 text-gray-400"></i>
+      <a href="#donations" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-[#FAF8F5] hover:text-[#9A5F44]">
+        <i class="fa-solid fa-hand-holding-heart w-4 text-[#87927B]"></i>
         <span><?= ($event['event_type'] ?? '') === 'burial' ? 'Memorial Fund' : 'Gifts' ?></span>
       </a>
     <?php endif; ?>

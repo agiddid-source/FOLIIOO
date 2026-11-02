@@ -30,88 +30,88 @@ $pageTitle = 'Secure Checkout — ' . $event['title'];
 require_once __DIR__ . '/_inc/header.php';
 ?>
 
-<div class="min-h-screen flex flex-col bg-[#F8FAFC]">
+<div class="min-h-screen flex flex-col bg-[#FAF8F5]">
 
   <!-- Minimal Checkout Header -->
-  <header class="bg-white border-b border-gray-200/80 sticky top-0 z-30">
-    <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-      <a href="/event.php?slug=<?= urlencode($event['slug']) ?>" class="inline-flex items-center gap-2 text-xs font-bold text-gray-600 hover:text-[#320E3B] transition">
-        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+  <header class="bg-white border-b border-[#E9E4DD] sticky top-0 z-30">
+    <div class="container-main px-4 h-16 flex items-center justify-between">
+      <a href="/event.php?slug=<?= urlencode($event['slug']) ?>" class="btn btn-ghost btn-sm text-[#252321] hover:text-[#9A5F44]">
+        <i class="fa-solid fa-arrow-left mr-1.5"></i>
         <span>Back to Event</span>
       </a>
 
       <div class="flex items-center gap-2">
-        <div class="w-7 h-7 rounded-lg bg-[#320E3B] flex items-center justify-center text-white font-black text-xs">
+        <div class="w-7 h-7 rounded-lg bg-[#9A5F44] flex items-center justify-center text-white font-bold text-xs">
           F
         </div>
-        <span class="text-xs font-black tracking-tight text-gray-900">FOLIIOO CHECKOUT</span>
+        <span class="text-xs font-bold tracking-tight text-[#252321]">FOLIIOO CHECKOUT</span>
       </div>
 
-      <div class="flex items-center gap-1.5 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+      <div class="badge badge-success">
+        <i class="fa-solid fa-shield-halved mr-1.5"></i>
         <span>256-Bit Encrypted</span>
       </div>
     </div>
   </header>
 
-  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8">
+  <main class="flex-1 container-main px-4 py-8">
     
     <?php if ($isConfirmed): ?>
       <!-- Order Confirmation Screen -->
-      <div class="bg-white rounded-3xl border border-gray-200/80 p-6 sm:p-10 shadow-sm space-y-8 text-center max-w-2xl mx-auto">
-        <div class="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-3xl flex items-center justify-center mx-auto shadow-xs">
-          <i data-lucide="check-circle-2" class="w-9 h-9"></i>
+      <div class="card p-6 sm:p-10 max-w-2xl mx-auto space-y-6 text-center">
+        <div class="w-16 h-16 bg-[#E8F1EA] text-[#3F6B48] rounded-2xl flex items-center justify-center mx-auto">
+          <i class="fa-solid fa-circle-check text-3xl"></i>
         </div>
 
         <div class="space-y-2">
-          <span class="text-[10px] font-black uppercase tracking-widest text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">Payment Successful</span>
-          <h1 class="text-2xl sm:text-3xl font-extrabold text-gray-900">You're Going to <?= htmlspecialchars($event['title']) ?>!</h1>
-          <p class="text-xs text-gray-500 max-w-md mx-auto leading-relaxed">
+          <span class="badge badge-success">Payment Successful</span>
+          <h1 class="font-display text-2xl sm:text-3xl font-bold text-[#252321]">You're Going to <?= htmlspecialchars($event['title']) ?>!</h1>
+          <p class="text-xs text-[#6B675F] max-w-md mx-auto leading-relaxed">
             Your simulated payment of <strong>₦<?= number_format($total) ?></strong> was confirmed. A receipt and digital ticket pass have been generated below.
           </p>
         </div>
 
         <!-- Ticket Card Mockup -->
-        <div class="bg-gradient-to-br from-gray-900 via-stone-900 to-[#320E3B] text-white rounded-3xl p-6 sm:p-8 text-left shadow-xl relative overflow-hidden">
+        <div class="bg-[#252321] text-white rounded-2xl p-6 sm:p-8 text-left relative overflow-hidden">
           <div class="flex items-start justify-between gap-4 border-b border-white/10 pb-5">
             <div>
-              <span class="text-[10px] font-bold uppercase tracking-wider text-amber-300">Official Admission Pass</span>
-              <h3 class="text-lg font-black mt-1"><?= htmlspecialchars($event['title']) ?></h3>
-              <p class="text-xs text-gray-300 mt-0.5"><?= htmlspecialchars($selectedTicket['name'] ?? 'General Access') ?></p>
+              <span class="eyebrow text-[#87927B]">Official Admission Pass</span>
+              <h3 class="font-display text-lg font-bold mt-1 text-white"><?= htmlspecialchars($event['title']) ?></h3>
+              <p class="text-xs text-[#FAF8F5]/70 mt-0.5"><?= htmlspecialchars($selectedTicket['name'] ?? 'General Access') ?></p>
             </div>
-            <div class="bg-white p-2 rounded-xl shrink-0">
-              <i data-lucide="qr-code" class="w-12 h-12 text-black"></i>
+            <div class="bg-white p-2.5 rounded-xl shrink-0 text-[#252321]">
+              <i class="fa-solid fa-qrcode text-4xl"></i>
             </div>
           </div>
 
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-5 text-xs">
             <div>
-              <span class="text-gray-400 block text-[10px] uppercase font-bold">Order Ref</span>
-              <span class="font-mono font-bold"><?= $orderRef ?></span>
+              <span class="text-[#A19B93] block text-[10px] uppercase font-bold">Order Ref</span>
+              <span class="font-mono font-bold text-white"><?= $orderRef ?></span>
             </div>
             <div>
-              <span class="text-gray-400 block text-[10px] uppercase font-bold">Quantity</span>
-              <span class="font-bold"><?= $quantity ?> <?= $quantity === 1 ? 'Pass' : 'Passes' ?></span>
+              <span class="text-[#A19B93] block text-[10px] uppercase font-bold">Quantity</span>
+              <span class="font-bold text-white"><?= $quantity ?> <?= $quantity === 1 ? 'Pass' : 'Passes' ?></span>
             </div>
             <div>
-              <span class="text-gray-400 block text-[10px] uppercase font-bold">Date</span>
-              <span class="font-bold"><?= date('M j, Y', strtotime($event['date'] ?? 'now')) ?></span>
+              <span class="text-[#A19B93] block text-[10px] uppercase font-bold">Date</span>
+              <span class="font-bold text-white"><?= date('M j, Y', strtotime($event['date'] ?? 'now')) ?></span>
             </div>
             <div>
-              <span class="text-gray-400 block text-[10px] uppercase font-bold">Door Status</span>
-              <span class="text-emerald-400 font-bold">Valid & Active</span>
+              <span class="text-[#A19B93] block text-[10px] uppercase font-bold">Door Status</span>
+              <span class="text-[#87927B] font-bold">Valid & Active</span>
             </div>
           </div>
         </div>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-          <button type="button" onclick="window.print();" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs font-bold transition">
-            <i data-lucide="printer" class="w-4 h-4"></i>
+          <button type="button" onclick="window.print();" class="btn btn-secondary w-full sm:w-auto">
+            <i class="fa-solid fa-print mr-2"></i>
             <span>Print or Save Ticket</span>
           </button>
-          <a href="/event.php?slug=<?= urlencode($event['slug']) ?>" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#320E3B] hover:bg-[#4A1556] text-white text-xs font-bold transition">
+          <a href="/event.php?slug=<?= urlencode($event['slug']) ?>" class="btn btn-primary w-full sm:w-auto">
             <span>Return to Event Page</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <i class="fa-solid fa-arrow-right ml-2"></i>
           </a>
         </div>
       </div>
@@ -123,10 +123,10 @@ require_once __DIR__ . '/_inc/header.php';
         <!-- Left: Buyer Details & Payment Method -->
         <div class="lg:col-span-7 space-y-6">
           
-          <div class="bg-white rounded-3xl border border-gray-200/80 p-6 sm:p-7 shadow-2xs space-y-5">
-            <div class="border-b border-gray-100 pb-3">
-              <h2 class="text-base font-extrabold text-gray-900">Buyer & Attendee Information</h2>
-              <p class="text-xs text-gray-500 mt-0.5">Tickets will be delivered to this email and phone</p>
+          <div class="card p-6 sm:p-7 space-y-5">
+            <div class="border-b border-[#E9E4DD] pb-3">
+              <h2 class="font-display text-base font-bold text-[#252321]">Buyer & Attendee Information</h2>
+              <p class="text-xs text-[#6B675F] mt-0.5">Tickets will be delivered to this email and phone</p>
             </div>
 
             <form id="checkout-form" action="/checkout.php" method="GET" class="space-y-4">
@@ -136,62 +136,62 @@ require_once __DIR__ . '/_inc/header.php';
               <input type="hidden" name="confirmed" value="1">
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="buyer-name" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Full Name *</label>
-                  <input type="text" id="buyer-name" required placeholder="e.g. Chief Adeleke" class="w-full text-xs bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-[#320E3B] focus:outline-none transition">
+                <div class="form-group">
+                  <label for="buyer-name" class="form-label">Full Name *</label>
+                  <input type="text" id="buyer-name" required placeholder="e.g. Chief Adeleke" class="form-input w-full">
                 </div>
 
-                <div>
-                  <label for="buyer-phone" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Phone Number *</label>
-                  <input type="tel" id="buyer-phone" required placeholder="+234 803 123 4567" class="w-full text-xs bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-[#320E3B] focus:outline-none transition">
+                <div class="form-group">
+                  <label for="buyer-phone" class="form-label">Phone Number *</label>
+                  <input type="tel" id="buyer-phone" required placeholder="+234 803 123 4567" class="form-input w-full">
                 </div>
               </div>
 
-              <div>
-                <label for="buyer-email" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Email Address for Ticket Delivery *</label>
-                <input type="email" id="buyer-email" required placeholder="attendee@example.com" class="w-full text-xs bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-[#320E3B] focus:outline-none transition">
+              <div class="form-group">
+                <label for="buyer-email" class="form-label">Email Address for Ticket Delivery *</label>
+                <input type="email" id="buyer-email" required placeholder="attendee@example.com" class="form-input w-full">
               </div>
 
               <!-- Payment Method Selector -->
-              <div class="pt-4 border-t border-gray-100 space-y-3">
-                <span class="block text-xs font-bold text-gray-700 uppercase tracking-wider">Simulated Payment Method</span>
+              <div class="pt-4 border-t border-[#E9E4DD] space-y-3">
+                <span class="form-label">Simulated Payment Method</span>
                 
                 <div class="grid grid-cols-2 gap-3">
-                  <label class="flex items-center gap-2.5 p-3.5 rounded-xl border border-gray-200 hover:border-[#320E3B] cursor-pointer transition has-checked:border-[#320E3B] has-checked:bg-[#320E3B]/5">
-                    <input type="radio" name="payment_method" value="card" checked class="text-[#320E3B] focus:ring-[#320E3B]">
+                  <label class="flex items-center gap-2.5 p-3.5 rounded-lg border border-[#E9E4DD] hover:border-[#9A5F44] cursor-pointer transition has-checked:border-[#9A5F44] has-checked:bg-[#9A5F44]/5">
+                    <input type="radio" name="payment_method" value="card" checked class="text-[#9A5F44] focus:ring-[#9A5F44]">
                     <div>
-                      <span class="text-xs font-bold text-gray-900 block">Debit / Credit Card</span>
-                      <span class="text-[10px] text-gray-400 block">Mastercard, Visa, Verve</span>
+                      <span class="text-xs font-semibold text-[#252321] block">Debit / Credit Card</span>
+                      <span class="text-[10px] text-[#6B675F] block">Mastercard, Visa, Verve</span>
                     </div>
                   </label>
 
-                  <label class="flex items-center gap-2.5 p-3.5 rounded-xl border border-gray-200 hover:border-[#320E3B] cursor-pointer transition has-checked:border-[#320E3B] has-checked:bg-[#320E3B]/5">
-                    <input type="radio" name="payment_method" value="transfer" class="text-[#320E3B] focus:ring-[#320E3B]">
+                  <label class="flex items-center gap-2.5 p-3.5 rounded-lg border border-[#E9E4DD] hover:border-[#9A5F44] cursor-pointer transition has-checked:border-[#9A5F44] has-checked:bg-[#9A5F44]/5">
+                    <input type="radio" name="payment_method" value="transfer" class="text-[#9A5F44] focus:ring-[#9A5F44]">
                     <div>
-                      <span class="text-xs font-bold text-gray-900 block">Bank Transfer / USSD</span>
-                      <span class="text-[10px] text-gray-400 block">Instant account credit</span>
+                      <span class="text-xs font-semibold text-[#252321] block">Bank Transfer / USSD</span>
+                      <span class="text-[10px] text-[#6B675F] block">Instant account credit</span>
                     </div>
                   </label>
                 </div>
               </div>
 
               <!-- Mock Card Inputs -->
-              <div class="p-4 bg-gray-50 rounded-2xl border border-gray-200 space-y-3">
-                <div class="flex items-center justify-between text-xs text-gray-500">
-                  <span>Test Card Sandbox</span>
-                  <span class="text-[10px] font-bold bg-gray-200 text-gray-700 px-2 py-0.5 rounded">Mock Mode</span>
+              <div class="p-4 bg-[#F3EDE5] rounded-xl border border-[#E9E4DD] space-y-3">
+                <div class="flex items-center justify-between text-xs text-[#6B675F]">
+                  <span class="font-medium">Test Card Sandbox</span>
+                  <span class="badge badge-accent">Mock Mode</span>
                 </div>
                 <div class="space-y-2">
-                  <input type="text" readonly value="4084 •••• •••• 1289" class="w-full text-xs font-mono font-bold bg-white border border-gray-200 rounded-xl px-3 py-2 text-gray-700">
+                  <input type="text" readonly value="4084 •••• •••• 1289" class="form-input w-full font-mono text-xs">
                   <div class="grid grid-cols-2 gap-2">
-                    <input type="text" readonly value="12/28" class="text-xs font-mono bg-white border border-gray-200 rounded-xl px-3 py-2 text-gray-700">
-                    <input type="text" readonly value="••• (CVV)" class="text-xs font-mono bg-white border border-gray-200 rounded-xl px-3 py-2 text-gray-700">
+                    <input type="text" readonly value="12/28" class="form-input font-mono text-xs">
+                    <input type="text" readonly value="••• (CVV)" class="form-input font-mono text-xs">
                   </div>
                 </div>
               </div>
 
-              <button type="submit" class="w-full inline-flex items-center justify-center gap-2 bg-[#320E3B] hover:bg-[#4A1556] text-white text-sm font-bold px-6 py-3.5 rounded-xl shadow-md transition transform active:scale-95">
-                <i data-lucide="lock" class="w-4 h-4"></i>
+              <button type="submit" class="btn btn-primary btn-block btn-lg">
+                <i class="fa-solid fa-lock mr-2"></i>
                 <span>Complete Payment (₦<?= number_format($total) ?>)</span>
               </button>
             </form>
@@ -200,43 +200,43 @@ require_once __DIR__ . '/_inc/header.php';
         </div>
 
         <!-- Right: Order Summary Card -->
-        <div class="lg:col-span-5 bg-white rounded-3xl border border-gray-200/80 p-6 sm:p-7 shadow-2xs space-y-5 sticky top-24">
-          <div class="border-b border-gray-100 pb-3">
-            <h2 class="text-base font-extrabold text-gray-900">Order Summary</h2>
-            <p class="text-xs text-gray-500 mt-0.5"><?= htmlspecialchars($event['title']) ?></p>
+        <div class="lg:col-span-5 card p-6 sm:p-7 space-y-5 sticky top-24">
+          <div class="border-b border-[#E9E4DD] pb-3">
+            <h2 class="font-display text-base font-bold text-[#252321]">Order Summary</h2>
+            <p class="text-xs text-[#6B675F] mt-0.5"><?= htmlspecialchars($event['title']) ?></p>
           </div>
 
           <div class="space-y-3">
             <div class="flex items-start justify-between gap-3 text-xs">
               <div>
-                <span class="font-extrabold text-gray-900 block"><?= htmlspecialchars($selectedTicket['name'] ?? 'Ticket Pass') ?></span>
-                <span class="text-gray-500">₦<?= number_format($unitPrice) ?> × <?= $quantity ?></span>
+                <span class="font-bold text-[#252321] block"><?= htmlspecialchars($selectedTicket['name'] ?? 'Ticket Pass') ?></span>
+                <span class="text-[#6B675F]">₦<?= number_format($unitPrice) ?> × <?= $quantity ?></span>
               </div>
-              <span class="font-bold text-gray-900">₦<?= number_format($subtotal) ?></span>
+              <span class="font-bold text-[#252321]">₦<?= number_format($subtotal) ?></span>
             </div>
 
-            <div class="flex items-center justify-between text-xs text-gray-500 border-t border-gray-100 pt-3">
+            <div class="flex items-center justify-between text-xs text-[#6B675F] border-t border-[#E9E4DD] pt-3">
               <span>Foliioo Platform Fee</span>
-              <span class="text-emerald-700 font-bold">₦0 (Included)</span>
+              <span class="text-[#3F6B48] font-bold">₦0 (Included)</span>
             </div>
 
-            <div class="flex items-center justify-between text-sm font-extrabold text-gray-900 border-t border-gray-200 pt-3">
+            <div class="flex items-center justify-between text-sm font-bold text-[#252321] border-t border-[#E9E4DD] pt-3">
               <span>Total Due</span>
-              <span class="text-lg text-[#320E3B]">₦<?= number_format($total) ?></span>
+              <span class="text-lg text-[#9A5F44]">₦<?= number_format($total) ?></span>
             </div>
           </div>
 
-          <div class="pt-4 border-t border-gray-100 space-y-2 text-[11px] text-gray-400">
+          <div class="pt-4 border-t border-[#E9E4DD] space-y-2 text-[11px] text-[#6B675F]">
             <div class="flex items-center gap-2">
-              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <i class="fa-solid fa-circle-check text-[#3F6B48]"></i>
               <span>Instant digital confirmation via SMS & Email</span>
             </div>
             <div class="flex items-center gap-2">
-              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <i class="fa-solid fa-circle-check text-[#3F6B48]"></i>
               <span>Non-transferable verified QR entry pass</span>
             </div>
             <div class="flex items-center gap-2">
-              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <i class="fa-solid fa-circle-check text-[#3F6B48]"></i>
               <span>Host-guaranteed refund if event is cancelled</span>
             </div>
           </div>

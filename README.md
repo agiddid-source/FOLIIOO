@@ -174,12 +174,42 @@ FoliiooDraft.clearDraft();
 
 ---
 
-## Color Palette
+## Foliioo Design System V1.1
 
-| Token | Hex | Usage |
-|-------|-----|-------|
-| Primary accent | `#320E3B` | Buttons, active states, brand |
-| Accent hover | `#4A1556` | Hover states |
-| Completed/contrast | `#0D160B` | Dark badges, completed status |
-| Light canvas | `#F1F7ED` / `#F8FAFC` | Backgrounds |
-| White | `#FFFFFF` | Cards, surfaces |
+One visual language for every Foliioo page. No new fonts, colours or button styles without team approval.
+
+### Typography
+- **Primary font (body):** `DM Sans` (400 Regular, 500 Medium, 600 Semi Bold, 700 Bold)
+  - Usage: body text, navigation, buttons, forms, tables, dashboard content
+- **Secondary font (headings):** `Fraunces` (400, 500, 600, 700, class `.font-display`)
+  - Usage: hero headings, major page titles, section headings, event titles
+- **Guest-facing template fonts (public event websites only):**
+  - Modern: `DM Sans`
+  - Elegant: `Cormorant Garamond`
+  - Floral: `DM Serif Display`
+
+### Color Palette
+
+| Token | Hex | Tailwind / CSS | Usage |
+|-------|-----|----------------|-------|
+| Page background | Cream `#FAF8F5` | `bg-[#FAF8F5]` / `--color-page` | Main page and workspace backgrounds |
+| Card background | Paper `#FFFFFF` | `bg-[#FFFFFF]` / `.card` | Cards, forms, modals, dashboard panels |
+| Alternate section | Tint `#F3EDE5` | `bg-[#F3EDE5]` / `.surface-tint` | Alternate with Cream and Paper on long pages |
+| Dark section | Deep `#252321` | `bg-[#252321]` / `.surface-deep` | One dark section per page at most |
+| Primary accent | Terracotta `#9A5F44` | `bg-[#9A5F44]` / `.btn-primary` | CTAs, important actions, links, selected states |
+| Primary hover | Deep Terracotta `#7E4A33` | `hover:bg-[#7E4A33]` | Hover state of primary buttons and links |
+| Secondary accent | Sage `#87927B` | `bg-[#87927B]` / `.badge-sage` | Highlights, supporting info, upcoming status |
+| Secondary light | Sage Light `#EEF0EA` | `bg-[#EEF0EA]` | Soft badges and subtle highlighted sections |
+| Primary text | Ink `#252321` | `text-[#252321]` | High contrast body and titles |
+| Secondary text | Muted `#6B675F` | `text-[#6B675F]` | Supporting descriptions and secondary info |
+| Tertiary text | Soft `#A19B93` | `text-[#A19B93]` | Placeholders and disabled text only |
+| Light border | Warm Border `#E9E4DD` | `border-[#E9E4DD]` | Cards, inputs, dividers |
+| Dark border | Dark Border `#D8D1C8` | `border-[#D8D1C8]` | Emphasised outlines and selected components |
+
+### Status and Feedback Colors
+- **Success:** `#3F6B48` / `#E8F1EA` (`.badge-success`)
+- **Warning / Postponed:** `#8F5F12` / `#FBF1DC` (`.badge-warning`)
+- **Error / Cancelled:** `#B54747` / `#F8E6E6` (`.badge-error`)
+- **Upcoming:** Sage `#87927B` / `#EEF0EA` (`.badge-sage`)
+- **In-progress:** Terracotta `#9A5F44` / `#9A5F44` (`.badge-accent`)
+- **Completed:** Neutral `#6B675F` / `#F3EDE5` (`.badge-neutral`)

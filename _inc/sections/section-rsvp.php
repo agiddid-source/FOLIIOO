@@ -1,4 +1,7 @@
 <?php
+/**
+ * Foliioo Design System V1.1 — RSVP & Guest Attendance Section (Module 7)
+ */
 $features = $event['features_enabled'] ?? [];
 if (empty($features['rsvp']) || $status === 'cancelled') {
     return;
@@ -9,55 +12,55 @@ $isFull = $guestLimit['is_full'] ?? false;
 $remainingSeats = $guestLimit['remaining_seats'] ?? 50;
 ?>
 
-<section id="rsvp" class="scroll-mt-24 space-y-4">
-  <div class="flex items-center justify-between border-b border-gray-200/80 pb-3">
+<section id="rsvp" class="scroll-mt-24 space-y-4 font-sans">
+  <div class="flex items-center justify-between border-b border-[#E9E4DD] pb-3">
     <div>
-      <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900 tracking-tight">RSVP & Guest Attendance</h2>
-      <p class="text-xs text-gray-500 mt-0.5">Please confirm your attendance so the host can finalize seating and catering</p>
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-[#252321] tracking-tight">RSVP & Guest Attendance</h2>
+      <p class="text-xs text-[#6B675F] mt-0.5">Please confirm your attendance so the host can finalize seating and catering</p>
     </div>
 
     <?php if ($isFull): ?>
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200">
-        <i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-amber-600"></i>
+      <span class="badge badge-warning text-xs">
+        <i class="fa-solid fa-triangle-exclamation"></i>
         <span>Event Capacity Reached</span>
       </span>
     <?php else: ?>
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
-        <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+      <span class="badge badge-sage text-xs">
+        <span class="w-2 h-2 rounded-full bg-[#87927B]"></span>
         <span><?= number_format($remainingSeats) ?> Seats Remaining</span>
       </span>
     <?php endif; ?>
   </div>
 
-  <div class="bg-white rounded-3xl border border-gray-200/80 p-5 sm:p-8 shadow-2xs">
+  <div class="card p-5 sm:p-8">
     <div id="rsvp-success-card" class="hidden text-center py-8 space-y-4">
-      <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mx-auto shadow-xs">
-        <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+      <div class="w-14 h-14 bg-[#E8F1EA] text-[#3F6B48] rounded-xl flex items-center justify-center mx-auto shadow-xs">
+        <i class="fa-solid fa-circle-check text-2xl"></i>
       </div>
       <div class="space-y-1">
-        <h3 class="text-xl font-extrabold text-gray-900">Your RSVP is Confirmed!</h3>
-        <p class="text-xs text-gray-600 max-w-md mx-auto">
+        <h3 class="font-display text-xl font-bold text-[#252321]">Your RSVP is Confirmed!</h3>
+        <p class="text-xs text-[#6B675F] max-w-md mx-auto">
           Thank you for confirming your attendance. A digital entry pass and calendar invitation have been registered for your party.
         </p>
       </div>
 
-      <div class="inline-block bg-gray-50 border border-gray-200 rounded-2xl p-4 text-left max-w-sm w-full mx-auto space-y-2 text-xs">
-        <div class="flex justify-between border-b border-gray-200 pb-2">
-          <span class="text-gray-500">Guest Pass Code:</span>
-          <span id="rsvp-pass-code" class="font-mono font-bold text-gray-900">FOL-2026-VIP</span>
+      <div class="inline-block bg-[#FAF8F5] border border-[#E9E4DD] rounded-xl p-4 text-left max-w-sm w-full mx-auto space-y-2 text-xs">
+        <div class="flex justify-between border-b border-[#E9E4DD] pb-2">
+          <span class="text-[#6B675F]">Guest Pass Code:</span>
+          <span id="rsvp-pass-code" class="font-mono font-bold text-[#252321]">FOL-2026-VIP</span>
         </div>
-        <div class="flex justify-between border-b border-gray-200 pb-2">
-          <span class="text-gray-500">Reserved Seats:</span>
-          <span id="rsvp-pass-party" class="font-bold text-gray-900">1 Seat</span>
+        <div class="flex justify-between border-b border-[#E9E4DD] pb-2">
+          <span class="text-[#6B675F]">Reserved Seats:</span>
+          <span id="rsvp-pass-party" class="font-bold text-[#252321]">1 Seat</span>
         </div>
         <div class="flex justify-between">
-          <span class="text-gray-500">Door Check-In:</span>
-          <span class="font-bold text-emerald-700">Digital QR Enabled</span>
+          <span class="text-[#6B675F]">Door Check-In:</span>
+          <span class="font-bold text-[#3F6B48]">Digital QR Enabled</span>
         </div>
       </div>
 
       <div class="pt-2">
-        <button type="button" onclick="document.getElementById('rsvp-success-card').classList.add('hidden'); document.getElementById('rsvp-form').classList.remove('hidden');" class="text-xs font-bold text-[#320E3B] hover:underline">
+        <button type="button" onclick="document.getElementById('rsvp-success-card').classList.add('hidden'); document.getElementById('rsvp-form').classList.remove('hidden');" class="text-xs font-bold text-[#9A5F44] hover:underline">
           Edit RSVP Details
         </button>
       </div>
@@ -65,33 +68,33 @@ $remainingSeats = $guestLimit['remaining_seats'] ?? 50;
 
     <form id="rsvp-form" onsubmit="event.preventDefault(); handleRsvpSubmit(this);" class="space-y-5">
       <?php if ($isFull): ?>
-        <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-900 space-y-1">
+        <div class="p-4 rounded-xl bg-[#FBF1DC] border border-[#8F5F12]/20 text-xs text-[#8F5F12] space-y-1">
           <p class="font-bold">Notice: General seating for this event has been filled.</p>
-          <p class="text-amber-800">You may still submit your details to join the host's standby waiting list in case seats open up.</p>
+          <p>You may still submit your details to join the host's standby waiting list in case seats open up.</p>
         </div>
       <?php endif; ?>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label for="rsvp-name" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Full Name *</label>
-          <input type="text" id="rsvp-name" required placeholder="e.g. Dr. Ngozi Adeleke" class="w-full text-xs bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-[#320E3B] focus:outline-none transition">
+          <label for="rsvp-name" class="form-label">Full Name *</label>
+          <input type="text" id="rsvp-name" required placeholder="e.g. Dr. Ngozi Adeleke" class="form-input">
         </div>
 
         <div>
-          <label for="rsvp-phone" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">WhatsApp Phone Number *</label>
-          <input type="tel" id="rsvp-phone" required placeholder="+234 803 123 4567" class="w-full text-xs bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-[#320E3B] focus:outline-none transition">
+          <label for="rsvp-phone" class="form-label">WhatsApp Phone Number *</label>
+          <input type="tel" id="rsvp-phone" required placeholder="+234 803 123 4567" class="form-input">
         </div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label for="rsvp-email" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Email Address</label>
-          <input type="email" id="rsvp-email" placeholder="guest@example.com" class="w-full text-xs bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-[#320E3B] focus:outline-none transition">
+          <label for="rsvp-email" class="form-label">Email Address</label>
+          <input type="email" id="rsvp-email" placeholder="guest@example.com" class="form-input">
         </div>
 
         <div>
-          <label for="rsvp-party-size" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Total Party Size (Seats)</label>
-          <select id="rsvp-party-size" class="w-full text-xs bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2.5 focus:ring-2 focus:ring-[#320E3B] focus:outline-none transition cursor-pointer">
+          <label for="rsvp-party-size" class="form-label">Total Party Size (Seats)</label>
+          <select id="rsvp-party-size" class="form-select cursor-pointer">
             <option value="1">1 Person (Just Me)</option>
             <option value="2">2 Persons (Me + 1 Guest)</option>
             <option value="3">3 Persons</option>
@@ -102,38 +105,38 @@ $remainingSeats = $guestLimit['remaining_seats'] ?? 50;
       </div>
 
       <div>
-        <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Will you be attending?</label>
+        <label class="form-label mb-2">Will you be attending? *</label>
         <div class="grid grid-cols-2 gap-3 max-w-md">
-          <label class="flex items-center gap-2.5 p-3 rounded-xl border border-gray-200 hover:border-[#320E3B] cursor-pointer transition has-checked:border-[#320E3B] has-checked:bg-[#320E3B]/5">
-            <input type="radio" name="rsvp_status" value="attending" checked class="text-[#320E3B] focus:ring-[#320E3B]">
-            <span class="text-xs font-bold text-gray-900">Joyfully Attending</span>
+          <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#E9E4DD] hover:border-[#9A5F44] cursor-pointer transition has-checked:border-[#9A5F44] has-checked:bg-[#9A5F44]/5">
+            <input type="radio" name="rsvp_status" value="attending" checked class="accent-[#9A5F44]">
+            <span class="text-xs font-bold text-[#252321]">Joyfully Attending</span>
           </label>
-          <label class="flex items-center gap-2.5 p-3 rounded-xl border border-gray-200 hover:border-gray-400 cursor-pointer transition has-checked:border-gray-500 has-checked:bg-gray-50">
-            <input type="radio" name="rsvp_status" value="declined" class="text-gray-600 focus:ring-gray-600">
-            <span class="text-xs font-bold text-gray-600">Regretfully Decline</span>
+          <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#E9E4DD] hover:border-[#D8D1C8] cursor-pointer transition has-checked:border-[#6B675F] has-checked:bg-[#FAF8F5]">
+            <input type="radio" name="rsvp_status" value="declined" class="accent-[#6B675F]">
+            <span class="text-xs font-bold text-[#6B675F]">Regretfully Decline</span>
           </label>
         </div>
       </div>
 
       <div>
-        <label for="rsvp-notes" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Goodwill Message</label>
-        <textarea id="rsvp-notes" rows="2" placeholder="Share a warm congratulatory note for the host..." class="w-full text-xs bg-gray-50 border border-gray-200 rounded-xl p-3 focus:ring-2 focus:ring-[#320E3B] focus:outline-none transition"></textarea>
+        <label for="rsvp-notes" class="form-label">Goodwill Message</label>
+        <textarea id="rsvp-notes" rows="2" placeholder="Share a warm congratulatory note for the host..." class="form-textarea"></textarea>
       </div>
 
       <div class="flex items-start gap-2.5 pt-1">
-        <input type="checkbox" id="rsvp-reminder" checked class="mt-0.5 rounded text-[#320E3B] focus:ring-[#320E3B]">
-        <label for="rsvp-reminder" class="text-xs text-gray-600 cursor-pointer">
+        <input type="checkbox" id="rsvp-reminder" checked class="mt-0.5 rounded accent-[#9A5F44]">
+        <label for="rsvp-reminder" class="text-xs text-[#6B675F] cursor-pointer">
           Send me ceremony updates, order of service changes, and venue reminders via WhatsApp
         </label>
       </div>
 
       <div class="pt-2 flex items-center justify-between">
-        <button type="submit" class="inline-flex items-center gap-2 bg-[#320E3B] hover:bg-[#4A1556] text-white text-xs font-bold px-6 py-3 rounded-xl shadow-md transition transform active:scale-95">
-          <i data-lucide="check" class="w-4 h-4"></i>
+        <button type="submit" class="btn btn-primary">
+          <i class="fa-solid fa-check"></i>
           <span>Submit RSVP Response</span>
         </button>
 
-        <span class="text-[11px] text-gray-400">Response is recorded instantly</span>
+        <span class="text-[12px] text-[#A19B93]">Response is recorded instantly</span>
       </div>
     </form>
   </div>
@@ -151,9 +154,5 @@ function handleRsvpSubmit(form) {
   
   form.classList.add('hidden');
   document.getElementById('rsvp-success-card').classList.remove('hidden');
-  
-  if (typeof lucide !== 'undefined') {
-    lucide.createIcons();
-  }
 }
 </script>
