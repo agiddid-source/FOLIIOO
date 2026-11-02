@@ -1,68 +1,87 @@
 <?php
 require_once __DIR__ . '/_inc/MockData.php';
 
-$slug = $_GET['event'] ?? $_GET['slug'] ?? 'african-fintech-summit-2026';
-$event = MockData::getEventBySlug($slug) ?? MockData::getEventById($slug) ?? MockData::getEvents()[4];
+$slug = $_GET['event'] ?? $_GET['slug'] ?? null;
+$event = null;
+if ($slug) {
+    $event = MockData::getEventBySlug($slug) ?? MockData::getEventById($slug);
+}
 
-$creator = MockData::getCreatorById($event['creator_id'] ?? '');
-$plan = MockData::getPlanById($event['plan_id'] ?? '');
-$memories = MockData::getMemoriesForEvent($event['id']);
+// Fallback to first event if not specified so guests have a valid demonstration
+if (!$event) {
+    $events = MockData::getEvents();
+    $event = $events[0] ?? null;
+}
 
-$isGalleryEnabled = !empty($event['features_enabled']['gallery']) && !empty($plan['features']['post_event_gallery'] ?? true);
-$status = $event['status'] ?? 'completed';
+$memories = $event ? MockData::getMemoriesForEvent($event['id']) : [];
+$photos = array_values(array_filter($memories, fn($m) => !empty($m['image_url'])));
 
-$pageTitle = 'Photo Gallery & Memories — ' . $event['title'];
+$pageTitle = $event ? 'Photo Gallery — ' . $event['title'] : 'Event Photo Gallery';
 require_once __DIR__ . '/_inc/header.php';
 ?>
 
 <div class="min-h-screen flex flex-col bg-[#FAF8F5]">
 
-  <!-- Gallery Top Bar -->
+  <!-- Gallery Top Bar (Sticky, Event-Specific) -->
   <header class="bg-white border-b border-[#E9E4DD] sticky top-0 z-30">
     <div class="container-main px-4 h-16 flex items-center justify-between">
-      <a href="/event.php?slug=<?= urlencode($event['slug']) ?>" class="btn btn-ghost btn-sm text-[#252321] hover:text-[#9A5F44]">
-        <i class="fa-solid fa-arrow-left mr-1.5"></i>
-        <span>Back to Event</span>
-      </a>
+      <?php if ($event): ?>
+        <a href="/event.php?slug=<?= urlencode($event['slug']) ?>" class="btn btn-ghost btn-sm text-[#252321] hover:text-[#9A5F44]">
+          <i class="fa-solid fa-arrow-left sm:mr-1.5"></i>
+          <span class="hidden sm:inline">Back to Event</span>
+          <span class="sm:hidden">Back</span>
+        </a>
 
-      <div class="flex items-center gap-2">
-        <span class="text-xs font-bold text-[#252321] truncate max-w-xs md:max-w-md">
-          <?= htmlspecialchars($event['title']) ?>
+        <div class="flex items-center gap-2 max-w-[200px] sm:max-w-md truncate">
+          <div class="w-6 h-6 rounded-md bg-[#9A5F44] text-white flex items-center justify-center font-bold text-xs shrink-0">
+            <?= strtoupper(substr($event['title'] ?? 'E', 0, 1)) ?>
+          </div>
+          <span class="text-xs font-semibold text-[#252321] truncate">
+            <?= htmlspecialchars($event['title']) ?>
+          </span>
+        </div>
+
+        <span class="badge badge-sage shrink-0">
+          <i class="fa-solid fa-images mr-1.5"></i>
+          <span><?= count($photos) ?> <?= count($photos) === 1 ? 'Photo' : 'Photos' ?></span>
         </span>
-      </div>
-
-      <button type="button" onclick="document.getElementById('upload-memory-modal').classList.remove('hidden');" class="btn btn-primary btn-sm">
-        <i class="fa-solid fa-plus mr-1.5"></i>
-        <span>Add Memory</span>
-      </button>
+      <?php else: ?>
+        <a href="/" class="btn btn-ghost btn-sm text-[#252321] hover:text-[#9A5F44]">
+          <i class="fa-solid fa-arrow-left mr-1.5"></i>
+          <span>Home</span>
+        </a>
+      <?php endif; ?>
     </div>
   </header>
 
   <main class="flex-1 container-main px-4 py-8 space-y-8">
-    
-    <!-- Hero Banner with Host Gratitude -->
-    <div class="bg-[#252321] text-white rounded-2xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
-      <div class="space-y-3 max-w-3xl">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#87927B] text-xs font-semibold uppercase tracking-wider backdrop-blur-xs">
-          <i class="fa-solid fa-wand-magic-sparkles mr-1"></i>
-          <span>Official Event Album & Guest Tributes</span>
+
+    <?php if (!$event): ?>
+      <div class="card p-12 text-center max-w-lg mx-auto space-y-4">
+        <div class="w-12 h-12 rounded-full bg-[#EEF0EA] text-[#87927B] flex items-center justify-center mx-auto text-xl">
+          <i class="fa-solid fa-images"></i>
+        </div>
+        <h2 class="font-display text-xl font-bold text-[#252321]">Event Not Specified</h2>
+        <p class="text-xs text-[#6B675F]">
+          Each gallery on Foliioo is tied directly to a specific event. Please select an event to view its curated photo album.
+        </p>
+        <a href="/event.php" class="btn btn-primary inline-flex">View Sample Event</a>
+      </div>
+    <?php else: ?>
+
+      <!-- Event Header -->
+      <div class="space-y-3 border-b border-[#E9E4DD] pb-6">
+        <div class="flex items-center gap-2">
+          <span class="eyebrow text-[#87927B]"><?= htmlspecialchars($event['event_type_label'] ?? 'Event') ?></span>
+          <span class="text-[#E9E4DD]">•</span>
+          <span class="text-xs text-[#6B675F] font-medium">Curated Photo Album</span>
         </div>
 
-        <h1 class="font-display text-2xl sm:text-4xl font-bold tracking-tight text-white">
-          Memories of <?= htmlspecialchars($event['title']) ?>
+        <h1 class="font-display text-2xl sm:text-4xl font-bold tracking-tight text-[#252321]">
+          <?= htmlspecialchars($event['title']) ?>
         </h1>
 
-        <?php if (!empty($event['post_event_message'])): ?>
-          <p class="text-xs sm:text-sm text-[#FAF8F5]/80 leading-relaxed max-w-2xl pt-1">
-            <?= htmlspecialchars($event['post_event_message']) ?>
-          </p>
-        <?php else: ?>
-          <p class="text-xs sm:text-sm text-[#FAF8F5]/80 leading-relaxed max-w-2xl pt-1">
-            Relive the memorable highlights, shared photographs, and heartfelt notes contributed by attendees and the organizing committee.
-          </p>
-        <?php endif; ?>
-
-        <div class="flex flex-wrap items-center gap-4 pt-3 text-xs text-[#FAF8F5]/70 font-medium">
+        <div class="flex flex-wrap items-center gap-4 text-xs text-[#6B675F] pt-1">
           <span class="flex items-center gap-1.5">
             <i class="fa-solid fa-calendar text-[#87927B]"></i>
             <?= date('F j, Y', strtotime($event['date'] ?? 'now')) ?>
@@ -75,215 +94,115 @@ require_once __DIR__ . '/_inc/header.php';
           <span class="opacity-40">•</span>
           <span class="flex items-center gap-1.5">
             <i class="fa-solid fa-image text-[#87927B]"></i>
-            <span id="gallery-total-count"><?= count($memories) ?> Total Moments</span>
+            <span><?= count($photos) ?> <?= count($photos) === 1 ? 'Curated Photo' : 'Curated Photos' ?></span>
           </span>
         </div>
-      </div>
-    </div>
 
-    <!-- Filter Buttons -->
-    <div class="flex items-center justify-between border-b border-[#E9E4DD] pb-4 flex-wrap gap-3">
-      <div class="flex items-center gap-2">
-        <button type="button" onclick="filterGallery('all', this)" class="gallery-filter-btn btn btn-primary btn-sm">
-          All Moments
-        </button>
-        <button type="button" onclick="filterGallery('photo', this)" class="gallery-filter-btn btn btn-secondary btn-sm">
-          Photos Only
-        </button>
-        <button type="button" onclick="filterGallery('tribute', this)" class="gallery-filter-btn btn btn-secondary btn-sm">
-          Written Tributes
-        </button>
-      </div>
-
-      <div class="text-xs text-[#6B675F]">
-        Click any photo to enlarge
-      </div>
-    </div>
-
-    <!-- Gallery Grid -->
-    <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <?php foreach ($memories as $idx => $item): ?>
-        <?php
-          $type = $item['type'] ?? 'photo';
-          $hasImg = !empty($item['image_url']);
-        ?>
-        <div class="gallery-item card card-hover overflow-hidden flex flex-col justify-between" data-type="<?= htmlspecialchars($type) ?>">
-          <?php if ($hasImg): ?>
-            <div class="relative h-60 w-full bg-[#F3EDE5] overflow-hidden cursor-pointer group" onclick="openLightbox('<?= htmlspecialchars($item['image_url']) ?>', '<?= htmlspecialchars(addslashes($item['caption'] ?? $item['message'])) ?>')">
-              <img src="<?= htmlspecialchars($item['image_url']) ?>" alt="Gallery item" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-              <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
-                <i class="fa-solid fa-expand text-2xl drop-shadow-md"></i>
-              </div>
+        <?php if (!empty($event['post_event_message'])): ?>
+          <div class="mt-4 p-4 rounded-xl bg-[#F3EDE5] border border-[#E9E4DD] text-xs text-[#252321] leading-relaxed max-w-3xl">
+            <div class="flex items-center gap-2 font-semibold text-[#9A5F44] mb-1">
+              <i class="fa-solid fa-award"></i>
+              <span>Host Note</span>
             </div>
-          <?php endif; ?>
-
-          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
-            <div>
-              <?php if (!empty($item['caption'])): ?>
-                <h3 class="font-display text-sm font-bold text-[#252321] mb-1"><?= htmlspecialchars($item['caption']) ?></h3>
-              <?php endif; ?>
-              <p class="text-xs text-[#252321] leading-relaxed italic">
-                "<?= htmlspecialchars($item['message']) ?>"
-              </p>
-            </div>
-
-            <div class="pt-3 border-t border-[#E9E4DD] flex items-center gap-3">
-              <?php if (!empty($item['avatar'])): ?>
-                <img src="<?= htmlspecialchars($item['avatar']) ?>" class="w-8 h-8 rounded-full object-cover ring-2 ring-[#E9E4DD]" alt="">
-              <?php else: ?>
-                <div class="w-8 h-8 rounded-full bg-[#EEF0EA] text-[#87927B] flex items-center justify-center font-bold text-xs">
-                  <?= strtoupper(substr($item['author_name'] ?? 'G', 0, 1)) ?>
-                </div>
-              <?php endif; ?>
-              <div class="min-w-0">
-                <span class="text-xs font-semibold text-[#252321] block truncate"><?= htmlspecialchars($item['author_name'] ?? 'Guest') ?></span>
-                <span class="text-[10px] text-[#6B675F] block truncate"><?= htmlspecialchars($item['author_role'] ?? 'Attendee') ?></span>
-              </div>
-            </div>
+            <?= htmlspecialchars($event['post_event_message']) ?>
           </div>
+        <?php endif; ?>
+      </div>
+
+      <!-- Simplified Photo-First Grid (Pure Photos, No Captions/Names) -->
+      <?php if (empty($photos)): ?>
+        <div class="card p-12 text-center max-w-md mx-auto space-y-3">
+          <div class="w-12 h-12 rounded-full bg-[#EEF0EA] text-[#87927B] flex items-center justify-center mx-auto text-xl">
+            <i class="fa-solid fa-image"></i>
+          </div>
+          <h3 class="font-display text-base font-bold text-[#252321]">No Photos Uploaded Yet</h3>
+          <p class="text-xs text-[#6B675F]">The event organizer has not published official photos for this event yet.</p>
         </div>
-      <?php endforeach; ?>
-    </div>
+      <?php else: ?>
+        <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
+          <?php foreach ($photos as $idx => $item): ?>
+            <div 
+              class="aspect-square bg-[#F3EDE5] rounded-xl overflow-hidden border border-[#E9E4DD] cursor-pointer group relative shadow-2xs hover:shadow-md transition-all duration-300"
+              onclick="openLightbox('<?= htmlspecialchars($item['image_url']) ?>', <?= $idx ?>)"
+            >
+              <img 
+                src="<?= htmlspecialchars($item['image_url']) ?>" 
+                alt="Event Photo <?= $idx + 1 ?>" 
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                loading="lazy"
+              >
+              <div class="absolute inset-0 bg-[#252321]/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                <i class="fa-solid fa-expand text-xl drop-shadow-md"></i>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
+
+    <?php endif; ?>
 
   </main>
 
-  <!-- Upload Memory Modal -->
-  <div id="upload-memory-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-    <div class="card max-w-lg w-full p-6 sm:p-8 space-y-5 shadow-2xl relative">
-      <div class="flex items-center justify-between border-b border-[#E9E4DD] pb-3">
-        <div>
-          <h3 class="font-display text-lg font-bold text-[#252321]">Add to Event Gallery</h3>
-          <p class="text-xs text-[#6B675F]">Share a tribute photo, selfie, or warm reflection</p>
-        </div>
-        <button type="button" onclick="document.getElementById('upload-memory-modal').classList.add('hidden');" class="p-1 rounded-lg text-[#6B675F] hover:text-[#252321]">
-          <i class="fa-solid fa-xmark text-lg"></i>
-        </button>
-      </div>
-
-      <form id="memory-form" onsubmit="event.preventDefault(); submitMemory();" class="space-y-4">
-        <div class="form-group">
-          <label for="memory-name" class="form-label">Your Name *</label>
-          <input type="text" id="memory-name" required placeholder="e.g. Somto Okafor" class="form-input w-full">
-        </div>
-
-        <div class="form-group">
-          <label for="memory-role" class="form-label">Your Role or Relation</label>
-          <input type="text" id="memory-role" placeholder="e.g. University Classmate, Guest, Colleague" class="form-input w-full">
-        </div>
-
-        <div class="form-group">
-          <label for="memory-photo" class="form-label">Photo URL (Optional)</label>
-          <input type="url" id="memory-photo" placeholder="https://images.unsplash.com/..." class="form-input w-full">
-        </div>
-
-        <div class="form-group">
-          <label for="memory-caption" class="form-label">Caption or Short Title</label>
-          <input type="text" id="memory-caption" placeholder="e.g. Cocktail hour with the keynote speakers" class="form-input w-full">
-        </div>
-
-        <div class="form-group">
-          <label for="memory-message" class="form-label">Memory or Message *</label>
-          <textarea id="memory-message" rows="3" required placeholder="Share your experience, tribute, or congratulations..." class="form-textarea w-full"></textarea>
-        </div>
-
-        <div class="pt-2 flex items-center justify-end gap-3">
-          <button type="button" onclick="document.getElementById('upload-memory-modal').classList.add('hidden');" class="btn btn-secondary btn-sm">
-            Cancel
-          </button>
-          <button type="submit" class="btn btn-primary btn-sm">
-            Publish Memory
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Lightbox Modal -->
-  <div id="lightbox-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md" onclick="closeLightbox()">
-    <div class="relative max-w-4xl w-full text-center space-y-3" onclick="event.stopPropagation()">
-      <button type="button" onclick="closeLightbox()" class="absolute -top-10 right-0 text-white hover:text-[#FAF8F5]/80 p-2">
-        <i class="fa-solid fa-xmark text-2xl"></i>
+  <!-- Minimalist Lightbox Modal -->
+  <div id="lightbox-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#252321]/95 backdrop-blur-md" onclick="closeLightbox()">
+    <div class="relative max-w-5xl w-full flex flex-col items-center justify-center" onclick="event.stopPropagation()">
+      <button type="button" onclick="closeLightbox()" class="absolute -top-12 right-0 text-white/80 hover:text-white p-2 text-2xl transition">
+        <i class="fa-solid fa-xmark"></i>
       </button>
-      <img id="lightbox-img" src="" class="max-h-[75vh] mx-auto rounded-2xl shadow-2xl object-contain border border-white/10" alt="Enlarged photo">
-      <p id="lightbox-caption" class="text-xs text-[#FAF8F5]/80 font-medium max-w-xl mx-auto"></p>
+
+      <img id="lightbox-img" src="" class="max-h-[82vh] max-w-full rounded-xl shadow-2xl object-contain border border-white/10" alt="Full size photo">
+
+      <!-- Navigation Arrows -->
+      <button type="button" onclick="prevPhoto()" class="absolute left-2 sm:-left-12 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-lg transition">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button type="button" onclick="nextPhoto()" class="absolute right-2 sm:-right-12 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-lg transition">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
     </div>
   </div>
 
+  <!-- Guest Footer -->
   <?php require __DIR__ . '/_inc/footer/footer-event.php'; ?>
 
 </div>
 
 <script>
-function filterGallery(type, btn) {
-  document.querySelectorAll('.gallery-filter-btn').forEach(b => {
-    b.classList.remove('btn-primary');
-    b.classList.add('btn-secondary');
-  });
-  btn.classList.remove('btn-secondary');
-  btn.classList.add('btn-primary');
+const galleryPhotos = <?= json_encode(array_column($photos, 'image_url')) ?>;
+let currentIdx = 0;
 
-  const items = document.querySelectorAll('.gallery-item');
-  items.forEach(item => {
-    if (type === 'all' || item.getAttribute('data-type') === type) {
-      item.classList.remove('hidden');
-    } else {
-      item.classList.add('hidden');
-    }
-  });
-}
-
-function openLightbox(url, caption) {
-  const modal = document.getElementById('lightbox-modal');
+function openLightbox(url, idx) {
+  currentIdx = typeof idx === 'number' ? idx : galleryPhotos.indexOf(url);
   document.getElementById('lightbox-img').src = url;
-  document.getElementById('lightbox-caption').textContent = caption;
-  modal.classList.remove('hidden');
+  document.getElementById('lightbox-modal').classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
 }
 
 function closeLightbox() {
   document.getElementById('lightbox-modal').classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
 }
 
-function submitMemory() {
-  const name = document.getElementById('memory-name').value;
-  const role = document.getElementById('memory-role').value || 'Attendee';
-  const photo = document.getElementById('memory-photo').value;
-  const caption = document.getElementById('memory-caption').value;
-  const message = document.getElementById('memory-message').value;
+function prevPhoto() {
+  if (galleryPhotos.length === 0) return;
+  currentIdx = (currentIdx - 1 + galleryPhotos.length) % galleryPhotos.length;
+  document.getElementById('lightbox-img').src = galleryPhotos[currentIdx];
+}
 
-  const card = document.createElement('div');
-  card.className = 'gallery-item card card-hover overflow-hidden flex flex-col justify-between';
-  card.setAttribute('data-type', photo ? 'photo' : 'tribute');
+function nextPhoto() {
+  if (galleryPhotos.length === 0) return;
+  currentIdx = (currentIdx + 1) % galleryPhotos.length;
+  document.getElementById('lightbox-img').src = galleryPhotos[currentIdx];
+}
 
-  let imgHtml = '';
-  if (photo) {
-    imgHtml = `<div class="relative h-60 w-full bg-[#F3EDE5] overflow-hidden cursor-pointer" onclick="openLightbox('${photo}', '${caption || message}')">
-      <img src="${photo}" class="w-full h-full object-cover" alt="">
-    </div>`;
+document.addEventListener('keydown', (e) => {
+  const modal = document.getElementById('lightbox-modal');
+  if (modal && !modal.classList.contains('hidden')) {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') prevPhoto();
+    if (e.key === 'ArrowRight') nextPhoto();
   }
-
-  card.innerHTML = `
-    ${imgHtml}
-    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
-      <div>
-        ${caption ? `<h3 class="font-display text-sm font-bold text-[#252321] mb-1">${caption}</h3>` : ''}
-        <p class="text-xs text-[#252321] leading-relaxed italic">"${message}"</p>
-      </div>
-      <div class="pt-3 border-t border-[#E9E4DD] flex items-center gap-3">
-        <div class="w-8 h-8 rounded-full bg-[#EEF0EA] text-[#87927B] flex items-center justify-center font-bold text-xs">
-          ${name.charAt(0).toUpperCase()}
-        </div>
-        <div class="min-w-0">
-          <span class="text-xs font-semibold text-[#252321] block truncate">${name}</span>
-          <span class="text-[10px] text-[#6B675F] block truncate">${role}</span>
-        </div>
-      </div>
-    </div>
-  `;
-
-  document.getElementById('gallery-container').prepend(card);
-  document.getElementById('upload-memory-modal').classList.add('hidden');
-  document.getElementById('memory-form').reset();
-}
+});
 </script>
 
 <?php require_once __DIR__ . '/_inc/footer.php'; ?>
