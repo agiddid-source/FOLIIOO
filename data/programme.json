@@ -1,0 +1,79 @@
+[
+    {
+        "id": "prg_001",
+        "event_id": "evt_001",
+        "order": 1,
+        "time": "10:00",
+        "title": "Traditional engagement",
+        "description": "The families gather for the traditional rites.",
+        "status": "upcoming",
+        "started_at": null,
+        "completed_at": null
+    },
+    {
+        "id": "prg_002",
+        "event_id": "evt_001",
+        "order": 2,
+        "time": "12:30",
+        "title": "Wedding ceremony",
+        "description": "The couple exchange their vows.",
+        "status": "upcoming",
+        "started_at": null,
+        "completed_at": null
+    },
+    {
+        "id": "prg_003",
+        "event_id": "evt_001",
+        "order": 3,
+        "time": "14:00",
+        "title": "Reception and celebration",
+        "description": "Guests join the couple for food, music and dancing.",
+        "status": "upcoming",
+        "started_at": null,
+        "completed_at": null
+    },
+    {
+        "id": "prg_004",
+        "event_id": "evt_003",
+        "order": 1,
+        "time": "11:00",
+        "title": "Guest arrival",
+        "description": "Welcome guests and direct them to the ceremony.",
+        "status": "completed",
+        "started_at": "2026-11-05T10:30:00+01:00",
+        "completed_at": "2026-11-05T11:00:00+01:00"
+    },
+    {
+        "id": "prg_005",
+        "event_id": "evt_003",
+        "order": 3,
+        "time": "11:15",
+        "title": "Traditional ceremony",
+        "description": "The ceremony is now in progress.",
+        "status": "in_progress",
+        "started_at": "2026-11-05T11:15:00+01:00",
+        "completed_at": null
+    },
+    {
+        "id": "prg_006",
+        "event_id": "evt_003",
+        "order": 2,
+        "time": "14:00",
+        "title": "Reception",
+        "description": "Celebration and refreshments for all guests.",
+        "status": "upcoming",
+        "started_at": null,
+        "completed_at": null
+    },
+    {
+        "id": "prg_007",
+        "event_id": "evt_004",
+        "order": 1,
+        "time": "10:00",
+        "title": "Family reception",
+        "description": "Family and friends gather to honour Chief Okonkwo.",
+        "status": "completed",
+        "started_at": "2026-10-18T10:00:00+01:00",
+        "completed_at": "2026-10-18T11:00:00+01:00"
+    }
+]

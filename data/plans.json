@@ -1,0 +1,38 @@
+[
+  {
+    "id": "basic",
+    "name": "Basic",
+    "photo_limit": 10,
+    "features": {
+      "rsvp": true,
+      "tickets": false,
+      "donations": false,
+      "gallery_pre": true,
+      "gallery_post": false
+    }
+  },
+  {
+    "id": "premium",
+    "name": "Premium",
+    "photo_limit": 100,
+    "features": {
+      "rsvp": true,
+      "tickets": true,
+      "donations": true,
+      "gallery_pre": true,
+      "gallery_post": true
+    }
+  },
+  {
+    "id": "legacy",
+    "name": "Legacy",
+    "photo_limit": 250,
+    "features": {
+      "rsvp": true,
+      "tickets": false,
+      "donations": true,
+      "gallery_pre": true,
+      "gallery_post": true
+    }
+  }
+]

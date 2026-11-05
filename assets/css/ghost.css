@@ -1,0 +1,56 @@
+/*
+ * Local Tailwind entry point and Foliioo Ghost workspace styles.
+ * Run npm run build:css to generate the stylesheet served by Apache.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "DM Sans", sans-serif;
+}
+
+.font-display {
+    font-family: "Fraunces", serif;
+}
+
+html {
+    background: #faf8f5;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+}
+
+.ghost-progress {
+    appearance: none;
+    border: 0;
+    background: #e9e4dd;
+    color: #87927b;
+}
+
+.ghost-progress::-webkit-progress-bar {
+    border-radius: 9999px;
+    background: #e9e4dd;
+}
+
+.ghost-progress::-webkit-progress-value {
+    border-radius: 9999px;
+    background: #87927b;
+}
+
+.ghost-progress::-moz-progress-bar {
+    border-radius: 9999px;
+    background: #87927b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}

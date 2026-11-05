@@ -1,0 +1,29 @@
+[
+  {
+    "id": "med_001",
+    "event_id": "evt_001",
+    "src": "assets/mock/photo-01.svg",
+    "caption": "A quiet moment before the celebration",
+    "album": "pre_event",
+    "published": true,
+    "order": 1
+  },
+  {
+    "id": "med_002",
+    "event_id": "evt_001",
+    "src": "assets/mock/photo-02.svg",
+    "caption": "Together with our families",
+    "album": "pre_event",
+    "published": true,
+    "order": 2
+  },
+  {
+    "id": "med_003",
+    "event_id": "evt_004",
+    "src": "assets/mock/photo-03.svg",
+    "caption": "Remembering a life well lived",
+    "album": "post_event",
+    "published": true,
+    "order": 1
+  }
+]

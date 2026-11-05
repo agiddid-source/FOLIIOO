@@ -1,0 +1,74 @@
+[
+  {
+    "id": "gst_001",
+    "event_id": "evt_001",
+    "name": "Ngozi Eze",
+    "email": "ngozi.eze@example.test",
+    "phone": "+2348031234567",
+    "response": "attending",
+    "party_size": 2,
+    "pass_token": "FOL-7K2M9Q",
+    "checked_in": false,
+    "checked_in_at": null
+  },
+  {
+    "id": "gst_002",
+    "event_id": "evt_001",
+    "name": "Chinedu Okafor",
+    "email": "chinedu.okafor@example.test",
+    "phone": "+2348062345678",
+    "response": "attending",
+    "party_size": 1,
+    "pass_token": "FOL-4P8R2T",
+    "checked_in": false,
+    "checked_in_at": null
+  },
+  {
+    "id": "gst_003",
+    "event_id": "evt_001",
+    "name": "Bisi Adebayo",
+    "email": "bisi.adebayo@example.test",
+    "phone": "+2348093456789",
+    "response": "pending",
+    "party_size": 2,
+    "pass_token": "FOL-9C3W6L",
+    "checked_in": false,
+    "checked_in_at": null
+  },
+  {
+    "id": "gst_004",
+    "event_id": "evt_003",
+    "name": "Tosin Balogun",
+    "email": "tosin.balogun@example.test",
+    "phone": "+2348024567890",
+    "response": "attending",
+    "party_size": 2,
+    "pass_token": "FOL-5N7D1K",
+    "checked_in": true,
+    "checked_in_at": "2026-11-05T10:42:00+01:00"
+  },
+  {
+    "id": "gst_005",
+    "event_id": "evt_003",
+    "name": "Amaka Ibe",
+    "email": "amaka.ibe@example.test",
+    "phone": "+2348075678901",
+    "response": "attending",
+    "party_size": 3,
+    "pass_token": "FOL-8H2J4M",
+    "checked_in": false,
+    "checked_in_at": null
+  },
+  {
+    "id": "gst_006",
+    "event_id": "evt_004",
+    "name": "Samuel Ojo",
+    "email": "samuel.ojo@example.test",
+    "phone": "+2348056789012",
+    "response": "attending",
+    "party_size": 2,
+    "pass_token": "FOL-3Q6B9V",
+    "checked_in": true,
+    "checked_in_at": "2026-10-18T09:35:00+01:00"
+  }
+]

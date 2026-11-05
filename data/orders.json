@@ -1,0 +1,13 @@
+[
+  {
+    "id": "ord_001",
+    "event_id": "evt_001",
+    "guest_id": "gst_001",
+    "description": "Guest table contribution",
+    "amount": 25000,
+    "currency": "NGN",
+    "status": "successful",
+    "created_at": "2026-10-28T09:20:00+01:00",
+    "mock": true
+  }
+]

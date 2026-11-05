@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="title description">
+  <title id="title">Celebration with family</title>
+  <desc id="description">A warm abstract illustration of two people standing together at a celebration.</desc>
+  <rect width="960" height="640" fill="#EEF0EA"/>
+  <circle cx="780" cy="120" r="170" fill="#FAF8F5"/>
+  <path d="M0 475c140-50 290-50 460-4s340 43 500-16v185H0z" fill="#E9E4DD"/>
+  <circle cx="408" cy="216" r="60" fill="#D6A98F"/>
+  <circle cx="558" cy="216" r="60" fill="#A66B4F"/>
+  <path d="M305 499c10-145 38-218 103-218s93 73 103 218" fill="#A66B4F"/>
+  <path d="M455 499c10-145 38-218 103-218s93 73 103 218" fill="#87927B"/>
+  <path d="M444 360c28 35 50 54 72 64" fill="none" stroke="#FAF8F5" stroke-linecap="round" stroke-width="15"/>
+  <path d="M220 125c22 18 35 45 38 78m488 175c24 20 38 49 40 82" fill="none" stroke="#D8D1C8" stroke-linecap="round" stroke-width="10"/>
+</svg>

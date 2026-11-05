@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="title description">
+  <title id="title">A life remembered</title>
+  <desc id="description">A peaceful memorial illustration with a candle and green leaves.</desc>
+  <rect width="960" height="640" fill="#FAF8F5"/>
+  <path d="M0 480c180-65 300-36 460 3s330 12 500-48v205H0z" fill="#EEF0EA"/>
+  <path d="M470 430c-130-100-190-160-210-250 85 23 160 85 210 250zm20-8c30-145 95-230 200-275-15 105-75 195-200 275z" fill="#87927B"/>
+  <path d="M485 445V212" fill="none" stroke="#65735D" stroke-linecap="round" stroke-width="12"/>
+  <rect x="408" y="350" width="145" height="165" rx="14" fill="#FFFFFF" stroke="#E9E4DD" stroke-width="7"/>
+  <path d="M480 326c-28 36-25 56 0 70 27-16 29-39 0-70z" fill="#A66B4F"/>
+  <path d="M480 383v-36" fill="none" stroke="#87533C" stroke-linecap="round" stroke-width="7"/>
+  <path d="M365 520h230" fill="none" stroke="#D8D1C8" stroke-linecap="round" stroke-width="10"/>
+</svg>
