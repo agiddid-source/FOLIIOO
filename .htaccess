@@ -1,0 +1,20 @@
+RewriteEngine On
+RewriteBase /
+
+# Serve existing files and directories directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Clean Event Path: /e/{slug} or /event/{slug}
+RewriteRule ^e(?:vent)?/([^/]+)/?$ event.php?event=$1 [L,QSA]
+
+# Clean Gallery Path: /gallery/{slug}
+RewriteRule ^gallery/([^/]+)/?$ gallery.php?event=$1 [L,QSA]
+
+# Clean Checkout Path: /checkout/{slug}
+RewriteRule ^checkout/([^/]+)/?$ checkout.php?event=$1 [L,QSA]
+
+# Clean .php extensionless URLs
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L]

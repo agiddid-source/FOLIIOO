@@ -28,10 +28,10 @@
       <div class="space-y-4">
         <h4 class="text-xs font-bold uppercase tracking-wider text-white">Event Templates</h4>
         <ul class="space-y-2.5 text-xs">
-          <li><a href="/event.php?slug=chief-adeleke-celebration-of-life" class="hover:text-white transition">Elegant: Chief Adeleke Memorial</a></li>
-          <li><a href="/event.php?slug=chidi-amara-wedding" class="hover:text-white transition">Floral: Chidi & Amara Wedding</a></li>
-          <li><a href="/event.php?slug=lagos-innovators-gala" class="hover:text-white transition">Modern: Lagos Tech Gala</a></li>
-          <li><a href="/event.php?slug=african-fintech-summit-2026" class="hover:text-white transition">Modern: African Fintech Summit</a></li>
+          <li><a href="/e/chief-adeleke-celebration-of-life" class="hover:text-white transition">Elegant: Chief Adeleke Memorial</a></li>
+          <li><a href="/e/ghost-ghostess-wedding" class="hover:text-white transition">Floral: Ghost & Ghostess Wedding</a></li>
+          <li><a href="/e/lagos-innovators-gala" class="hover:text-white transition">Modern: Lagos Tech Gala</a></li>
+          <li><a href="/e/african-fintech-summit-2026" class="hover:text-white transition">Modern: African Fintech Summit</a></li>
         </ul>
       </div>
 
@@ -39,11 +39,11 @@
       <div class="space-y-4">
         <h4 class="text-xs font-bold uppercase tracking-wider text-white">Lifecycle States</h4>
         <ul class="space-y-2.5 text-xs">
-          <li><a href="/event.php?preview=1&status=published_pre_event" class="hover:text-white transition">Upcoming / RSVP Open</a></li>
-          <li><a href="/event.php?preview=1&status=in_progress" class="hover:text-white transition">Live Now / Session Active</a></li>
-          <li><a href="/event.php?preview=1&status=completed" class="hover:text-white transition">Completed / Photo Highlights</a></li>
-          <li><a href="/event.php?preview=1&status=postponed" class="hover:text-white transition">Postponed / Calendar Notice</a></li>
-          <li><a href="/event.php?preview=1&status=cancelled" class="hover:text-white transition">Cancelled / Refund Notice</a></li>
+          <li><a href="/e/chief-adeleke-celebration-of-life?preview=1&status=published_pre_event" class="hover:text-white transition">Upcoming / RSVP Open</a></li>
+          <li><a href="/e/chief-adeleke-celebration-of-life?preview=1&status=in_progress" class="hover:text-white transition">Live Now / Session Active</a></li>
+          <li><a href="/e/african-fintech-summit-2026?preview=1&status=completed" class="hover:text-white transition">Completed / Photo Highlights</a></li>
+          <li><a href="/e/chief-adeleke-celebration-of-life?preview=1&status=postponed" class="hover:text-white transition">Postponed / Calendar Notice</a></li>
+          <li><a href="/e/lagos-charity-polo-match?preview=1&status=cancelled" class="hover:text-white transition">Cancelled / Refund Notice</a></li>
         </ul>
       </div>
 
@@ -51,9 +51,9 @@
       <div class="space-y-4">
         <h4 class="text-xs font-bold uppercase tracking-wider text-white">Guest Modules</h4>
         <ul class="space-y-2.5 text-xs">
-          <li><a href="/gallery.php?event=african-fintech-summit-2026" class="hover:text-white transition">Curated Photo Album</a></li>
-          <li><a href="/checkout.php?event=lagos-innovators-gala" class="hover:text-white transition">Ticket Checkout Simulator</a></li>
-          <li><a href="/checkout.php?event=lagos-innovators-gala&confirmed=1" class="hover:text-white transition">Digital Admission QR Pass</a></li>
+          <li><a href="/gallery/african-fintech-summit-2026" class="hover:text-white transition">Curated Photo Album</a></li>
+          <li><a href="/checkout/lagos-innovators-gala" class="hover:text-white transition">Ticket Checkout Simulator</a></li>
+          <li><a href="/checkout/lagos-innovators-gala?confirmed=1" class="hover:text-white transition">Digital Admission QR Pass</a></li>
         </ul>
       </div>
 

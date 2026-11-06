@@ -10,7 +10,7 @@ $creator = $creator ?? (isset($event['creator_id']) ? MockData::getCreatorById($
 $creatorName = $creator['name'] ?? 'Organizing Committee';
 $creatorEmail = $creator['email'] ?? '';
 $eventTitle = $event['title'] ?? 'Foliioo Event';
-$eventUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? 'localhost:8000') . '/event.php?slug=' . urlencode($event['slug'] ?? '');
+$eventUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? 'localhost:8000') . '/e/' . urlencode($event['slug'] ?? '');
 $shareText = urlencode("You're invited: " . $eventTitle . " — " . $eventUrl);
 ?>
 

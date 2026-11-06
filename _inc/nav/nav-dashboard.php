@@ -108,7 +108,7 @@ $navItems = [
 
   <div class="flex items-center gap-3">
     <?php if (!empty($eventSlug)): ?>
-      <a href="/event.php?slug=<?= urlencode($eventSlug) ?>" target="_blank" class="btn btn-secondary btn-sm text-[#9A5F44] hover:text-[#7E4A33]">
+      <a href="/e/<?= urlencode($eventSlug) ?>" target="_blank" class="btn btn-secondary btn-sm text-[#FF502B] hover:text-[#E03A17]">
         <span>View Live Site</span>
         <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
       </a>

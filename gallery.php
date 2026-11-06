@@ -1,7 +1,12 @@
 <?php
 require_once __DIR__ . '/_inc/MockData.php';
 
-$slug = $_GET['event'] ?? $_GET['slug'] ?? null;
+$requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
+if (preg_match('#^/gallery/([^/]+)#', $requestPath, $matches)) {
+    $slug = $matches[1];
+} else {
+    $slug = $_GET['event'] ?? $_GET['slug'] ?? null;
+}
 $event = null;
 if ($slug) {
     $event = MockData::getEventBySlug($slug) ?? MockData::getEventById($slug);
@@ -26,7 +31,7 @@ require_once __DIR__ . '/_inc/header.php';
   <header class="bg-white border-b border-[#EAE8E2] sticky top-0 z-30">
     <div class="container-main px-4 h-16 flex items-center justify-between">
       <?php if ($event): ?>
-        <a href="/event.php?slug=<?= urlencode($event['slug']) ?>" class="btn btn-ghost btn-sm text-[#0F0F0F] hover:text-[#FF502B]">
+        <a href="/e/<?= urlencode($event['slug']) ?>" class="btn btn-ghost btn-sm text-[#0F0F0F] hover:text-[#FF502B]">
           <i class="fa-solid fa-arrow-left sm:mr-1.5"></i>
           <span class="hidden sm:inline">Back to Event</span>
           <span class="sm:hidden">Back</span>

@@ -23,7 +23,7 @@ if (empty($photoMemories) && empty($event['post_event_message'])) {
     </div>
 
     <?php if (!empty($photoMemories)): ?>
-      <a href="/gallery.php?event=<?= urlencode($event['slug']) ?>" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#FF502B] hover:text-[#E03A17] transition">
+      <a href="/gallery/<?= urlencode($event['slug']) ?>" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#FF502B] hover:text-[#E03A17] transition">
         <span>View Full Album (<?= count($photoMemories) ?>)</span>
         <i class="fa-solid fa-arrow-right text-xs"></i>
       </a>
@@ -52,7 +52,7 @@ if (empty($photoMemories) && empty($event['post_event_message'])) {
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
       <?php foreach ($previewPhotos as $idx => $item): ?>
         <a 
-          href="/gallery.php?event=<?= urlencode($event['slug']) ?>" 
+          href="/gallery/<?= urlencode($event['slug']) ?>" 
           class="aspect-square bg-[#F3F4EE] rounded-xl overflow-hidden border border-[#EAE8E2] cursor-pointer group relative shadow-2xs hover:shadow-md transition-all duration-300 block"
           title="Open event gallery"
         >

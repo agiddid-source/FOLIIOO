@@ -138,27 +138,36 @@ MockData::getGuestLimitForEvent('evt_001');      // Capacity enforcement: max, a
 
 ---
 
+## Clean URL Routing Architecture
+
+Foliioo implements user-friendly clean URL paths with zero developer jargon (no `slug:` or `?slug=`):
+- **Events:** `/e/{event-slug}` (e.g. `/e/chief-adeleke-celebration-of-life`)
+- **Galleries:** `/gallery/{event-slug}` (e.g. `/gallery/african-fintech-summit-2026`)
+- **Checkout:** `/checkout/{event-slug}` (e.g. `/checkout/lagos-innovators-gala`)
+- Supported natively in Apache via `.htaccess` and in the PHP built-in server via `router.php`.
+- Full backwards-compatibility with legacy query parameters (`?slug=`, `?event=`).
+
 ## Guest Experience Pages (Modules 6, 7, 8, 9, 14)
 
-### 1. Public Event Website (`event.php`)
+### 1. Public Event Website (`/e/{slug}`)
 Rendered dynamically based on the event's selected template (`elegant`, `floral`, `modern`).
-- `http://localhost:8000/event.php?slug=chief-adeleke-celebration-of-life` (Elegant template, Burial)
-- `http://localhost:8000/event.php?slug=chidi-amara-wedding` (Floral template, Wedding)
-- `http://localhost:8000/event.php?slug=lagos-innovators-gala` (Modern template, Gala with Tickets)
-- `http://localhost:8000/event.php?slug=kemi-at-30-all-white` (Postponed notice state)
-- `http://localhost:8000/event.php?slug=african-fintech-summit-2026` (Completed state)
-- `http://localhost:8000/event.php?slug=lagos-charity-polo-match` (Cancelled state with refund notice)
+- `http://localhost:8000/e/chief-adeleke-celebration-of-life` (Elegant template, Burial)
+- `http://localhost:8000/e/ghost-ghostess-wedding` (Floral template, Wedding)
+- `http://localhost:8000/e/lagos-innovators-gala` (Modern template, Gala with Tickets)
+- `http://localhost:8000/e/kemi-at-30-all-white` (Postponed notice state)
+- `http://localhost:8000/e/african-fintech-summit-2026` (Completed state)
+- `http://localhost:8000/e/lagos-charity-polo-match` (Cancelled state with refund notice)
 
 **Creator Preview Mode:**
 Append `?preview=1` to any event link to view the private organizer bar with instant lifecycle state switching.
 
-### 2. Ticketing & Simulated Checkout (`checkout.php`)
-- `http://localhost:8000/checkout.php?event=lagos-innovators-gala&ticket_id=tkt_gala_vip&quantity=2`
+### 2. Ticketing & Simulated Checkout (`/checkout/{slug}`)
+- `http://localhost:8000/checkout/lagos-innovators-gala?ticket_id=tkt_gala_vip&quantity=2`
 Includes order summary, simulated payment options (Card / Bank Transfer), and instant digital pass generation with order reference and QR code.
 
-### 3. Post-Event Gallery & Memories (`gallery.php`)
-- `http://localhost:8000/gallery.php?event=african-fintech-summit-2026`
-Includes host gratitude banner, moments filtering (All, Photos, Written Tributes), lightbox photo enlarger, and guest memory contribution drawer.
+### 3. Dedicated Event Photo Gallery (`/gallery/{slug}`)
+- `http://localhost:8000/gallery/african-fintech-summit-2026`
+Curated photo albums attached directly to individual events with full-screen lightbox navigation, keyboard shortcuts (Left/Right/Esc), and direct return link to the event page.
 
 ---
 

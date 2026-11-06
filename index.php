@@ -16,50 +16,7 @@ require_once __DIR__ . '/_inc/header.php';
 require_once __DIR__ . '/_inc/nav/nav-marketing.php';
 ?>
 
-<main class="min-h-screen bg-[#FAFBF6] pb-24">
-
-  <!-- Hero Section -->
-  <section class="border-b border-[#EAE8E2] bg-white py-14 sm:py-20">
-    <div class="container-main space-y-6">
-      <div class="flex flex-wrap items-center gap-2">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFF0ED] text-[#FF502B] text-xs font-bold uppercase tracking-wider">
-          <span class="w-2 h-2 rounded-full bg-[#FF502B] animate-pulse"></span>
-          <span>Testing Hub & Showcase</span>
-        </span>
-        <span class="badge badge-sage">Logo Palette V1.2</span>
-        <span class="text-xs text-[#63615E] hidden sm:inline">• Active Branch: <code class="bg-[#F3F4EE] px-1.5 py-0.5 rounded text-[#0F0F0F] font-mono text-xs">guestAndEvent</code></span>
-      </div>
-
-      <div class="max-w-3xl space-y-4">
-        <h1 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-[#0F0F0F] leading-[1.15]">
-          Every Event, Every State, One Visual Language.
-        </h1>
-        <p class="text-base sm:text-lg text-[#63615E] leading-relaxed">
-          Quick-launch directory to test every public event website template, simulate real-time event lifecycle states, and inspect guest ticketing checkout and curated photo galleries.
-        </p>
-      </div>
-
-      <!-- Quick Metrics Strip -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-[#EAE8E2]">
-        <div class="p-3.5 rounded-xl bg-[#FAFBF6] border border-[#EAE8E2]">
-          <span class="text-xs text-[#63615E] block font-medium">Event Templates</span>
-          <span class="text-2xl font-bold text-[#0F0F0F] mt-0.5 block">4 Variations</span>
-        </div>
-        <div class="p-3.5 rounded-xl bg-[#FAFBF6] border border-[#EAE8E2]">
-          <span class="text-xs text-[#63615E] block font-medium">Lifecycle States</span>
-          <span class="text-2xl font-bold text-[#0F0F0F] mt-0.5 block">5 States</span>
-        </div>
-        <div class="p-3.5 rounded-xl bg-[#FAFBF6] border border-[#EAE8E2]">
-          <span class="text-xs text-[#63615E] block font-medium">Per-Event Galleries</span>
-          <span class="text-2xl font-bold text-[#0F0F0F] mt-0.5 block">Photo-First</span>
-        </div>
-        <div class="p-3.5 rounded-xl bg-[#FAFBF6] border border-[#EAE8E2]">
-          <span class="text-xs text-[#63615E] block font-medium">Checkout Flow</span>
-          <span class="text-2xl font-bold text-[#FF502B] mt-0.5 block">Simulated QR</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<main class="bg-[#FAFBF6] pb-24">
 
   <div class="container-main space-y-16 pt-12">
 
@@ -103,15 +60,15 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
             </div>
           </div>
           <div class="pt-4 border-t border-[#EAE8E2] flex items-center justify-between">
-            <span class="text-xs font-mono text-[#A6A39D]">slug: chief-adeleke-celebration-of-life</span>
-            <a href="/event.php?slug=chief-adeleke-celebration-of-life" class="btn btn-primary btn-sm">
+            <span class="text-xs font-mono font-medium text-[#FF502B] bg-[#FFF0ED] px-2.5 py-1 rounded-md">/e/<?= htmlspecialchars($burialEvent['slug']) ?></span>
+            <a href="/e/<?= urlencode($burialEvent['slug']) ?>" class="btn btn-primary btn-sm">
               <span>View Event</span>
               <i class="fa-solid fa-arrow-right text-xs"></i>
             </a>
           </div>
         </div>
 
-        <!-- 2. Chidi & Amara: Floral (Wedding) -->
+        <!-- 2. Ghost & Ghostess: Floral (Wedding) -->
         <div class="card card-hover p-6 sm:p-7 flex flex-col justify-between space-y-6 group">
           <div class="space-y-3">
             <div class="flex items-center justify-between gap-2">
@@ -120,7 +77,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
             </div>
             <div>
               <h3 class="font-display text-xl font-bold text-[#0F0F0F] group-hover:text-[#FF502B] transition-colors">
-                Chidi & Amara's Wedding & Reception
+                Ghost & Ghostess's Wedding & Reception
               </h3>
               <p class="text-xs text-[#63615E] mt-1 line-clamp-2">
                 Two families, one beautiful union. Landmark Event Centre, Water Corporation Drive, Victoria Island.
@@ -134,8 +91,8 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
             </div>
           </div>
           <div class="pt-4 border-t border-[#EAE8E2] flex items-center justify-between">
-            <span class="text-xs font-mono text-[#A6A39D]">slug: chidi-amara-wedding</span>
-            <a href="/event.php?slug=chidi-amara-wedding" class="btn btn-primary btn-sm">
+            <span class="text-xs font-mono font-medium text-[#FF502B] bg-[#FFF0ED] px-2.5 py-1 rounded-md">/e/<?= htmlspecialchars($weddingEvent['slug']) ?></span>
+            <a href="/e/<?= urlencode($weddingEvent['slug']) ?>" class="btn btn-primary btn-sm">
               <span>View Event</span>
               <i class="fa-solid fa-arrow-right text-xs"></i>
             </a>
@@ -165,8 +122,8 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
             </div>
           </div>
           <div class="pt-4 border-t border-[#EAE8E2] flex items-center justify-between">
-            <span class="text-xs font-mono text-[#A6A39D]">slug: lagos-innovators-gala</span>
-            <a href="/event.php?slug=lagos-innovators-gala" class="btn btn-primary btn-sm">
+            <span class="text-xs font-mono font-medium text-[#FF502B] bg-[#FFF0ED] px-2.5 py-1 rounded-md">/e/<?= htmlspecialchars($galaEvent['slug']) ?></span>
+            <a href="/e/<?= urlencode($galaEvent['slug']) ?>" class="btn btn-primary btn-sm">
               <span>View Event</span>
               <i class="fa-solid fa-arrow-right text-xs"></i>
             </a>
@@ -196,8 +153,8 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
             </div>
           </div>
           <div class="pt-4 border-t border-[#EAE8E2] flex items-center justify-between">
-            <span class="text-xs font-mono text-[#A6A39D]">slug: african-fintech-summit-2026</span>
-            <a href="/event.php?slug=african-fintech-summit-2026" class="btn btn-primary btn-sm">
+            <span class="text-xs font-mono font-medium text-[#FF502B] bg-[#FFF0ED] px-2.5 py-1 rounded-md">/e/<?= htmlspecialchars($summitEvent['slug']) ?></span>
+            <a href="/e/<?= urlencode($summitEvent['slug']) ?>" class="btn btn-primary btn-sm">
               <span>View Event</span>
               <i class="fa-solid fa-arrow-right text-xs"></i>
             </a>
@@ -222,7 +179,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
         <!-- State 1: Upcoming -->
-        <a href="/event.php?slug=chief-adeleke-celebration-of-life&preview=1&status=published_pre_event" class="card card-hover p-5 space-y-3 block">
+        <a href="/e/chief-adeleke-celebration-of-life?preview=1&status=published_pre_event" class="card card-hover p-5 space-y-3 block">
           <div class="flex items-center justify-between">
             <span class="badge badge-sage">Upcoming</span>
             <span class="text-[11px] text-[#63615E]">Pre-Event</span>
@@ -237,7 +194,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
         </a>
 
         <!-- State 2: Live Now -->
-        <a href="/event.php?slug=chief-adeleke-celebration-of-life&preview=1&status=in_progress" class="card card-hover p-5 space-y-3 block">
+        <a href="/e/chief-adeleke-celebration-of-life?preview=1&status=in_progress" class="card card-hover p-5 space-y-3 block">
           <div class="flex items-center justify-between">
             <span class="badge badge-accent animate-pulse">● Live Now</span>
             <span class="text-[11px] text-[#63615E]">In Session</span>
@@ -252,7 +209,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
         </a>
 
         <!-- State 3: Completed -->
-        <a href="/event.php?slug=african-fintech-summit-2026&preview=1&status=completed" class="card card-hover p-5 space-y-3 block">
+        <a href="/e/african-fintech-summit-2026?preview=1&status=completed" class="card card-hover p-5 space-y-3 block">
           <div class="flex items-center justify-between">
             <span class="badge badge-neutral">Concluded</span>
             <span class="text-[11px] text-[#63615E]">Post-Event</span>
@@ -267,7 +224,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
         </a>
 
         <!-- State 4: Postponed -->
-        <a href="/event.php?slug=chief-adeleke-celebration-of-life&preview=1&status=postponed" class="card card-hover p-5 space-y-3 block border-l-4 border-l-[#B45309]">
+        <a href="/e/chief-adeleke-celebration-of-life?preview=1&status=postponed" class="card card-hover p-5 space-y-3 block border-l-4 border-l-[#B45309]">
           <div class="flex items-center justify-between">
             <span class="badge badge-warning">Postponed</span>
             <span class="text-[11px] text-[#B45309] font-bold">Rescheduled</span>
@@ -282,7 +239,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
         </a>
 
         <!-- State 5: Cancelled -->
-        <a href="/event.php?slug=lagos-charity-polo-match&preview=1&status=cancelled" class="card card-hover p-5 space-y-3 block border-l-4 border-l-[#DC2626]">
+        <a href="/e/lagos-charity-polo-match?preview=1&status=cancelled" class="card card-hover p-5 space-y-3 block border-l-4 border-l-[#DC2626]">
           <div class="flex items-center justify-between">
             <span class="badge badge-error">Cancelled</span>
             <span class="text-[11px] text-[#DC2626] font-bold">Discontinued</span>
@@ -302,10 +259,10 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
             <span class="text-xs font-bold uppercase tracking-wider text-[#63615E] block">Creator Mode</span>
             <h4 class="font-display text-base font-bold text-[#0F0F0F] mt-1">Creator Preview Bar</h4>
             <p class="text-xs text-[#63615E] mt-1 leading-relaxed">
-              Any event URL with <code class="bg-white px-1 rounded text-xs">&preview=1</code> renders the top creator toolbar to swap between all 5 states in real-time.
+              Any event URL with <code class="bg-white px-1 rounded text-xs">?preview=1</code> renders the top creator toolbar to swap between all 5 states in real-time.
             </p>
           </div>
-          <a href="/event.php?slug=chief-adeleke-celebration-of-life&preview=1" class="text-xs font-bold text-[#FF502B] hover:underline">
+          <a href="/e/chief-adeleke-celebration-of-life?preview=1" class="text-xs font-bold text-[#FF502B] hover:underline">
             Launch Preview Toolbar &rarr;
           </a>
         </div>
@@ -318,7 +275,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
       <div class="border-b border-[#EAE8E2] pb-4">
         <span class="eyebrow">Dedicated Modules</span>
         <h2 class="font-display text-2xl sm:text-3xl font-bold text-[#0F0F0F]">
-          Curated Photo Galleries (Per Event)
+          Curated Photo Galleries
         </h2>
         <p class="text-xs sm:text-sm text-[#63615E] mt-1">
           Simplified, viewer-only photo albums attached to individual events with full-screen lightbox navigation.
@@ -327,7 +284,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
-        <a href="/gallery.php?event=african-fintech-summit-2026" class="card card-hover p-5 space-y-3 block group">
+        <a href="/gallery/african-fintech-summit-2026" class="card card-hover p-5 space-y-3 block group">
           <div class="w-10 h-10 rounded-xl bg-[#FFF0ED] text-[#FF502B] flex items-center justify-center text-lg">
             <i class="fa-solid fa-images"></i>
           </div>
@@ -340,7 +297,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
           </span>
         </a>
 
-        <a href="/gallery.php?event=chief-adeleke-celebration-of-life" class="card card-hover p-5 space-y-3 block group">
+        <a href="/gallery/chief-adeleke-celebration-of-life" class="card card-hover p-5 space-y-3 block group">
           <div class="w-10 h-10 rounded-xl bg-[#FFF0ED] text-[#FF502B] flex items-center justify-center text-lg">
             <i class="fa-solid fa-images"></i>
           </div>
@@ -353,12 +310,12 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
           </span>
         </a>
 
-        <a href="/gallery.php?event=chidi-amara-wedding" class="card card-hover p-5 space-y-3 block group">
+        <a href="/gallery/<?= urlencode($weddingEvent['slug']) ?>" class="card card-hover p-5 space-y-3 block group">
           <div class="w-10 h-10 rounded-xl bg-[#FFF0ED] text-[#FF502B] flex items-center justify-center text-lg">
             <i class="fa-solid fa-images"></i>
           </div>
           <div>
-            <h4 class="font-display text-sm font-bold text-[#0F0F0F] group-hover:text-[#FF502B] transition-colors">Chidi & Amara Wedding</h4>
+            <h4 class="font-display text-sm font-bold text-[#0F0F0F] group-hover:text-[#FF502B] transition-colors">Ghost & Ghostess Wedding</h4>
             <p class="text-xs text-[#63615E] mt-0.5">5 Curated Photos • Couple & Reception</p>
           </div>
           <span class="text-xs font-semibold text-[#FF502B] inline-flex items-center gap-1 pt-1">
@@ -366,7 +323,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
           </span>
         </a>
 
-        <a href="/gallery.php?event=lagos-innovators-gala" class="card card-hover p-5 space-y-3 block group">
+        <a href="/gallery/lagos-innovators-gala" class="card card-hover p-5 space-y-3 block group">
           <div class="w-10 h-10 rounded-xl bg-[#FFF0ED] text-[#FF502B] flex items-center justify-center text-lg">
             <i class="fa-solid fa-images"></i>
           </div>
@@ -406,7 +363,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
             Guest attendee information capture, simulated Debit/Credit Card & Bank Transfer selection, sandbox test card inputs, and automated price calculation with zero fees.
           </p>
           <div class="pt-2">
-            <a href="/checkout.php?event=lagos-innovators-gala" class="btn btn-primary btn-sm">
+            <a href="/checkout/lagos-innovators-gala" class="btn btn-primary btn-sm">
               <i class="fa-solid fa-lock mr-1 text-xs"></i>
               <span>Launch Checkout Page</span>
             </a>
@@ -423,7 +380,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
             Official admission pass with digital QR code, unique order reference (<code class="bg-[#F3F4EE] px-1 py-0.5 rounded text-xs">FOL-ORD-XXXX</code>), print action, and door check-in validity status.
           </p>
           <div class="pt-2">
-            <a href="/checkout.php?event=lagos-innovators-gala&confirmed=1" class="btn btn-secondary btn-sm">
+            <a href="/checkout/lagos-innovators-gala?confirmed=1" class="btn btn-secondary btn-sm">
               <i class="fa-solid fa-qrcode mr-1 text-xs text-[#FF502B]"></i>
               <span>View Confirmation & QR Pass</span>
             </a>
@@ -433,74 +390,12 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
       </div>
     </section>
 
-    <!-- Section 5: Palette V1.2 Reference -->
-    <section class="card p-6 sm:p-8 space-y-6">
-      <div class="border-b border-[#EAE8E2] pb-4">
-        <span class="eyebrow">Visual Spec</span>
-        <h3 class="font-display text-xl font-bold text-[#0F0F0F]">
-          Foliioo Brand Palette (Extracted From Official Logo)
-        </h3>
-        <p class="text-xs text-[#63615E] mt-1">
-          Color tokens extracted from <code class="bg-[#F3F4EE] px-1 rounded text-xs">photo_6012674028373479164_y.jpg</code> and deployed across all platform templates.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
-        <div class="p-3 rounded-xl border border-[#EAE8E2] bg-white space-y-2">
-          <div class="h-12 w-full rounded-lg bg-[#FF502B] flex items-center justify-center text-white font-bold text-xs shadow-xs">
-            #FF502B
-          </div>
-          <div class="text-xs">
-            <span class="font-bold text-[#0F0F0F] block">Electric Coral</span>
-            <span class="text-[#63615E] text-[11px]">Primary Brand Accent</span>
-          </div>
-        </div>
-
-        <div class="p-3 rounded-xl border border-[#EAE8E2] bg-white space-y-2">
-          <div class="h-12 w-full rounded-lg bg-[#0D0D0D] flex items-center justify-center text-white font-bold text-xs shadow-xs">
-            #0D0D0D
-          </div>
-          <div class="text-xs">
-            <span class="font-bold text-[#0F0F0F] block">Pitch Black</span>
-            <span class="text-[#63615E] text-[11px]">Dark Sections & Text</span>
-          </div>
-        </div>
-
-        <div class="p-3 rounded-xl border border-[#EAE8E2] bg-white space-y-2">
-          <div class="h-12 w-full rounded-lg bg-[#FAFBF6] border border-[#EAE8E2] flex items-center justify-center text-[#0F0F0F] font-bold text-xs shadow-xs">
-            #FAFBF6
-          </div>
-          <div class="text-xs">
-            <span class="font-bold text-[#0F0F0F] block">Alabaster Canvas</span>
-            <span class="text-[#63615E] text-[11px]">Page Background</span>
-          </div>
-        </div>
-
-        <div class="p-3 rounded-xl border border-[#EAE8E2] bg-white space-y-2">
-          <div class="h-12 w-full rounded-lg bg-[#EAE8E2] flex items-center justify-center text-[#0F0F0F] font-bold text-xs shadow-xs">
-            #EAE8E2
-          </div>
-          <div class="text-xs">
-            <span class="font-bold text-[#0F0F0F] block">Warm Border</span>
-            <span class="text-[#63615E] text-[11px]">Cards & Inputs</span>
-          </div>
-        </div>
-
-        <div class="p-3 rounded-xl border border-[#EAE8E2] bg-white space-y-2">
-          <div class="h-12 w-full rounded-lg bg-[#FFF0ED] border border-[#FF502B]/20 flex items-center justify-center text-[#FF502B] font-bold text-xs shadow-xs">
-            #FFF0ED
-          </div>
-          <div class="text-xs">
-            <span class="font-bold text-[#0F0F0F] block">Soft Coral Tint</span>
-            <span class="text-[#63615E] text-[11px]">Badges & Highlights</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
   </div>
 
 </main>
+
 
 <?php require_once __DIR__ . '/_inc/footer/footer-marketing.php'; ?>
 <?php require_once __DIR__ . '/_inc/footer.php'; ?>
