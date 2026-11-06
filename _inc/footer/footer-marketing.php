@@ -1,95 +1,74 @@
 <?php
 /**
- * Foliioo Design System V1.1 — Marketing SaaS Footer
+ * Foliioo Design System V1.2 — Marketing SaaS Footer (Logo Palette Edition)
  */
 ?>
-<footer class="bg-[#252321] text-[#A19B93] mt-auto font-sans">
+<footer class="bg-[#0D0D0D] text-[#A6A39D] mt-auto font-sans">
   <div class="container-main pt-16 pb-8">
 
     <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-white/10">
 
       <!-- Brand Column -->
       <div class="col-span-2 sm:col-span-2 lg:col-span-1 space-y-4">
-        <a href="/" class="flex items-center gap-2.5 group">
-          <div class="w-9 h-9 rounded-lg bg-[#9A5F44] flex items-center justify-center text-white font-display text-lg font-bold shadow-xs group-hover:bg-[#7E4A33] transition-colors">
-            F
-          </div>
-          <span class="text-xl font-display font-bold tracking-tight text-white group-hover:text-[#9A5F44] transition-colors">FOLIIOO</span>
+        <a href="/" class="flex items-center gap-2 group">
+          <span class="inline-flex items-center font-black tracking-tight text-2xl font-sans lowercase leading-none text-white">
+            <span>fol</span><span class="relative inline-block"><span class="absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#FF502B]"></span>ı</span><span class="relative inline-block"><span class="absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-white"></span>ı</span><span>oo</span><span class="w-2.5 h-2.5 rounded-full bg-[#FF502B] ml-1 inline-block self-center shadow-xs"></span>
+          </span>
         </a>
-        <p class="text-xs leading-relaxed text-[#A19B93] max-w-xs">
+        <p class="text-xs leading-relaxed text-[#A6A39D] max-w-xs">
           The modern event lifecycle platform. Create, manage, and share beautiful event pages with RSVP, live programmes, and guest check-in — built for Nigerian celebrations.
         </p>
-        <div class="flex items-center gap-2 text-[12px] font-medium text-[#87927B]">
-          <span class="w-2 h-2 rounded-full bg-[#87927B]"></span>
+        <div class="flex items-center gap-2 text-[12px] font-medium text-[#4C7C59]">
+          <span class="w-2 h-2 rounded-full bg-[#4C7C59]"></span>
           <span>All systems operational</span>
         </div>
       </div>
 
-      <!-- Event Types -->
+      <!-- Event Testing Pages -->
       <div class="space-y-4">
-        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Event Types</h4>
+        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Event Templates</h4>
         <ul class="space-y-2.5 text-xs">
-          <li><a href="#" class="hover:text-white transition">Weddings</a></li>
-          <li><a href="#" class="hover:text-white transition">Burials & Celebrations of Life</a></li>
-          <li><a href="#" class="hover:text-white transition">Birthday Parties</a></li>
-          <li><a href="#" class="hover:text-white transition">Galas & Award Nights</a></li>
-          <li><a href="#" class="hover:text-white transition">Conferences & Summits</a></li>
-          <li><a href="#" class="hover:text-white transition">Custom Events</a></li>
+          <li><a href="/event.php?slug=chief-adeleke-celebration-of-life" class="hover:text-white transition">Elegant: Chief Adeleke Memorial</a></li>
+          <li><a href="/event.php?slug=chidi-amara-wedding" class="hover:text-white transition">Floral: Chidi & Amara Wedding</a></li>
+          <li><a href="/event.php?slug=lagos-innovators-gala" class="hover:text-white transition">Modern: Lagos Tech Gala</a></li>
+          <li><a href="/event.php?slug=african-fintech-summit-2026" class="hover:text-white transition">Modern: African Fintech Summit</a></li>
         </ul>
       </div>
 
-      <!-- Platform Features -->
+      <!-- Lifecycle Test States -->
       <div class="space-y-4">
-        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Features</h4>
+        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Lifecycle States</h4>
         <ul class="space-y-2.5 text-xs">
-          <li><a href="#" class="hover:text-white transition">Live Programme</a></li>
-          <li><a href="#" class="hover:text-white transition">WhatsApp RSVPs & Reminders</a></li>
-          <li><a href="#" class="hover:text-white transition">QR Door Check-In</a></li>
-          <li><a href="#" class="hover:text-white transition">Tribute & Memorial Funds</a></li>
-          <li><a href="#" class="hover:text-white transition">Media Gallery</a></li>
-          <li><a href="#" class="hover:text-white transition">Postponement Notices</a></li>
+          <li><a href="/event.php?preview=1&status=published_pre_event" class="hover:text-white transition">Upcoming / RSVP Open</a></li>
+          <li><a href="/event.php?preview=1&status=in_progress" class="hover:text-white transition">Live Now / Session Active</a></li>
+          <li><a href="/event.php?preview=1&status=completed" class="hover:text-white transition">Completed / Photo Highlights</a></li>
+          <li><a href="/event.php?preview=1&status=postponed" class="hover:text-white transition">Postponed / Calendar Notice</a></li>
+          <li><a href="/event.php?preview=1&status=cancelled" class="hover:text-white transition">Cancelled / Refund Notice</a></li>
         </ul>
       </div>
 
-      <!-- Pricing & Resources -->
+      <!-- Dedicated Modules -->
       <div class="space-y-4">
-        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Plans</h4>
+        <h4 class="text-xs font-bold uppercase tracking-wider text-white">Guest Modules</h4>
         <ul class="space-y-2.5 text-xs">
-          <li class="flex items-center gap-2">
-            <a href="#pricing" class="hover:text-white transition">Starter</a>
-            <span class="badge badge-sage text-[10px] py-0 px-1.5">Free</span>
-          </li>
-          <li class="flex items-center gap-2">
-            <a href="#pricing" class="hover:text-white transition">Celebration Pro</a>
-            <span class="text-[11px] text-[#A19B93]">₦15,000</span>
-          </li>
-          <li class="flex items-center gap-2">
-            <a href="#pricing" class="hover:text-white transition">Grand Gala</a>
-            <span class="text-[11px] text-[#A19B93]">₦45,000</span>
-          </li>
-        </ul>
-        <h4 class="text-xs font-bold uppercase tracking-wider text-white pt-2">Resources</h4>
-        <ul class="space-y-2.5 text-xs">
-          <li><a href="#" class="hover:text-white transition">Help Center</a></li>
-          <li><a href="#" class="hover:text-white transition">Contact Support</a></li>
-          <li><a href="#" class="hover:text-white transition">API Documentation</a></li>
+          <li><a href="/gallery.php?event=african-fintech-summit-2026" class="hover:text-white transition">Curated Photo Album</a></li>
+          <li><a href="/checkout.php?event=lagos-innovators-gala" class="hover:text-white transition">Ticket Checkout Simulator</a></li>
+          <li><a href="/checkout.php?event=lagos-innovators-gala&confirmed=1" class="hover:text-white transition">Digital Admission QR Pass</a></li>
         </ul>
       </div>
 
     </div>
 
     <!-- Bottom Bar -->
-    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-[#A19B93]">
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-[#A6A39D]">
       <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
         <span>© <?= date('Y') ?> Foliioo Technologies Ltd.</span>
         <span class="hidden sm:inline">•</span>
-        <a href="#" class="hover:text-white transition">Privacy Policy</a>
-        <span>•</span>
-        <a href="#" class="hover:text-white transition">Terms of Service</a>
+        <span>Design System V1.2 (Logo Palette Edition)</span>
       </div>
-      <div class="flex items-center gap-2 font-semibold text-[#A19B93]">
-        <i class="fa-solid fa-naira-sign text-xs text-[#87927B]"></i>
-        <span>NGN (₦)</span>
+      <div class="flex items-center gap-2 font-semibold text-[#A6A39D]">
+        <i class="fa-solid fa-naira-sign text-xs text-[#4C7C59]"></i>
+        <span>NGN (₦) Settlement Ready</span>
       </div>
     </div>
 

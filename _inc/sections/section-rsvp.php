@@ -13,10 +13,10 @@ $remainingSeats = $guestLimit['remaining_seats'] ?? 50;
 ?>
 
 <section id="rsvp" class="scroll-mt-24 space-y-4 font-sans">
-  <div class="flex items-center justify-between border-b border-[#E9E4DD] pb-3">
+  <div class="flex items-center justify-between border-b border-[#EAE8E2] pb-3">
     <div>
-      <h2 class="font-display text-2xl sm:text-3xl font-bold text-[#252321] tracking-tight">RSVP & Guest Attendance</h2>
-      <p class="text-xs text-[#6B675F] mt-0.5">Please confirm your attendance so the host can finalize seating and catering</p>
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-[#0F0F0F] tracking-tight">RSVP & Guest Attendance</h2>
+      <p class="text-xs text-[#63615E] mt-0.5">Please confirm your attendance so the host can finalize seating and catering</p>
     </div>
 
     <?php if ($isFull): ?>
@@ -38,29 +38,29 @@ $remainingSeats = $guestLimit['remaining_seats'] ?? 50;
         <i class="fa-solid fa-circle-check text-2xl"></i>
       </div>
       <div class="space-y-1">
-        <h3 class="font-display text-xl font-bold text-[#252321]">Your RSVP is Confirmed!</h3>
-        <p class="text-xs text-[#6B675F] max-w-md mx-auto">
+        <h3 class="font-display text-xl font-bold text-[#0F0F0F]">Your RSVP is Confirmed!</h3>
+        <p class="text-xs text-[#63615E] max-w-md mx-auto">
           Thank you for confirming your attendance. A digital entry pass and calendar invitation have been registered for your party.
         </p>
       </div>
 
-      <div class="inline-block bg-[#FAF8F5] border border-[#E9E4DD] rounded-xl p-4 text-left max-w-sm w-full mx-auto space-y-2 text-xs">
-        <div class="flex justify-between border-b border-[#E9E4DD] pb-2">
-          <span class="text-[#6B675F]">Guest Pass Code:</span>
-          <span id="rsvp-pass-code" class="font-mono font-bold text-[#252321]">FOL-2026-VIP</span>
+      <div class="inline-block bg-[#FAFBF6] border border-[#EAE8E2] rounded-xl p-4 text-left max-w-sm w-full mx-auto space-y-2 text-xs">
+        <div class="flex justify-between border-b border-[#EAE8E2] pb-2">
+          <span class="text-[#63615E]">Guest Pass Code:</span>
+          <span id="rsvp-pass-code" class="font-mono font-bold text-[#0F0F0F]">FOL-2026-VIP</span>
         </div>
-        <div class="flex justify-between border-b border-[#E9E4DD] pb-2">
-          <span class="text-[#6B675F]">Reserved Seats:</span>
-          <span id="rsvp-pass-party" class="font-bold text-[#252321]">1 Seat</span>
+        <div class="flex justify-between border-b border-[#EAE8E2] pb-2">
+          <span class="text-[#63615E]">Reserved Seats:</span>
+          <span id="rsvp-pass-party" class="font-bold text-[#0F0F0F]">1 Seat</span>
         </div>
         <div class="flex justify-between">
-          <span class="text-[#6B675F]">Door Check-In:</span>
+          <span class="text-[#63615E]">Door Check-In:</span>
           <span class="font-bold text-[#3F6B48]">Digital QR Enabled</span>
         </div>
       </div>
 
       <div class="pt-2">
-        <button type="button" onclick="document.getElementById('rsvp-success-card').classList.add('hidden'); document.getElementById('rsvp-form').classList.remove('hidden');" class="text-xs font-bold text-[#9A5F44] hover:underline">
+        <button type="button" onclick="document.getElementById('rsvp-success-card').classList.add('hidden'); document.getElementById('rsvp-form').classList.remove('hidden');" class="text-xs font-bold text-[#FF502B] hover:underline">
           Edit RSVP Details
         </button>
       </div>
@@ -107,13 +107,13 @@ $remainingSeats = $guestLimit['remaining_seats'] ?? 50;
       <div>
         <label class="form-label mb-2">Will you be attending? *</label>
         <div class="grid grid-cols-2 gap-3 max-w-md">
-          <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#E9E4DD] hover:border-[#9A5F44] cursor-pointer transition has-checked:border-[#9A5F44] has-checked:bg-[#9A5F44]/5">
-            <input type="radio" name="rsvp_status" value="attending" checked class="accent-[#9A5F44]">
-            <span class="text-xs font-bold text-[#252321]">Joyfully Attending</span>
+          <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#EAE8E2] hover:border-[#FF502B] cursor-pointer transition has-checked:border-[#FF502B] has-checked:bg-[#FF502B]/5">
+            <input type="radio" name="rsvp_status" value="attending" checked class="accent-[#FF502B]">
+            <span class="text-xs font-bold text-[#0F0F0F]">Joyfully Attending</span>
           </label>
-          <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#E9E4DD] hover:border-[#D8D1C8] cursor-pointer transition has-checked:border-[#6B675F] has-checked:bg-[#FAF8F5]">
-            <input type="radio" name="rsvp_status" value="declined" class="accent-[#6B675F]">
-            <span class="text-xs font-bold text-[#6B675F]">Regretfully Decline</span>
+          <label class="flex items-center gap-2.5 p-3 rounded-lg border border-[#EAE8E2] hover:border-[#D8D1C8] cursor-pointer transition has-checked:border-[#63615E] has-checked:bg-[#FAFBF6]">
+            <input type="radio" name="rsvp_status" value="declined" class="accent-[#63615E]">
+            <span class="text-xs font-bold text-[#63615E]">Regretfully Decline</span>
           </label>
         </div>
       </div>
@@ -124,8 +124,8 @@ $remainingSeats = $guestLimit['remaining_seats'] ?? 50;
       </div>
 
       <div class="flex items-start gap-2.5 pt-1">
-        <input type="checkbox" id="rsvp-reminder" checked class="mt-0.5 rounded accent-[#9A5F44]">
-        <label for="rsvp-reminder" class="text-xs text-[#6B675F] cursor-pointer">
+        <input type="checkbox" id="rsvp-reminder" checked class="mt-0.5 rounded accent-[#FF502B]">
+        <label for="rsvp-reminder" class="text-xs text-[#63615E] cursor-pointer">
           Send me ceremony updates, order of service changes, and venue reminders via WhatsApp
         </label>
       </div>
@@ -136,7 +136,7 @@ $remainingSeats = $guestLimit['remaining_seats'] ?? 50;
           <span>Submit RSVP Response</span>
         </button>
 
-        <span class="text-[12px] text-[#A19B93]">Response is recorded instantly</span>
+        <span class="text-[12px] text-[#A6A39D]">Response is recorded instantly</span>
       </div>
     </form>
   </div>

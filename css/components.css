@@ -1,4 +1,4 @@
-/* Foliioo Design System V1.1 — Component Classes */
+/* Foliioo Design System V1.2 — Component Classes (Logo Palette Edition) */
 
 /* Layout & Containers */
 .container-main {
@@ -51,11 +51,11 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-sage);
+  color: var(--color-coral);
 }
 
 /* Surfaces */
@@ -84,7 +84,7 @@
 
 .card-hover:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(37, 35, 33, 0.09);
+  box-shadow: 0 14px 34px rgba(15, 15, 15, 0.08);
   border-color: var(--color-border-dark);
 }
 
@@ -110,18 +110,18 @@
   transform: scale(0.98);
 }
 .btn:focus-visible {
-  outline: 2px solid var(--color-terracotta);
+  outline: 2px solid var(--color-coral);
   outline-offset: 2px;
 }
 
 .btn-primary {
-  background-color: var(--color-terracotta);
+  background-color: var(--color-coral);
   color: #FFFFFF;
-  border-color: var(--color-terracotta);
+  border-color: var(--color-coral);
 }
 .btn-primary:hover {
-  background-color: var(--color-terracotta-dark);
-  border-color: var(--color-terracotta-dark);
+  background-color: var(--color-coral-dark);
+  border-color: var(--color-coral-dark);
   color: #FFFFFF;
 }
 
@@ -142,8 +142,8 @@
   border-color: var(--color-deep);
 }
 .btn-dark:hover {
-  background-color: #171615;
-  border-color: #171615;
+  background-color: #222222;
+  border-color: #222222;
   color: #FFFFFF;
 }
 
@@ -153,12 +153,12 @@
   border-color: transparent;
 }
 .btn-ghost:hover {
-  background-color: rgba(37, 35, 33, 0.05);
+  background-color: rgba(15, 15, 15, 0.05);
   color: var(--color-ink);
 }
 
 .btn-sm {
-  padding: 6px 12px;
+  padding: 6px 14px;
   font-size: 13px;
   border-radius: 6px;
 }
@@ -200,8 +200,8 @@
   background-color: var(--color-sage-light);
 }
 .badge-accent {
-  color: var(--color-terracotta);
-  background-color: rgba(154, 95, 68, 0.12);
+  color: var(--color-coral);
+  background-color: var(--color-coral-light);
 }
 .badge-neutral {
   color: var(--color-muted);
@@ -239,8 +239,8 @@
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
-  border-color: var(--color-terracotta);
-  box-shadow: 0 0 0 3px rgba(154, 95, 68, 0.12);
+  border-color: var(--color-coral);
+  box-shadow: 0 0 0 3px rgba(255, 80, 43, 0.15);
 }
 .form-input::placeholder,
 .form-textarea::placeholder {

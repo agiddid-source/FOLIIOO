@@ -1,6 +1,6 @@
 <?php
 /**
- * Foliioo Design System V1.1 — Standard Head Include
+ * Foliioo Design System V1.2 — Standard Head Include (Logo Palette Edition)
  */
 $pageTitle = $pageTitle ?? 'Foliioo - Modern Event Lifecycle Platform';
 ?>
@@ -13,7 +13,7 @@ $pageTitle = $pageTitle ?? 'Foliioo - Modern Event Lifecycle Platform';
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap" rel="stylesheet">
 
-<!-- Font Awesome 6.7.2 (Strict Design System Rule: FA 6.7.2 only) -->
+<!-- Font Awesome 6.7.2 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <!-- Tailwind CSS CDN -->
@@ -24,32 +24,37 @@ $pageTitle = $pageTitle ?? 'Foliioo - Modern Event Lifecycle Platform';
     theme: {
       extend: {
         colors: {
-          cream: '#FAF8F5',
-          paper: '#FFFFFF',
-          tint: '#F3EDE5',
-          deep: '#252321',
+          coral: {
+            DEFAULT: '#FF502B',
+            dark: '#E03A17',
+            light: '#FFF0ED'
+          },
           terracotta: {
-            DEFAULT: '#9A5F44',
-            dark: '#7E4A33'
+            DEFAULT: '#FF502B',
+            dark: '#E03A17'
           },
+          cream: '#FAFBF6',
+          paper: '#FFFFFF',
+          tint: '#F3F4EE',
+          deep: '#0D0D0D',
           sage: {
-            DEFAULT: '#87927B',
-            light: '#EEF0EA'
+            DEFAULT: '#4C7C59',
+            light: '#EEF5F0'
           },
-          ink: '#252321',
-          muted: '#6B675F',
-          soft: '#A19B93',
+          ink: '#0F0F0F',
+          muted: '#63615E',
+          soft: '#A6A39D',
           warm: {
-            border: '#E9E4DD',
-            borderDark: '#D8D1C8'
+            border: '#EAE8E2',
+            borderDark: '#D8D6CE'
           },
           status: {
-            success: '#3F6B48',
-            'success-bg': '#E8F1EA',
-            warning: '#8F5F12',
-            'warning-bg': '#FBF1DC',
-            error: '#B54747',
-            'error-bg': '#F8E6E6'
+            success: '#2E7D47',
+            'success-bg': '#EBF5EE',
+            warning: '#B45309',
+            'warning-bg': '#FEF3C7',
+            error: '#DC2626',
+            'error-bg': '#FEE2E2'
           }
         },
         fontFamily: {
@@ -59,7 +64,7 @@ $pageTitle = $pageTitle ?? 'Foliioo - Modern Event Lifecycle Platform';
           floral: ['"DM Serif Display"', 'Georgia', 'serif']
         },
         boxShadow: {
-          card: '0 8px 30px rgba(37, 35, 33, 0.06)'
+          card: '0 8px 30px rgba(15, 15, 15, 0.05)'
         }
       }
     }

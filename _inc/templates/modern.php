@@ -11,14 +11,14 @@ $venue = $event['venue'] ?? [];
 
 <div class="space-y-12 pb-16 font-sans">
 
-  <!-- Modern Hero (Dark Section: Deep #252321) -->
-  <div class="relative rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(37,35,33,0.06)] border border-[#E9E4DD] bg-[#252321] text-white">
+  <!-- Modern Hero (Dark Section: Deep #0D0D0D) -->
+  <div class="relative rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(37,35,33,0.06)] border border-[#EAE8E2] bg-[#0D0D0D] text-white">
     <div class="relative min-h-[460px] sm:min-h-[520px] w-full flex flex-col justify-between p-6 sm:p-10">
       
       <?php if (!empty($event['cover_image'])): ?>
         <img src="<?= htmlspecialchars($event['cover_image']) ?>" class="absolute inset-0 w-full h-full object-cover object-center opacity-30" alt="Event Cover">
       <?php endif; ?>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#252321] via-[#252321]/60 to-black/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-[#0D0D0D]/60 to-black/40"></div>
 
       <!-- Top Navbar Container -->
       <div class="relative z-30 -mx-3 sm:mx-0">
@@ -39,12 +39,12 @@ $venue = $event['venue'] ?? [];
         </h1>
 
         <?php if (!empty($subtitle)): ?>
-          <p class="text-[#F3EDE5]/90 text-base sm:text-lg font-normal max-w-2xl leading-relaxed">
+          <p class="text-[#F3F4EE]/90 text-base sm:text-lg font-normal max-w-2xl leading-relaxed">
             <?= htmlspecialchars($subtitle) ?>
           </p>
         <?php endif; ?>
 
-        <div class="pt-2 flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-[#F3EDE5]">
+        <div class="pt-2 flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-[#F3F4EE]">
           <div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3.5 py-2 rounded-lg border border-white/15">
             <i class="fa-solid fa-calendar text-[#87927B]"></i>
             <span><?= htmlspecialchars($dateFormatted) ?></span>
@@ -78,7 +78,7 @@ $venue = $event['venue'] ?? [];
           <i class="fa-solid fa-circle-info"></i>
           <span>Event Overview</span>
         </div>
-        <p class="text-base sm:text-lg text-[#252321] leading-relaxed font-normal">
+        <p class="text-base sm:text-lg text-[#0D0D0D] leading-relaxed font-normal">
           <?= htmlspecialchars($event['tribute_summary']) ?>
         </p>
       </section>

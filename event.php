@@ -24,15 +24,15 @@ $pageTitle = $event['title'] . ' — Foliioo Event';
 require_once __DIR__ . '/_inc/header.php';
 ?>
 
-<div class="min-h-screen flex flex-col bg-[#FAF8F5]">
+<div class="min-h-screen flex flex-col bg-[#FAFBF6]">
 
   <!-- Creator Preview Mode Banner -->
   <?php if ($isPreview): ?>
-    <aside class="sticky top-0 z-50 bg-[#252321] text-white border-b border-white/10 px-4 py-2.5 text-xs shadow-lg">
+    <aside class="sticky top-0 z-50 bg-[#0F0F0F] text-white border-b border-white/10 px-4 py-2.5 text-xs shadow-lg">
       <div class="container-main flex flex-wrap items-center justify-between gap-3">
         <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-[#9A5F44] animate-pulse"></span>
-          <span class="eyebrow text-[#FAF8F5]">Creator Preview Mode</span>
+          <span class="w-2 h-2 rounded-full bg-[#FF502B] animate-pulse"></span>
+          <span class="eyebrow text-[#FAFBF6]">Creator Preview Mode</span>
           <span class="text-white/40 hidden sm:inline">•</span>
           <span class="text-white/70 hidden sm:inline">Viewing public page through guest eyes</span>
         </div>
@@ -41,8 +41,8 @@ require_once __DIR__ . '/_inc/header.php';
           <span class="text-white/60 font-medium hidden md:inline">Test State:</span>
           <div class="inline-flex rounded-lg bg-white/10 p-0.5 border border-white/10 text-[11px] font-semibold">
             <a href="?slug=<?= urlencode($event['slug']) ?>&preview=1&status=published_pre_event" class="px-2.5 py-1 rounded-md <?= $status === 'published_pre_event' ? 'bg-[#87927B] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Upcoming</a>
-            <a href="?slug=<?= urlencode($event['slug']) ?>&preview=1&status=in_progress" class="px-2.5 py-1 rounded-md <?= $status === 'in_progress' ? 'bg-[#9A5F44] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Live Now</a>
-            <a href="?slug=<?= urlencode($event['slug']) ?>&preview=1&status=completed" class="px-2.5 py-1 rounded-md <?= $status === 'completed' ? 'bg-[#6B675F] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Completed</a>
+            <a href="?slug=<?= urlencode($event['slug']) ?>&preview=1&status=in_progress" class="px-2.5 py-1 rounded-md <?= $status === 'in_progress' ? 'bg-[#FF502B] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Live Now</a>
+            <a href="?slug=<?= urlencode($event['slug']) ?>&preview=1&status=completed" class="px-2.5 py-1 rounded-md <?= $status === 'completed' ? 'bg-[#63615E] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Completed</a>
             <a href="?slug=<?= urlencode($event['slug']) ?>&preview=1&status=postponed" class="px-2.5 py-1 rounded-md <?= $status === 'postponed' ? 'bg-[#8F5F12] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Postponed</a>
             <a href="?slug=<?= urlencode($event['slug']) ?>&preview=1&status=cancelled" class="px-2.5 py-1 rounded-md <?= $status === 'cancelled' ? 'bg-[#B54747] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Cancelled</a>
           </div>
@@ -66,7 +66,7 @@ require_once __DIR__ . '/_inc/header.php';
       $icsContent = "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Foliioo//Event Lifecycle//EN\r\nBEGIN:VEVENT\r\nSUMMARY:" . addcslashes($event['title'] ?? 'Event', ",;") . "\r\nDESCRIPTION:" . addcslashes($event['postponement_reason'] ?? '', ",;") . "\r\nLOCATION:" . addcslashes(($event['venue']['name'] ?? '') . ', ' . ($event['venue']['address'] ?? ''), ",;") . "\r\nDTSTART:{$calStartIso}\r\nDTEND:{$calEndIso}\r\nSTATUS:CONFIRMED\r\nEND:VEVENT\r\nEND:VCALENDAR";
       $icsHref = "data:text/calendar;charset=utf8," . rawurlencode($icsContent);
     ?>
-    <section id="notice" class="bg-[#FBF1DC] border-b border-[#E9E4DD] text-[#8F5F12] px-4 py-4 sm:py-5">
+    <section id="notice" class="bg-[#FBF1DC] border-b border-[#EAE8E2] text-[#8F5F12] px-4 py-4 sm:py-5">
       <div class="container-main flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div class="flex items-start gap-3.5">
           <div class="w-10 h-10 rounded-xl bg-[#8F5F12]/15 text-[#8F5F12] flex items-center justify-center shrink-0 mt-0.5">

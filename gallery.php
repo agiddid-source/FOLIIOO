@@ -20,23 +20,23 @@ $pageTitle = $event ? 'Photo Gallery — ' . $event['title'] : 'Event Photo Gall
 require_once __DIR__ . '/_inc/header.php';
 ?>
 
-<div class="min-h-screen flex flex-col bg-[#FAF8F5]">
+<div class="min-h-screen flex flex-col bg-[#FAFBF6]">
 
   <!-- Gallery Top Bar (Sticky, Event-Specific) -->
-  <header class="bg-white border-b border-[#E9E4DD] sticky top-0 z-30">
+  <header class="bg-white border-b border-[#EAE8E2] sticky top-0 z-30">
     <div class="container-main px-4 h-16 flex items-center justify-between">
       <?php if ($event): ?>
-        <a href="/event.php?slug=<?= urlencode($event['slug']) ?>" class="btn btn-ghost btn-sm text-[#252321] hover:text-[#9A5F44]">
+        <a href="/event.php?slug=<?= urlencode($event['slug']) ?>" class="btn btn-ghost btn-sm text-[#0F0F0F] hover:text-[#FF502B]">
           <i class="fa-solid fa-arrow-left sm:mr-1.5"></i>
           <span class="hidden sm:inline">Back to Event</span>
           <span class="sm:hidden">Back</span>
         </a>
 
         <div class="flex items-center gap-2 max-w-[200px] sm:max-w-md truncate">
-          <div class="w-6 h-6 rounded-md bg-[#9A5F44] text-white flex items-center justify-center font-bold text-xs shrink-0">
+          <div class="w-6 h-6 rounded-md bg-[#FF502B] text-white flex items-center justify-center font-bold text-xs shrink-0">
             <?= strtoupper(substr($event['title'] ?? 'E', 0, 1)) ?>
           </div>
-          <span class="text-xs font-semibold text-[#252321] truncate">
+          <span class="text-xs font-semibold text-[#0F0F0F] truncate">
             <?= htmlspecialchars($event['title']) ?>
           </span>
         </div>
@@ -46,7 +46,7 @@ require_once __DIR__ . '/_inc/header.php';
           <span><?= count($photos) ?> <?= count($photos) === 1 ? 'Photo' : 'Photos' ?></span>
         </span>
       <?php else: ?>
-        <a href="/" class="btn btn-ghost btn-sm text-[#252321] hover:text-[#9A5F44]">
+        <a href="/" class="btn btn-ghost btn-sm text-[#0F0F0F] hover:text-[#FF502B]">
           <i class="fa-solid fa-arrow-left mr-1.5"></i>
           <span>Home</span>
         </a>
@@ -61,8 +61,8 @@ require_once __DIR__ . '/_inc/header.php';
         <div class="w-12 h-12 rounded-full bg-[#EEF0EA] text-[#87927B] flex items-center justify-center mx-auto text-xl">
           <i class="fa-solid fa-images"></i>
         </div>
-        <h2 class="font-display text-xl font-bold text-[#252321]">Event Not Specified</h2>
-        <p class="text-xs text-[#6B675F]">
+        <h2 class="font-display text-xl font-bold text-[#0F0F0F]">Event Not Specified</h2>
+        <p class="text-xs text-[#63615E]">
           Each gallery on Foliioo is tied directly to a specific event. Please select an event to view its curated photo album.
         </p>
         <a href="/event.php" class="btn btn-primary inline-flex">View Sample Event</a>
@@ -70,18 +70,18 @@ require_once __DIR__ . '/_inc/header.php';
     <?php else: ?>
 
       <!-- Event Header -->
-      <div class="space-y-3 border-b border-[#E9E4DD] pb-6">
+      <div class="space-y-3 border-b border-[#EAE8E2] pb-6">
         <div class="flex items-center gap-2">
           <span class="eyebrow text-[#87927B]"><?= htmlspecialchars($event['event_type_label'] ?? 'Event') ?></span>
-          <span class="text-[#E9E4DD]">•</span>
-          <span class="text-xs text-[#6B675F] font-medium">Curated Photo Album</span>
+          <span class="text-[#EAE8E2]">•</span>
+          <span class="text-xs text-[#63615E] font-medium">Curated Photo Album</span>
         </div>
 
-        <h1 class="font-display text-2xl sm:text-4xl font-bold tracking-tight text-[#252321]">
+        <h1 class="font-display text-2xl sm:text-4xl font-bold tracking-tight text-[#0F0F0F]">
           <?= htmlspecialchars($event['title']) ?>
         </h1>
 
-        <div class="flex flex-wrap items-center gap-4 text-xs text-[#6B675F] pt-1">
+        <div class="flex flex-wrap items-center gap-4 text-xs text-[#63615E] pt-1">
           <span class="flex items-center gap-1.5">
             <i class="fa-solid fa-calendar text-[#87927B]"></i>
             <?= date('F j, Y', strtotime($event['date'] ?? 'now')) ?>
@@ -99,8 +99,8 @@ require_once __DIR__ . '/_inc/header.php';
         </div>
 
         <?php if (!empty($event['post_event_message'])): ?>
-          <div class="mt-4 p-4 rounded-xl bg-[#F3EDE5] border border-[#E9E4DD] text-xs text-[#252321] leading-relaxed max-w-3xl">
-            <div class="flex items-center gap-2 font-semibold text-[#9A5F44] mb-1">
+          <div class="mt-4 p-4 rounded-xl bg-[#F3F4EE] border border-[#EAE8E2] text-xs text-[#0F0F0F] leading-relaxed max-w-3xl">
+            <div class="flex items-center gap-2 font-semibold text-[#FF502B] mb-1">
               <i class="fa-solid fa-award"></i>
               <span>Host Note</span>
             </div>
@@ -115,14 +115,14 @@ require_once __DIR__ . '/_inc/header.php';
           <div class="w-12 h-12 rounded-full bg-[#EEF0EA] text-[#87927B] flex items-center justify-center mx-auto text-xl">
             <i class="fa-solid fa-image"></i>
           </div>
-          <h3 class="font-display text-base font-bold text-[#252321]">No Photos Uploaded Yet</h3>
-          <p class="text-xs text-[#6B675F]">The event organizer has not published official photos for this event yet.</p>
+          <h3 class="font-display text-base font-bold text-[#0F0F0F]">No Photos Uploaded Yet</h3>
+          <p class="text-xs text-[#63615E]">The event organizer has not published official photos for this event yet.</p>
         </div>
       <?php else: ?>
         <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
           <?php foreach ($photos as $idx => $item): ?>
             <div 
-              class="aspect-square bg-[#F3EDE5] rounded-xl overflow-hidden border border-[#E9E4DD] cursor-pointer group relative shadow-2xs hover:shadow-md transition-all duration-300"
+              class="aspect-square bg-[#F3F4EE] rounded-xl overflow-hidden border border-[#EAE8E2] cursor-pointer group relative shadow-2xs hover:shadow-md transition-all duration-300"
               onclick="openLightbox('<?= htmlspecialchars($item['image_url']) ?>', <?= $idx ?>)"
             >
               <img 
@@ -131,7 +131,7 @@ require_once __DIR__ . '/_inc/header.php';
                 class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
                 loading="lazy"
               >
-              <div class="absolute inset-0 bg-[#252321]/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+              <div class="absolute inset-0 bg-[#0F0F0F]/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
                 <i class="fa-solid fa-expand text-xl drop-shadow-md"></i>
               </div>
             </div>
@@ -144,7 +144,7 @@ require_once __DIR__ . '/_inc/header.php';
   </main>
 
   <!-- Minimalist Lightbox Modal -->
-  <div id="lightbox-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#252321]/95 backdrop-blur-md" onclick="closeLightbox()">
+  <div id="lightbox-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0F0F0F]/95 backdrop-blur-md" onclick="closeLightbox()">
     <div class="relative max-w-5xl w-full flex flex-col items-center justify-center" onclick="event.stopPropagation()">
       <button type="button" onclick="closeLightbox()" class="absolute -top-12 right-0 text-white/80 hover:text-white p-2 text-2xl transition">
         <i class="fa-solid fa-xmark"></i>

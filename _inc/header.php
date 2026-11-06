@@ -1,12 +1,12 @@
 <?php
 /**
- * Foliioo Design System V1.1 — Main Page Header
+ * Foliioo Design System V1.2 — Main Page Header (Logo Palette Edition)
  */
 $pageTitle = $pageTitle ?? 'Foliioo - Modern Event Lifecycle Platform';
 ?>
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-[#FAF8F5]">
+<html lang="en" class="h-full bg-[#FAFBF6]">
 <head>
   <?php require __DIR__ . '/head.inc.php'; ?>
 </head>
-<body class="h-full flex flex-col font-sans text-[#252321] bg-[#FAF8F5] antialiased selection:bg-[#9A5F44] selection:text-white w-full max-w-full overflow-x-hidden">
+<body class="h-full flex flex-col font-sans text-[#0F0F0F] bg-[#FAFBF6] antialiased selection:bg-[#FF502B] selection:text-white w-full max-w-full overflow-x-hidden">

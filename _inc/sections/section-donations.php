@@ -12,12 +12,12 @@ $fundTitle = $donationSettings['title'] ?? 'Support the Tribute & Memorial Fund'
 ?>
 
 <section id="donations" class="scroll-mt-24 space-y-4">
-  <div class="flex items-center justify-between border-b border-[#E9E4DD] pb-3">
+  <div class="flex items-center justify-between border-b border-[#EAE8E2] pb-3">
     <div>
-      <h2 class="font-display text-xl sm:text-2xl font-bold text-[#252321] tracking-tight">
+      <h2 class="font-display text-xl sm:text-2xl font-bold text-[#0F0F0F] tracking-tight">
         <?= htmlspecialchars($fundTitle) ?>
       </h2>
-      <p class="text-xs text-[#6B675F] mt-0.5">Send a voluntary tribute gift or memorial endowment to honor the family</p>
+      <p class="text-xs text-[#63615E] mt-0.5">Send a voluntary tribute gift or memorial endowment to honor the family</p>
     </div>
 
     <?php if ($summary['count'] > 0): ?>
@@ -37,11 +37,11 @@ $fundTitle = $donationSettings['title'] ?? 'Support the Tribute & Memorial Fund'
         <div class="w-12 h-12 bg-[#EEF0EA] text-[#87927B] rounded-2xl flex items-center justify-center mx-auto">
           <i class="fa-solid fa-heart text-xl text-[#87927B]"></i>
         </div>
-        <h3 class="font-display text-lg font-bold text-[#252321]">Thank You for Your Generous Tribute!</h3>
-        <p class="text-xs text-[#6B675F] max-w-sm mx-auto">
+        <h3 class="font-display text-lg font-bold text-[#0F0F0F]">Thank You for Your Generous Tribute!</h3>
+        <p class="text-xs text-[#63615E] max-w-sm mx-auto">
           Your gift has been recorded and acknowledged. A formal receipt has been emailed to you.
         </p>
-        <button type="button" onclick="document.getElementById('donation-success-card').classList.add('hidden'); document.getElementById('donation-form').classList.remove('hidden');" class="btn btn-ghost btn-sm text-[#9A5F44] hover:text-[#7E4A33] pt-2">
+        <button type="button" onclick="document.getElementById('donation-success-card').classList.add('hidden'); document.getElementById('donation-form').classList.remove('hidden');" class="btn btn-ghost btn-sm text-[#FF502B] hover:text-[#E03A17] pt-2">
           Send Another Gift
         </button>
       </div>
@@ -51,14 +51,14 @@ $fundTitle = $donationSettings['title'] ?? 'Support the Tribute & Memorial Fund'
           <label class="form-label">Select Donation Amount (NGN)</label>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
             <?php foreach ($suggestedAmounts as $idx => $amount): ?>
-              <button type="button" onclick="selectPresetAmount(<?= $amount ?>, this)" class="preset-amount-btn py-2.5 px-3 rounded-lg border text-xs font-semibold transition <?= $idx === 1 ? 'border-[#9A5F44] bg-[#9A5F44] text-white' : 'border-[#E9E4DD] bg-white text-[#252321] hover:border-[#9A5F44]' ?>">
+              <button type="button" onclick="selectPresetAmount(<?= $amount ?>, this)" class="preset-amount-btn py-2.5 px-3 rounded-lg border text-xs font-semibold transition <?= $idx === 1 ? 'border-[#FF502B] bg-[#FF502B] text-white' : 'border-[#EAE8E2] bg-white text-[#0F0F0F] hover:border-[#FF502B]' ?>">
                 ₦<?= number_format($amount) ?>
               </button>
             <?php endforeach; ?>
           </div>
 
           <div class="relative">
-            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-xs font-bold text-[#A19B93]">₦</span>
+            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-xs font-bold text-[#A6A39D]">₦</span>
             <input type="number" id="donation-amount" required value="<?= $suggestedAmounts[1] ?? 25000 ?>" min="1000" step="500" placeholder="Custom amount" class="form-input w-full pl-8">
           </div>
         </div>
@@ -81,8 +81,8 @@ $fundTitle = $donationSettings['title'] ?? 'Support the Tribute & Memorial Fund'
         </div>
 
         <div class="flex items-center gap-2 pt-1">
-          <input type="checkbox" id="donor-anonymous" class="rounded border-[#E9E4DD] text-[#9A5F44] focus:ring-[#9A5F44]">
-          <label for="donor-anonymous" class="text-xs text-[#6B675F] cursor-pointer">
+          <input type="checkbox" id="donor-anonymous" class="rounded border-[#EAE8E2] text-[#FF502B] focus:ring-[#FF502B]">
+          <label for="donor-anonymous" class="text-xs text-[#63615E] cursor-pointer">
             Make my donation anonymous on the public tribute wall
           </label>
         </div>
@@ -99,14 +99,14 @@ $fundTitle = $donationSettings['title'] ?? 'Support the Tribute & Memorial Fund'
     <!-- Recent Gifts & Tribute Wall -->
     <div class="lg:col-span-5 card p-5 sm:p-6 space-y-4 flex flex-col justify-between">
       <div>
-        <div class="flex items-center justify-between pb-3 border-b border-[#E9E4DD]">
-          <h3 class="font-display text-sm font-bold text-[#252321]">Recent Tributes & Donors</h3>
+        <div class="flex items-center justify-between pb-3 border-b border-[#EAE8E2]">
+          <h3 class="font-display text-sm font-bold text-[#0F0F0F]">Recent Tributes & Donors</h3>
           <span class="badge badge-accent">Public Wall</span>
         </div>
 
-        <div class="divide-y divide-[#E9E4DD] max-h-[360px] overflow-y-auto no-scrollbar pt-1">
+        <div class="divide-y divide-[#EAE8E2] max-h-[360px] overflow-y-auto no-scrollbar pt-1">
           <?php if (empty($donations)): ?>
-            <p class="text-xs text-[#A19B93] py-6 text-center">Be the first to honor the host with a tribute gift.</p>
+            <p class="text-xs text-[#A6A39D] py-6 text-center">Be the first to honor the host with a tribute gift.</p>
           <?php else: ?>
             <?php foreach ($donations as $gift): ?>
               <?php
@@ -115,11 +115,11 @@ $fundTitle = $donationSettings['title'] ?? 'Support the Tribute & Memorial Fund'
               ?>
               <div class="py-3 space-y-1">
                 <div class="flex items-center justify-between text-xs">
-                  <span class="font-semibold text-[#252321]"><?= htmlspecialchars($name) ?></span>
-                  <span class="font-bold text-[#9A5F44]">₦<?= number_format($gift['amount_ngn'] ?? 0) ?></span>
+                  <span class="font-semibold text-[#0F0F0F]"><?= htmlspecialchars($name) ?></span>
+                  <span class="font-bold text-[#FF502B]">₦<?= number_format($gift['amount_ngn'] ?? 0) ?></span>
                 </div>
                 <?php if (!empty($gift['message'])): ?>
-                  <p class="text-[11px] text-[#6B675F] italic leading-snug">
+                  <p class="text-[11px] text-[#63615E] italic leading-snug">
                     "<?= htmlspecialchars($gift['message']) ?>"
                   </p>
                 <?php endif; ?>
@@ -129,7 +129,7 @@ $fundTitle = $donationSettings['title'] ?? 'Support the Tribute & Memorial Fund'
         </div>
       </div>
 
-      <div class="pt-3 border-t border-[#E9E4DD] text-[11px] text-[#A19B93] flex items-center justify-between">
+      <div class="pt-3 border-t border-[#EAE8E2] text-[11px] text-[#A6A39D] flex items-center justify-between">
         <span>Verified host fund</span>
         <span>Secure settlement in NGN (₦)</span>
       </div>
@@ -142,11 +142,11 @@ $fundTitle = $donationSettings['title'] ?? 'Support the Tribute & Memorial Fund'
 function selectPresetAmount(amount, btn) {
   document.getElementById('donation-amount').value = amount;
   document.querySelectorAll('.preset-amount-btn').forEach(b => {
-    b.classList.remove('border-[#9A5F44]', 'bg-[#9A5F44]', 'text-white');
-    b.classList.add('border-[#E9E4DD]', 'bg-white', 'text-[#252321]');
+    b.classList.remove('border-[#FF502B]', 'bg-[#FF502B]', 'text-white');
+    b.classList.add('border-[#EAE8E2]', 'bg-white', 'text-[#0F0F0F]');
   });
-  btn.classList.remove('border-[#E9E4DD]', 'bg-white', 'text-[#252321]');
-  btn.classList.add('border-[#9A5F44]', 'bg-[#9A5F44]', 'text-white');
+  btn.classList.remove('border-[#EAE8E2]', 'bg-white', 'text-[#0F0F0F]');
+  btn.classList.add('border-[#FF502B]', 'bg-[#FF502B]', 'text-white');
 }
 
 function handleDonationSubmit(form) {

@@ -1,36 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap');
 
 :root {
-  --color-page: #FAF8F5;
-  --color-paper: #FFFFFF;
-  --color-tint: #F3EDE5;
-  --color-deep: #252321;
+  /* Foliioo Design System V1.2 (Logo Palette Edition) */
+  --color-page: #FAFBF6;          /* Logo canvas alabaster */
+  --color-paper: #FFFFFF;         /* Pure paper cards/panels */
+  --color-tint: #F3F4EE;          /* Alternate surface */
+  --color-deep: #0D0D0D;          /* Pitch black dark sections */
 
-  --color-terracotta: #9A5F44;
-  --color-terracotta-dark: #7E4A33;
-  --color-sage: #87927B;
-  --color-sage-light: #EEF0EA;
+  --color-coral: #FF502B;         /* Logo primary accent dot */
+  --color-coral-dark: #E03A17;    /* Button hover state */
+  --color-coral-light: #FFF0ED;   /* Soft badge/accent tint */
 
-  --color-ink: #252321;
-  --color-muted: #6B675F;
-  --color-soft: #A19B93;
+  /* Legacy aliases mapped to coral for backwards compatibility */
+  --color-terracotta: #FF502B;
+  --color-terracotta-dark: #E03A17;
 
-  --color-border-warm: #E9E4DD;
-  --color-border-dark: #D8D1C8;
+  --color-sage: #4C7C59;          /* Complementary soft emerald */
+  --color-sage-light: #EEF5F0;
 
-  --color-success: #3F6B48;
-  --color-success-bg: #E8F1EA;
-  --color-warning: #8F5F12;
-  --color-warning-bg: #FBF1DC;
-  --color-error: #B54747;
-  --color-error-bg: #F8E6E6;
+  --color-ink: #0F0F0F;           /* Carbon pitch text */
+  --color-muted: #63615E;         /* Supporting secondary text */
+  --color-soft: #A6A39D;          /* Disabled/placeholder text */
+
+  --color-border-warm: #EAE8E2;   /* Crisp neutral borders */
+  --color-border-dark: #D8D6CE;   /* Focused/hover borders */
+
+  --color-success: #2E7D47;
+  --color-success-bg: #EBF5EE;
+  --color-warning: #B45309;
+  --color-warning-bg: #FEF3C7;
+  --color-error: #DC2626;
+  --color-error-bg: #FEE2E2;
 
   --font-primary: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-display: 'Fraunces', Georgia, serif;
   --font-elegant: 'Cormorant Garamond', Georgia, serif;
   --font-floral: 'DM Serif Display', Georgia, serif;
 
-  --shadow-card: 0 8px 30px rgba(37, 35, 33, 0.06);
+  --shadow-card: 0 8px 30px rgba(15, 15, 15, 0.05);
   --transition-base: 200ms ease;
 }
 
@@ -55,7 +62,7 @@ html, body {
 }
 
 ::selection {
-  background-color: var(--color-terracotta);
+  background-color: var(--color-coral);
   color: #FFFFFF;
 }
 

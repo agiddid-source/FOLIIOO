@@ -14,24 +14,24 @@ $eventUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 
 $shareText = urlencode("You're invited: " . $eventTitle . " — " . $eventUrl);
 ?>
 
-<footer class="mt-20 border-t border-[#E9E4DD] bg-white">
+<footer class="mt-20 border-t border-[#EAE8E2] bg-white">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
 
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-8 border-b border-[#E9E4DD]">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-8 border-b border-[#EAE8E2]">
 
       <!-- Organizer Details -->
       <div class="flex items-center gap-3 min-w-0">
         <?php if (!empty($creator['avatar'])): ?>
-          <img src="<?= htmlspecialchars($creator['avatar']) ?>" class="w-9 h-9 rounded-lg object-cover ring-1 ring-[#E9E4DD] shrink-0" alt="">
+          <img src="<?= htmlspecialchars($creator['avatar']) ?>" class="w-9 h-9 rounded-lg object-cover ring-1 ring-[#EAE8E2] shrink-0" alt="">
         <?php else: ?>
-          <div class="w-9 h-9 rounded-lg bg-[#9A5F44] text-white flex items-center justify-center font-bold text-xs shrink-0">
+          <div class="w-9 h-9 rounded-lg bg-[#FF502B] text-white flex items-center justify-center font-bold text-xs shrink-0">
             <?= strtoupper(substr($creatorName, 0, 1)) ?>
           </div>
         <?php endif; ?>
         <div class="min-w-0">
-          <p class="text-sm font-bold text-[#252321] truncate"><?= htmlspecialchars($creatorName) ?></p>
+          <p class="text-sm font-bold text-[#0F0F0F] truncate"><?= htmlspecialchars($creatorName) ?></p>
           <?php if (!empty($creatorEmail)): ?>
-            <a href="mailto:<?= htmlspecialchars($creatorEmail) ?>" class="text-[12px] text-[#6B675F] hover:text-[#9A5F44] transition"><?= htmlspecialchars($creatorEmail) ?></a>
+            <a href="mailto:<?= htmlspecialchars($creatorEmail) ?>" class="text-[12px] text-[#63615E] hover:text-[#FF502B] transition"><?= htmlspecialchars($creatorEmail) ?></a>
           <?php endif; ?>
         </div>
       </div>
@@ -51,9 +51,9 @@ $shareText = urlencode("You're invited: " . $eventTitle . " — " . $eventUrl);
     </div>
 
     <!-- Bottom Bar -->
-    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-[#6B675F]">
+    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-[#63615E]">
       <span>© <?= date('Y') ?> <?= htmlspecialchars($creatorName) ?></span>
-      <a href="/create-event.php" class="btn btn-secondary btn-sm text-[#9A5F44] hover:text-[#7E4A33]">
+      <a href="/create-event.php" class="btn btn-secondary btn-sm text-[#FF502B] hover:text-[#E03A17]">
         <span>Create your event on Foliioo for free</span>
         <i class="fa-solid fa-arrow-right text-[11px]"></i>
       </a>

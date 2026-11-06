@@ -175,8 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const top = el.offsetTop;
                 const height = el.offsetHeight;
                 if (scrollPos >= top && scrollPos < top + height) {
-                    eventNavLinks.forEach(l => l.classList.remove('text-[#9A5F44]', 'font-bold'));
-                    link.classList.add('text-[#9A5F44]', 'font-bold');
+                    eventNavLinks.forEach(l => l.classList.remove('text-[#FF502B]', 'font-bold'));
+                    link.classList.add('text-[#FF502B]', 'font-bold');
                 }
             });
         }, { passive: true });
