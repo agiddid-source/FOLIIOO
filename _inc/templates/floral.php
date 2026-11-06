@@ -32,7 +32,7 @@ $venue = $event['venue'] ?? [];
           <span><?= htmlspecialchars($event['event_type_label'] ?? 'Wedding Celebration') ?></span>
         </div>
 
-        <h1 class="font-floral text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-white leading-[1.15]">
+        <h1 class="font-floral text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white leading-[1.15]">
           <?= htmlspecialchars($title) ?>
         </h1>
 
