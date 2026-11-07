@@ -1,5 +1,4 @@
 RewriteEngine On
-RewriteBase /
 
 # Serve existing files and directories directly
 RewriteCond %{REQUEST_FILENAME} -f [OR]
@@ -16,5 +15,5 @@ RewriteRule ^gallery/([^/]+)/?$ gallery.php?event=$1 [L,QSA]
 RewriteRule ^checkout/([^/]+)/?$ checkout.php?event=$1 [L,QSA]
 
 # Clean .php extensionless URLs
-RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^([^/]+)/?$ $1.php [L]

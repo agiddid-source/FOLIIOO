@@ -61,7 +61,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
           </div>
           <div class="pt-4 border-t border-[#EAE8E2] flex items-center justify-between">
             <span class="text-xs font-mono font-medium text-[#FF502B] bg-[#FFF0ED] px-2.5 py-1 rounded-md">/e/<?= htmlspecialchars($burialEvent['slug']) ?></span>
-            <a href="/e/<?= urlencode($burialEvent['slug']) ?>" class="btn btn-primary btn-sm">
+            <a href="<?= base_url('/e/' . urlencode($burialEvent['slug'])) ?>" class="btn btn-primary btn-sm">
               <span>View Event</span>
               <i class="fa-solid fa-arrow-right text-xs"></i>
             </a>
@@ -92,7 +92,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
           </div>
           <div class="pt-4 border-t border-[#EAE8E2] flex items-center justify-between">
             <span class="text-xs font-mono font-medium text-[#FF502B] bg-[#FFF0ED] px-2.5 py-1 rounded-md">/e/<?= htmlspecialchars($weddingEvent['slug']) ?></span>
-            <a href="/e/<?= urlencode($weddingEvent['slug']) ?>" class="btn btn-primary btn-sm">
+            <a href="<?= base_url('/e/' . urlencode($weddingEvent['slug'])) ?>" class="btn btn-primary btn-sm">
               <span>View Event</span>
               <i class="fa-solid fa-arrow-right text-xs"></i>
             </a>
@@ -123,7 +123,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
           </div>
           <div class="pt-4 border-t border-[#EAE8E2] flex items-center justify-between">
             <span class="text-xs font-mono font-medium text-[#FF502B] bg-[#FFF0ED] px-2.5 py-1 rounded-md">/e/<?= htmlspecialchars($galaEvent['slug']) ?></span>
-            <a href="/e/<?= urlencode($galaEvent['slug']) ?>" class="btn btn-primary btn-sm">
+            <a href="<?= base_url('/e/' . urlencode($galaEvent['slug'])) ?>" class="btn btn-primary btn-sm">
               <span>View Event</span>
               <i class="fa-solid fa-arrow-right text-xs"></i>
             </a>
@@ -154,7 +154,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
           </div>
           <div class="pt-4 border-t border-[#EAE8E2] flex items-center justify-between">
             <span class="text-xs font-mono font-medium text-[#FF502B] bg-[#FFF0ED] px-2.5 py-1 rounded-md">/e/<?= htmlspecialchars($summitEvent['slug']) ?></span>
-            <a href="/e/<?= urlencode($summitEvent['slug']) ?>" class="btn btn-primary btn-sm">
+            <a href="<?= base_url('/e/' . urlencode($summitEvent['slug'])) ?>" class="btn btn-primary btn-sm">
               <span>View Event</span>
               <i class="fa-solid fa-arrow-right text-xs"></i>
             </a>
@@ -179,7 +179,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
         <!-- State 1: Upcoming -->
-        <a href="/e/chief-adeleke-celebration-of-life?preview=1&status=published_pre_event" class="card card-hover p-5 space-y-3 block">
+        <a href="<?= base_url('/e/chief-adeleke-celebration-of-life?preview=1&status=published_pre_event') ?>" class="card card-hover p-5 space-y-3 block">
           <div class="flex items-center justify-between">
             <span class="badge badge-sage">Upcoming</span>
             <span class="text-[11px] text-[#63615E]">Pre-Event</span>
@@ -194,7 +194,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
         </a>
 
         <!-- State 2: Live Now -->
-        <a href="/e/chief-adeleke-celebration-of-life?preview=1&status=in_progress" class="card card-hover p-5 space-y-3 block">
+        <a href="<?= base_url('/e/chief-adeleke-celebration-of-life?preview=1&status=in_progress') ?>" class="card card-hover p-5 space-y-3 block">
           <div class="flex items-center justify-between">
             <span class="badge badge-accent animate-pulse">● Live Now</span>
             <span class="text-[11px] text-[#63615E]">In Session</span>
@@ -209,7 +209,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
         </a>
 
         <!-- State 3: Completed -->
-        <a href="/e/african-fintech-summit-2026?preview=1&status=completed" class="card card-hover p-5 space-y-3 block">
+        <a href="<?= base_url('/e/african-fintech-summit-2026?preview=1&status=completed') ?>" class="card card-hover p-5 space-y-3 block">
           <div class="flex items-center justify-between">
             <span class="badge badge-neutral">Concluded</span>
             <span class="text-[11px] text-[#63615E]">Post-Event</span>
@@ -224,7 +224,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
         </a>
 
         <!-- State 4: Postponed -->
-        <a href="/e/chief-adeleke-celebration-of-life?preview=1&status=postponed" class="card card-hover p-5 space-y-3 block border-l-4 border-l-[#B45309]">
+        <a href="<?= base_url('/e/chief-adeleke-celebration-of-life?preview=1&status=postponed') ?>" class="card card-hover p-5 space-y-3 block border-l-4 border-l-[#B45309]">
           <div class="flex items-center justify-between">
             <span class="badge badge-warning">Postponed</span>
             <span class="text-[11px] text-[#B45309] font-bold">Rescheduled</span>
@@ -239,7 +239,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
         </a>
 
         <!-- State 5: Cancelled -->
-        <a href="/e/lagos-charity-polo-match?preview=1&status=cancelled" class="card card-hover p-5 space-y-3 block border-l-4 border-l-[#DC2626]">
+        <a href="<?= base_url('/e/lagos-charity-polo-match?preview=1&status=cancelled') ?>" class="card card-hover p-5 space-y-3 block border-l-4 border-l-[#DC2626]">
           <div class="flex items-center justify-between">
             <span class="badge badge-error">Cancelled</span>
             <span class="text-[11px] text-[#DC2626] font-bold">Discontinued</span>
@@ -262,7 +262,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
               Any event URL with <code class="bg-white px-1 rounded text-xs">?preview=1</code> renders the top creator toolbar to swap between all 5 states in real-time.
             </p>
           </div>
-          <a href="/e/chief-adeleke-celebration-of-life?preview=1" class="text-xs font-bold text-[#FF502B] hover:underline">
+          <a href="<?= base_url('/e/chief-adeleke-celebration-of-life?preview=1') ?>" class="text-xs font-bold text-[#FF502B] hover:underline">
             Launch Preview Toolbar &rarr;
           </a>
         </div>
@@ -284,7 +284,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
-        <a href="/gallery/african-fintech-summit-2026" class="card card-hover p-5 space-y-3 block group">
+        <a href="<?= base_url('/gallery/african-fintech-summit-2026') ?>" class="card card-hover p-5 space-y-3 block group">
           <div class="w-10 h-10 rounded-xl bg-[#FFF0ED] text-[#FF502B] flex items-center justify-center text-lg">
             <i class="fa-solid fa-images"></i>
           </div>
@@ -297,7 +297,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
           </span>
         </a>
 
-        <a href="/gallery/chief-adeleke-celebration-of-life" class="card card-hover p-5 space-y-3 block group">
+        <a href="<?= base_url('/gallery/chief-adeleke-celebration-of-life') ?>" class="card card-hover p-5 space-y-3 block group">
           <div class="w-10 h-10 rounded-xl bg-[#FFF0ED] text-[#FF502B] flex items-center justify-center text-lg">
             <i class="fa-solid fa-images"></i>
           </div>
@@ -310,7 +310,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
           </span>
         </a>
 
-        <a href="/gallery/<?= urlencode($weddingEvent['slug']) ?>" class="card card-hover p-5 space-y-3 block group">
+        <a href="<?= base_url('/gallery/' . urlencode($weddingEvent['slug'])) ?>" class="card card-hover p-5 space-y-3 block group">
           <div class="w-10 h-10 rounded-xl bg-[#FFF0ED] text-[#FF502B] flex items-center justify-center text-lg">
             <i class="fa-solid fa-images"></i>
           </div>
@@ -323,7 +323,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
           </span>
         </a>
 
-        <a href="/gallery/lagos-innovators-gala" class="card card-hover p-5 space-y-3 block group">
+        <a href="<?= base_url('/gallery/lagos-innovators-gala') ?>" class="card card-hover p-5 space-y-3 block group">
           <div class="w-10 h-10 rounded-xl bg-[#FFF0ED] text-[#FF502B] flex items-center justify-center text-lg">
             <i class="fa-solid fa-images"></i>
           </div>
@@ -363,7 +363,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
             Guest attendee information capture, simulated Debit/Credit Card & Bank Transfer selection, sandbox test card inputs, and automated price calculation with zero fees.
           </p>
           <div class="pt-2">
-            <a href="/checkout/lagos-innovators-gala" class="btn btn-primary btn-sm">
+            <a href="<?= base_url('/checkout/lagos-innovators-gala') ?>" class="btn btn-primary btn-sm">
               <i class="fa-solid fa-lock mr-1 text-xs"></i>
               <span>Launch Checkout Page</span>
             </a>
@@ -380,7 +380,7 @@ require_once __DIR__ . '/_inc/nav/nav-marketing.php';
             Official admission pass with digital QR code, unique order reference (<code class="bg-[#F3F4EE] px-1 py-0.5 rounded text-xs">FOL-ORD-XXXX</code>), print action, and door check-in validity status.
           </p>
           <div class="pt-2">
-            <a href="/checkout/lagos-innovators-gala?confirmed=1" class="btn btn-secondary btn-sm">
+            <a href="<?= base_url('/checkout/lagos-innovators-gala?confirmed=1') ?>" class="btn btn-secondary btn-sm">
               <i class="fa-solid fa-qrcode mr-1 text-xs text-[#FF502B]"></i>
               <span>View Confirmation & QR Pass</span>
             </a>

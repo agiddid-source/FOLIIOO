@@ -53,7 +53,7 @@ $shareText = urlencode("You're invited: " . $eventTitle . " — " . $eventUrl);
     <!-- Bottom Bar -->
     <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12px] text-[#63615E]">
       <span>© <?= date('Y') ?> <?= htmlspecialchars($creatorName) ?></span>
-      <a href="/create-event.php" class="btn btn-secondary btn-sm text-[#FF502B] hover:text-[#E03A17]">
+      <a href="<?= base_url('/create-event.php') ?>" class="btn btn-secondary btn-sm text-[#FF502B] hover:text-[#E03A17]">
         <span>Create your event on Foliioo for free</span>
         <i class="fa-solid fa-arrow-right text-[11px]"></i>
       </a>

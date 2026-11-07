@@ -3,6 +3,20 @@
  * Foliioo Design System V1.2 — Standard Head Include (Logo Palette Edition)
  */
 $pageTitle = $pageTitle ?? 'Foliioo - Modern Event Lifecycle Platform';
+
+if (!function_exists('base_url')) {
+    function base_url(string $path = ''): string {
+        static $base = null;
+        if ($base === null) {
+            $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
+            $base = ($scriptDir === '/' || $scriptDir === '\\' || $scriptDir === '.') ? '' : rtrim($scriptDir, '/');
+        }
+        if ($path === '' || $path === '/') {
+            return $base ?: '/';
+        }
+        return $base . '/' . ltrim($path, '/');
+    }
+}
 ?>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,7 +86,7 @@ $pageTitle = $pageTitle ?? 'Foliioo - Modern Event Lifecycle Platform';
 </script>
 
 <!-- Design System Global & Component Styles -->
-<link rel="stylesheet" href="/css/global.css">
-<link rel="stylesheet" href="/css/components.css">
+<link rel="stylesheet" href="<?= base_url('/css/global.css') ?>">
+<link rel="stylesheet" href="<?= base_url('/css/components.css') ?>">
 
 <?php if (!empty($extraHead)) echo $extraHead; ?>

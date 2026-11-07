@@ -2,7 +2,7 @@
 require_once __DIR__ . '/_inc/MockData.php';
 
 $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
-if (preg_match('#^/gallery/([^/]+)#', $requestPath, $matches)) {
+if (preg_match('#/gallery/([^/?#]+)#', $requestPath, $matches)) {
     $slug = $matches[1];
 } else {
     $slug = $_GET['event'] ?? $_GET['slug'] ?? null;
@@ -31,7 +31,7 @@ require_once __DIR__ . '/_inc/header.php';
   <header class="bg-white border-b border-[#EAE8E2] sticky top-0 z-30">
     <div class="container-main px-4 h-16 flex items-center justify-between">
       <?php if ($event): ?>
-        <a href="/e/<?= urlencode($event['slug']) ?>" class="btn btn-ghost btn-sm text-[#0F0F0F] hover:text-[#FF502B]">
+        <a href="<?= base_url('/e/' . urlencode($event['slug'])) ?>" class="btn btn-ghost btn-sm text-[#0F0F0F] hover:text-[#FF502B]">
           <i class="fa-solid fa-arrow-left sm:mr-1.5"></i>
           <span class="hidden sm:inline">Back to Event</span>
           <span class="sm:hidden">Back</span>
@@ -51,7 +51,7 @@ require_once __DIR__ . '/_inc/header.php';
           <span><?= count($photos) ?> <?= count($photos) === 1 ? 'Photo' : 'Photos' ?></span>
         </span>
       <?php else: ?>
-        <a href="/" class="btn btn-ghost btn-sm text-[#0F0F0F] hover:text-[#FF502B]">
+        <a href="<?= base_url('/') ?>" class="btn btn-ghost btn-sm text-[#0F0F0F] hover:text-[#FF502B]">
           <i class="fa-solid fa-arrow-left mr-1.5"></i>
           <span>Home</span>
         </a>
@@ -70,7 +70,7 @@ require_once __DIR__ . '/_inc/header.php';
         <p class="text-xs text-[#63615E]">
           Each gallery on Foliioo is tied directly to a specific event. Please select an event to view its curated photo album.
         </p>
-        <a href="/event.php" class="btn btn-primary inline-flex">View Sample Event</a>
+        <a href="<?= base_url('/e/chief-adeleke-celebration-of-life') ?>" class="btn btn-primary inline-flex">View Sample Event</a>
       </div>
     <?php else: ?>
 

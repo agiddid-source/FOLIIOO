@@ -2,7 +2,7 @@
 require_once __DIR__ . '/_inc/MockData.php';
 
 $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
-if (preg_match('#^/checkout/([^/]+)#', $requestPath, $matches)) {
+if (preg_match('#/checkout/([^/?#]+)#', $requestPath, $matches)) {
     $slug = $matches[1];
 } else {
     $slug = $_GET['event'] ?? $_GET['slug'] ?? 'lagos-innovators-gala';
@@ -40,7 +40,7 @@ require_once __DIR__ . '/_inc/header.php';
   <!-- Minimal Checkout Header -->
   <header class="bg-white border-b border-[#EAE8E2] sticky top-0 z-30">
     <div class="container-main px-4 h-16 flex items-center justify-between">
-      <a href="/e/<?= urlencode($event['slug']) ?>" class="btn btn-ghost btn-sm text-[#0F0F0F] hover:text-[#FF502B]">
+      <a href="<?= base_url('/e/' . urlencode($event['slug'])) ?>" class="btn btn-ghost btn-sm text-[#0F0F0F] hover:text-[#FF502B]">
         <i class="fa-solid fa-arrow-left mr-1.5"></i>
         <span>Back to Event</span>
       </a>
@@ -114,7 +114,7 @@ require_once __DIR__ . '/_inc/header.php';
             <i class="fa-solid fa-print mr-2"></i>
             <span>Print or Save Ticket</span>
           </button>
-          <a href="/e/<?= urlencode($event['slug']) ?>" class="btn btn-primary w-full sm:w-auto">
+          <a href="<?= base_url('/e/' . urlencode($event['slug'])) ?>" class="btn btn-primary w-full sm:w-auto">
             <span>Return to Event Page</span>
             <i class="fa-solid fa-arrow-right ml-2"></i>
           </a>
@@ -134,7 +134,7 @@ require_once __DIR__ . '/_inc/header.php';
               <p class="text-xs text-[#63615E] mt-0.5">Tickets will be delivered to this email and phone</p>
             </div>
 
-            <form id="checkout-form" action="/checkout/<?= urlencode($event['slug']) ?>" method="GET" class="space-y-4">
+            <form id="checkout-form" action="<?= base_url('/checkout/' . urlencode($event['slug'])) ?>" method="GET" class="space-y-4">
               <input type="hidden" name="ticket_id" value="<?= htmlspecialchars($selectedTicket['id'] ?? '') ?>">
               <input type="hidden" name="quantity" value="<?= $quantity ?>">
               <input type="hidden" name="confirmed" value="1">

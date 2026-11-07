@@ -25,7 +25,7 @@ if (empty($tickets)) {
     </span>
   </div>
 
-  <form action="/checkout/<?= urlencode($event['slug']) ?>" method="GET" class="space-y-4">
+  <form action="<?= base_url('/checkout/' . urlencode($event['slug'])) ?>" method="GET" class="space-y-4">
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <?php foreach ($tickets as $idx => $ticket): ?>

@@ -2,7 +2,7 @@
 require_once __DIR__ . '/_inc/MockData.php';
 
 $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
-if (preg_match('#^/e(?:vent)?/([^/]+)#', $requestPath, $matches)) {
+if (preg_match('#/(?:e|event)/([^/?#]+)#', $requestPath, $matches)) {
     $slug = $matches[1];
 } else {
     $slug = $_GET['event'] ?? $_GET['slug'] ?? 'chief-adeleke-celebration-of-life';
@@ -45,14 +45,14 @@ require_once __DIR__ . '/_inc/header.php';
         <div class="flex items-center gap-2 flex-wrap">
           <span class="text-white/60 font-medium hidden md:inline">Test State:</span>
           <div class="inline-flex rounded-lg bg-white/10 p-0.5 border border-white/10 text-[11px] font-semibold">
-            <a href="/e/<?= urlencode($event['slug']) ?>?preview=1&status=published_pre_event" class="px-2.5 py-1 rounded-md <?= $status === 'published_pre_event' ? 'bg-[#87927B] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Upcoming</a>
-            <a href="/e/<?= urlencode($event['slug']) ?>?preview=1&status=in_progress" class="px-2.5 py-1 rounded-md <?= $status === 'in_progress' ? 'bg-[#FF502B] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Live Now</a>
-            <a href="/e/<?= urlencode($event['slug']) ?>?preview=1&status=completed" class="px-2.5 py-1 rounded-md <?= $status === 'completed' ? 'bg-[#63615E] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Completed</a>
-            <a href="/e/<?= urlencode($event['slug']) ?>?preview=1&status=postponed" class="px-2.5 py-1 rounded-md <?= $status === 'postponed' ? 'bg-[#8F5F12] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Postponed</a>
-            <a href="/e/<?= urlencode($event['slug']) ?>?preview=1&status=cancelled" class="px-2.5 py-1 rounded-md <?= $status === 'cancelled' ? 'bg-[#B54747] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Cancelled</a>
+            <a href="<?= base_url('/e/' . urlencode($event['slug']) . '?preview=1&status=published_pre_event') ?>" class="px-2.5 py-1 rounded-md <?= $status === 'published_pre_event' ? 'bg-[#87927B] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Upcoming</a>
+            <a href="<?= base_url('/e/' . urlencode($event['slug']) . '?preview=1&status=in_progress') ?>" class="px-2.5 py-1 rounded-md <?= $status === 'in_progress' ? 'bg-[#FF502B] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Live Now</a>
+            <a href="<?= base_url('/e/' . urlencode($event['slug']) . '?preview=1&status=completed') ?>" class="px-2.5 py-1 rounded-md <?= $status === 'completed' ? 'bg-[#63615E] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Completed</a>
+            <a href="<?= base_url('/e/' . urlencode($event['slug']) . '?preview=1&status=postponed') ?>" class="px-2.5 py-1 rounded-md <?= $status === 'postponed' ? 'bg-[#8F5F12] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Postponed</a>
+            <a href="<?= base_url('/e/' . urlencode($event['slug']) . '?preview=1&status=cancelled') ?>" class="px-2.5 py-1 rounded-md <?= $status === 'cancelled' ? 'bg-[#B54747] text-white font-bold' : 'text-white/70 hover:text-white' ?>">Cancelled</a>
           </div>
 
-          <a href="/e/<?= urlencode($event['slug']) ?>" class="btn btn-ghost btn-sm text-white border border-white/20 hover:bg-white/10 ml-2">
+          <a href="<?= base_url('/e/' . urlencode($event['slug'])) ?>" class="btn btn-ghost btn-sm text-white border border-white/20 hover:bg-white/10 ml-2">
             Exit Preview
           </a>
         </div>
